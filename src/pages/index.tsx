@@ -51,92 +51,95 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section>
-          <section className="grid grid-rows-3 lg:grid-rows-1 lg:grid-cols-3 gap-24 w-full h-auto bg-gray-900 px-24 md:px-48 py-36">
-            <div className="flex flex-col">
-              <div className="bg-red-400 rounded-lg p-2 w-min">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="white"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                  />
-                </svg>
+          <section className="flex justify-center w-full h-auto bg-gray-900 px-8 sm:px-20 md:px-32 py-36">
+            <div className="grid grid-rows-3 lg:grid-rows-1 lg:grid-cols-3 gap-24 w-full max-w-4xl">
+              <div className="flex flex-col">
+                <div className="bg-red-400 rounded-lg p-2 w-min">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-10 w-10"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="white"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                    />
+                  </svg>
+                </div>
+                <p className="text-white font-bold text-2xl py-6">ห้ามพลาด</p>
+                <p className="text-white py-2">
+                  การแข่งขันจะจัดขึ้นในวันเสาร์ที่ 20 และวันอาทิตย์ที่ 21
+                  ของเดือนพฤศจิกายน พ.ศ.2564 สามารถดูกำหนดการเพิ่มเติมได้ที่นี่
+                </p>
+                <p className="text-white font-bold text-xl py-4 underline">
+                  กำหนดการ
+                </p>
               </div>
-              <p className="text-white font-bold text-2xl py-6">ห้ามพลาด</p>
-              <p className="text-white py-2">
-                การแข่งขันจะจัดขึ้นในวันเสาร์ที่ 20 และวันอาทิตย์ที่ 21
-                ของเดือนพฤศจิกายน พ.ศ.2564 สามารถดูกำหนดการเพิ่มเติมได้ที่นี่
-              </p>
-              <p className="text-white font-bold text-xl py-4 underline">
-                กำหนดการ
-              </p>
-            </div>
-            <div className="flex flex-col">
-              <div className="bg-red-400 rounded-lg p-2 w-min">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="white"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                  />
-                </svg>
+              <div className="flex flex-col">
+                <div className="bg-red-400 rounded-lg p-2 w-min">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-10 w-10"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="white"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                    />
+                  </svg>
+                </div>
+                <p className="text-white font-bold text-2xl py-6">
+                  ต้องการแต่งโจทย์?
+                </p>
+                <p className="text-white py-2">
+                  เราพร้อมให้ทุกคนมีส่วนร่วมในการแต่งโจทย์
+                  หากต้องการร่วมงานกับเรา
+                  สามารถศึกษากระบวนการแต่งโจทย์และการส่งโจทย์ได้ตามนี้
+                </p>
+                <p className="text-white font-bold text-xl py-4 underline">
+                  กระบวนการแต่งโจทย์
+                </p>
               </div>
-              <p className="text-white font-bold text-2xl py-6">
-                ต้องการแต่งโจทย์?
-              </p>
-              <p className="text-white py-2">
-                เราพร้อมให้ทุกคนมีส่วนร่วมในการแต่งโจทย์ หากต้องการร่วมงานกับเรา
-                สามารถศึกษากระบวนการแต่งโจทย์และการส่งโจทย์ได้ตามนี้
-              </p>
-              <p className="text-white font-bold text-xl py-4 underline">
-                กระบวนการแต่งโจทย์
-              </p>
-            </div>
-            <div className="flex flex-col">
-              <div className="bg-red-400 rounded-lg p-2 w-min">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="white"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                  />
-                </svg>
+              <div className="flex flex-col">
+                <div className="bg-red-400 rounded-lg p-2 w-min">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-10 w-10"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="white"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                    />
+                  </svg>
+                </div>
+                <p className="text-white font-bold text-2xl py-6">
+                  รูปแบบการแข่งขัน
+                </p>
+                <p className="text-white py-2">
+                  การแข่งขันยาวรอบละ 3 ชั่วโมง จัดขึ้น 2 รอบ
+                  โดยมีโจทย์การแข่งขันรอบละ 3 ข้อ
+                  สามารถดูรายละเอียดโจทย์แต่ละข้อและขอบเขตเนื้อหาที่ใช้ในการแข่งขันได้ที่นี่
+                </p>
+                <p className="text-white font-bold text-xl py-4 underline">
+                  รูปแบบการแข่งขัน
+                </p>
               </div>
-              <p className="text-white font-bold text-2xl py-6">
-                รูปแบบการแข่งขัน
-              </p>
-              <p className="text-white py-2">
-                การแข่งขันยาวรอบละ 3 ชั่วโมง จัดขึ้น 2 รอบ
-                โดยมีโจทย์การแข่งขันรอบละ 3 ข้อ
-                สามารถดูรายละเอียดโจทย์แต่ละข้อและขอบเขตเนื้อหาที่ใช้ในการแข่งขันได้ที่นี่
-              </p>
-              <p className="text-white font-bold text-xl py-4 underline">
-                รูปแบบการแข่งขัน
-              </p>
             </div>
           </section>
-          <section className="flex flex-col items-center justify-center p-12 sm:p-24 md:p-32 lg:p-48">
+          <section className="flex flex-col items-center justify-center px-8 sm:px-20 md:px-32 py-12 sm:py-24 md:py-32">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-18 max-w-4xl">
               <div className="flex flex-col">
                 <p className="font-semibold text-2xl">ร่วมบริจาค</p>
@@ -227,9 +230,9 @@ const Home: NextPage = () => {
               </p>
               <p className="text-3xl sm:text-5xl text-white font-medium">คน</p>
             </div>
-            <div className="px-8 sm:px-20 md:px-32 w-full flex items-center justify-center pb-12">
+            <div className="px-6 sm:px-20 md:px-32 w-full flex items-center justify-center pb-12">
               <div className="flex flex-col justify-center items-center border border-red-400 max-w-4xl w-full rounded-3xl">
-                <div className="flex flex-col items-center bg-gray-800 -mt-5 px-1 md:px-4 mb-24 max-w-xl">
+                <div className="flex flex-col items-center bg-gray-800 -mt-5 px-1 md:px-4 pb-8 sm:pb-16 lg:pb-24 max-w-xl">
                   <p className="text-red-400 font-semibold text-sm sm:text-md">
                     กำหนดการ
                   </p>
@@ -339,7 +342,7 @@ const Home: NextPage = () => {
                         </span>
                       </div>
                     </li>
-                    <li className="relative pb-24">
+                    <li className="relative pb-8 sm:pb-16 lg:pb-24">
                       <div className="relative flex items-start group px-4">
                         <span className="h-9 flex items-center">
                           <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
@@ -359,31 +362,36 @@ const Home: NextPage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col w-full max-w-4xl pt-16 px-8 sm:px-20 md:px-24 lg:px-6">
-              <p className="text-2xl text-white">เกี่ยวกับเรา</p>
-              <div className="w-24 h-2 bg-red-400 mt-1" aria-hidden="true" />
-              <p className="text-white text-sm py-8">
-                พวกเราคือกลุ่มอดีตนักเรียนค่ายโอลิมปิกวิชาการคอมพิวเตอร์ที่มีความมุ่งหมายจะพัฒนาวงการโอลิมปิกวิชาการคอมพิวเตอร์
-                สาขาวิชาวิทยาการคำนวณ
-                และวิชาการด้านคอมพิวเตอร์ทั่วไปภายในประเทศไทย
-                เพื่อให้เหล่าคนรุ่นใหม่ได้มีโอกาสฝึกฝนทักษะวิธีกระบวนการคิด
-                การเขียนโปรแกรม การสร้างแบบจำลองโจทย์อย่างสร้างสรรค์
-                และการพัฒนาวิธีการในการแก้โจทย์ให้มีประสิทธิภาพมากยิ่งขึ้น
-              </p>
-              <p className="text-white text-sm py-8">
-                พวกเราคาดหวังว่า นักเรียน ครู อาจารย์
-                หรือบุคคลทั่วไปที่สนใจการเขียนโปรแกรมทุกท่าน
-                จะได้รับประโยชน์จากการเข้าร่วมการแข่งขันครั้งนี้ ไม่มากก็น้อย
-                และเราคาดหวังว่าค่ายโอลิมปิกวิชาการ สอวน. สสวท.
-                รวมถึงการแข่งขันโอลิมปิกวิชาการระดับชาติ จะพัฒนาไปยังระดับต่อไป
-              </p>
+            <div className="flex flex-col w-full pt-16 px-8 sm:px-20 md:px-32 items-center">
+              <div className="flex flex-col max-w-4xl w-full">
+                <p className="text-2xl text-white">เกี่ยวกับเรา</p>
+                <div className="w-24 h-2 bg-red-400 mt-1" aria-hidden="true" />
+                <p className="text-white text-sm py-8">
+                  พวกเราคือกลุ่มอดีตนักเรียนค่ายโอลิมปิกวิชาการคอมพิวเตอร์ที่มีความมุ่งหมายจะพัฒนาวงการโอลิมปิกวิชาการคอมพิวเตอร์
+                  สาขาวิชาวิทยาการคำนวณ
+                  และวิชาการด้านคอมพิวเตอร์ทั่วไปภายในประเทศไทย
+                  เพื่อให้เหล่าคนรุ่นใหม่ได้มีโอกาสฝึกฝนทักษะวิธีกระบวนการคิด
+                  การเขียนโปรแกรม การสร้างแบบจำลองโจทย์อย่างสร้างสรรค์
+                  และการพัฒนาวิธีการในการแก้โจทย์ให้มีประสิทธิภาพมากยิ่งขึ้น
+                </p>
+                <p className="text-white text-sm py-8">
+                  พวกเราคาดหวังว่า นักเรียน ครู อาจารย์
+                  หรือบุคคลทั่วไปที่สนใจการเขียนโปรแกรมทุกท่าน
+                  จะได้รับประโยชน์จากการเข้าร่วมการแข่งขันครั้งนี้ ไม่มากก็น้อย
+                  และเราคาดหวังว่าค่ายโอลิมปิกวิชาการ สอวน. สสวท.
+                  รวมถึงการแข่งขันโอลิมปิกวิชาการระดับชาติ
+                  จะพัฒนาไปยังระดับต่อไป
+                </p>
+              </div>
             </div>
-            <div className="flex flex-col w-full max-w-4xl py-16 px-8 sm:px-20 md:px-24 lg:px-6">
-              <p className="text-2xl text-white">ผู้สนับสนุนหลัก</p>
-              <div className="w-24 h-2 bg-red-400 mt-1" aria-hidden="true" />
-              <div className="flex flex-col md:flex-row rounded-3xl bg-gray-700 my-8 w-full justify-around py-16 px-4 md:px-16 items-center">
-                <ProgLogo />
-                <ProgLogo />
+            <div className="flex flex-col w-full py-16 px-8 sm:px-20 md:px-32 items-center">
+              <div className="flex flex-col max-w-4xl w-full">
+                <p className="text-2xl text-white">ผู้สนับสนุนหลัก</p>
+                <div className="w-24 h-2 bg-red-400 mt-1" aria-hidden="true" />
+                <div className="flex flex-col md:flex-row rounded-3xl bg-gray-700 my-8 w-full justify-around py-8 md:py-16 px-4 md:px-16 items-center">
+                  <ProgLogo />
+                  <ProgLogo />
+                </div>
               </div>
             </div>
           </section>
