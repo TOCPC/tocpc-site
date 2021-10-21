@@ -134,6 +134,82 @@ const Home: NextPage = () => {
               </p>
             </div>
           </section>
+          <section className="flex flex-col items-center justify-center p-12 sm:p-24 md:p-32 lg:p-48">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-18 max-w-4xl">
+              <div className="flex flex-col">
+                <p className="font-semibold text-2xl">ร่วมบริจาค</p>
+                <p className="font-thin text-2xl pt-10">
+                  เนื่องจากเราเป็นกลุ่มผู้ไม่แสวงหาผลกำไร
+                  และไม่มีค่าใช้จ่ายในการเข้าร่วม
+                  เราจึงต้องการเงินทุนช่วยเหลือสำหรับการจัดการดูแลตัวตรวจ
+                  การจัดส่งรางวัล และอื่น ๆ
+                </p>
+              </div>
+              <div>
+                <div className="flex">
+                  <div className="p-2 w-1/2">
+                    <button className="bg-gray-200 px-4 py-6 text-2xl font-semibold rounded-full w-full" />
+                  </div>
+                  <div className="p-2 w-1/2">
+                    <button className="bg-gray-200 px-4 py-6 text-2xl font-semibold rounded-full w-full" />
+                  </div>
+                </div>
+                <div className="p-2 w-full">
+                  <button className="bg-gray-200 px-4 py-6 text-2xl font-semibold rounded-full w-full" />
+                </div>
+                <div className="p-2 w-full">
+                  <button className="bg-gray-200 px-4 py-6 text-2xl font-semibold rounded-full w-full" />
+                </div>
+                <div className="p-2 w-full">
+                  <button className="bg-gray-200 px-4 py-6 text-2xl font-semibold rounded-full w-full" />
+                </div>
+                <div className="p-2 w-full flex flex-row-reverse">
+                  <button className="bg-red-400 px-4 py-4 text-2xl font-semibold rounded-full w-1/2 text-white">
+                    Donate
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col border-black justify-center border-t border-b max-w-4xl w-full mt-16">
+              <div className="flex bg-white -mt-4 w-min pl-1 pr-4">
+                <p className="text-2xl w-max">รายชื่อผู้ร่วมบริจาค</p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-4">
+                <div className="flex flex-col items-center justify-center py-4 md:py-8">
+                  <p className="font-semibold">iammarkps</p>
+                  <p className="font-semibold text-red-400">1600฿</p>
+                </div>
+                <div className="flex flex-col items-center justify-center py-4 md:py-8">
+                  <p className="font-semibold">iammarkps</p>
+                  <p className="font-semibold text-red-400">1600฿</p>
+                </div>
+                <div className="flex flex-col items-center justify-center py-4 md:py-8">
+                  <p className="font-semibold">iammarkps</p>
+                  <p className="font-semibold text-red-400">1600฿</p>
+                </div>
+                <div className="flex flex-col items-center justify-center py-4 md:py-8">
+                  <p className="font-semibold">iammarkps</p>
+                  <p className="font-semibold text-red-400">1600฿</p>
+                </div>
+                <div className="flex flex-col items-center justify-center py-4 md:py-8">
+                  <p className="font-semibold">iammarkps</p>
+                  <p className="font-semibold text-red-400">1600฿</p>
+                </div>
+                <div className="flex flex-col items-center justify-center py-4 md:py-8">
+                  <p className="font-semibold">iammarkps</p>
+                  <p className="font-semibold text-red-400">1600฿</p>
+                </div>
+                <div className="flex flex-col items-center justify-center py-4 md:py-8">
+                  <p className="font-semibold">iammarkps</p>
+                  <p className="font-semibold text-red-400">1600฿</p>
+                </div>
+                <div className="flex flex-col items-center justify-center py-4 md:py-8">
+                  <p className="font-semibold">iammarkps</p>
+                  <p className="font-semibold text-red-400">1600฿</p>
+                </div>
+              </div>
+            </div>
+          </section>
           <section className="flex flex-col items-center justify-center w-full bg-gray-800">
             <div className="flex py-36 items-center justify-center">
               <div className="flex flex-col">
