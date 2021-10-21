@@ -134,6 +134,154 @@ const Home: NextPage = () => {
               </p>
             </div>
           </section>
+          <section className="flex flex-col items-center justify-center w-full bg-gray-800">
+            <div className="flex py-36 items-center justify-center">
+              <div className="flex flex-col">
+                <p className="text-xl sm:text-2xl text-white text-right">
+                  สมัครแล้ว
+                </p>
+                <p className="text-xl sm:text-2xl text-white text-right">
+                  กว่า
+                </p>
+              </div>
+              <p className="text-6xl sm:text-8xl text-red-400 font-extrabold px-4">
+                400
+              </p>
+              <p className="text-3xl sm:text-5xl text-white font-medium">คน</p>
+            </div>
+            <div className="px-8 sm:px-20 md:px-32 w-full flex items-center justify-center pb-12">
+              <div className="flex flex-col justify-center items-center border border-red-400 max-w-4xl w-full rounded-3xl">
+                <div className="flex flex-col items-center bg-gray-800 -mt-5 px-1 md:px-4 mb-24 max-w-xl">
+                  <p className="text-red-400 font-semibold text-sm sm:text-md">
+                    กำหนดการ
+                  </p>
+                  <p className="text-red-400 text-sm sm:text-md text-center">
+                    GMT+7 (เวลามาตรฐานประเทศไทย)
+                  </p>
+                </div>
+                <div className="relative">
+                  <ol>
+                    <li className="relative pb-10">
+                      <div
+                        className="-ml-px absolute mt-0.5 top-4 left-7 w-0.5 h-full bg-red-400"
+                        aria-hidden="true"
+                      />
+                      <div className="relative flex items-start group px-4">
+                        <span className="h-9 flex items-center">
+                          <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
+                        </span>
+                        <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
+                          <div className="flex flex-col w-40">
+                            <p className="text-white">00 OCT 2021</p>
+                            <p className="text-white text-sm">11.00 น.</p>
+                          </div>
+                          <p className="text-white pt-2 md:pt-0 pr-2 max-w-sm">
+                            เปิดรับสมัครผู้แต่งโจทย์และผู้เข้าแข่งขัน
+                          </p>
+                        </span>
+                      </div>
+                    </li>
+                    <li className="relative pb-10">
+                      <div
+                        className="-ml-px absolute mt-0.5 top-4 left-7 w-0.5 h-full bg-red-400"
+                        aria-hidden="true"
+                      />
+                      <div className="relative flex items-start group px-4">
+                        <span className="h-9 flex items-center">
+                          <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
+                        </span>
+                        <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
+                          <div className="flex flex-col w-40">
+                            <p className="text-white">00 OCT 2021</p>
+                            <p className="text-white text-sm">11.00 น.</p>
+                          </div>
+                          <p className="text-white pt-2 md:pt-0 pr-2 max-w-sm">
+                            ปิดรับโจทย์
+                          </p>
+                        </span>
+                      </div>
+                    </li>
+                    <li className="relative pb-10">
+                      <div
+                        className="-ml-px absolute mt-0.5 top-4 left-7 w-0.5 h-full bg-red-400"
+                        aria-hidden="true"
+                      />
+                      <div className="relative flex items-start group px-4">
+                        <span className="h-9 flex items-center">
+                          <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
+                        </span>
+                        <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
+                          <div className="flex flex-col w-40">
+                            <p className="text-white">00 OCT 2021</p>
+                            <p className="text-white text-sm">11.00 น.</p>
+                          </div>
+                          <p className="text-white pt-2 md:pt-0 pr-2 max-w-sm">
+                            ปิดรับสมัครผู้เข้าแข่งขัน
+                          </p>
+                        </span>
+                      </div>
+                    </li>
+                    <li className="relative pb-10">
+                      <div
+                        className="-ml-px absolute mt-0.5 top-4 left-7 w-0.5 h-full bg-red-400"
+                        aria-hidden="true"
+                      />
+                      <div className="relative flex items-start group px-4">
+                        <span className="h-9 flex items-center">
+                          <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
+                        </span>
+                        <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
+                          <div className="flex flex-col w-40">
+                            <p className="text-white">00 OCT 2021</p>
+                            <p className="text-white text-sm">11.00 น.</p>
+                          </div>
+                          <p className="text-white pt-2 md:pt-0 pr-2 max-w-sm">
+                            การแข่งขันวันที่ 1
+                          </p>
+                        </span>
+                      </div>
+                    </li>
+                    <li className="relative pb-10">
+                      <div
+                        className="-ml-px absolute mt-0.5 top-4 left-7 w-0.5 h-full bg-red-400"
+                        aria-hidden="true"
+                      />
+                      <div className="relative flex items-start group px-4">
+                        <span className="h-9 flex items-center">
+                          <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
+                        </span>
+                        <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
+                          <div className="flex flex-col w-40">
+                            <p className="text-white">00 OCT 2021</p>
+                            <p className="text-white text-sm">11.00 น.</p>
+                          </div>
+                          <p className="text-white pt-2 md:pt-0 pr-2 max-w-sm">
+                            การแข่งขันวันที่ 2
+                          </p>
+                        </span>
+                      </div>
+                    </li>
+                    <li className="relative pb-24">
+                      <div className="relative flex items-start group px-4">
+                        <span className="h-9 flex items-center">
+                          <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
+                        </span>
+                        <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
+                          <div className="flex flex-col w-40">
+                            <p className="text-white">00 OCT 2021</p>
+                            <p className="text-white text-sm">11.00 น.</p>
+                          </div>
+                          <p className="text-white pt-2 md:pt-0 pr-2 max-w-sm">
+                            ประกาศผลการคัดเลือกอย่างเป็นทางการ
+                          </p>
+                        </span>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </main>
 
