@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { MainFootage } from 'components/footage'
+import { Footer } from 'components/Footer'
+import { ProgLogo } from 'components/ProgLogo'
 
 const Home: NextPage = () => {
   return (
@@ -357,21 +359,37 @@ const Home: NextPage = () => {
                 </div>
               </div>
             </div>
+            <div className="flex flex-col w-full max-w-4xl pt-16 px-8 sm:px-20 md:px-24 lg:px-6">
+              <p className="text-2xl text-white">เกี่ยวกับเรา</p>
+              <div className="w-24 h-2 bg-red-400 mt-1" aria-hidden="true" />
+              <p className="text-white text-sm py-8">
+                พวกเราคือกลุ่มอดีตนักเรียนค่ายโอลิมปิกวิชาการคอมพิวเตอร์ที่มีความมุ่งหมายจะพัฒนาวงการโอลิมปิกวิชาการคอมพิวเตอร์
+                สาขาวิชาวิทยาการคำนวณ
+                และวิชาการด้านคอมพิวเตอร์ทั่วไปภายในประเทศไทย
+                เพื่อให้เหล่าคนรุ่นใหม่ได้มีโอกาสฝึกฝนทักษะวิธีกระบวนการคิด
+                การเขียนโปรแกรม การสร้างแบบจำลองโจทย์อย่างสร้างสรรค์
+                และการพัฒนาวิธีการในการแก้โจทย์ให้มีประสิทธิภาพมากยิ่งขึ้น
+              </p>
+              <p className="text-white text-sm py-8">
+                พวกเราคาดหวังว่า นักเรียน ครู อาจารย์
+                หรือบุคคลทั่วไปที่สนใจการเขียนโปรแกรมทุกท่าน
+                จะได้รับประโยชน์จากการเข้าร่วมการแข่งขันครั้งนี้ ไม่มากก็น้อย
+                และเราคาดหวังว่าค่ายโอลิมปิกวิชาการ สอวน. สสวท.
+                รวมถึงการแข่งขันโอลิมปิกวิชาการระดับชาติ จะพัฒนาไปยังระดับต่อไป
+              </p>
+            </div>
+            <div className="flex flex-col w-full max-w-4xl py-16 px-8 sm:px-20 md:px-24 lg:px-6">
+              <p className="text-2xl text-white">ผู้สนับสนุนหลัก</p>
+              <div className="w-24 h-2 bg-red-400 mt-1" aria-hidden="true" />
+              <div className="flex flex-col md:flex-row rounded-3xl bg-gray-700 my-8 w-full justify-around py-16 px-4 md:px-16 items-center">
+                <ProgLogo />
+                <ProgLogo />
+              </div>
+            </div>
           </section>
         </div>
       </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
+      <Footer />
     </div>
   )
 }
