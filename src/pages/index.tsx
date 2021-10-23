@@ -21,39 +21,45 @@ const Home: NextPage = () => {
                 <MainFootage />
               </div>
             </div>
-            <div className="flex flex-col w-full h-screen items-center justify-center">
-              <div>
-                <p className="py-1 font-extrabold text-5xl text-white text-center">
-                  Thailand
-                </p>
-                <p className="py-1 font-extrabold text-5xl text-white text-center">
-                  Online
-                </p>
-                <p className="py-1 font-extrabold text-5xl text-white text-center">
-                  Competitive
-                </p>
-                <p className="py-1 font-extrabold text-5xl text-white text-center">
-                  Programming
-                </p>
-                <p className="py-1 font-extrabold text-5xl text-white text-center">
-                  Contest
-                </p>
-                <p className="py-1 font-extrabold text-5xl text-white text-center">
-                  2021
-                </p>
-                <p className="py-6 text-white text-center">20-21 NOV 2021</p>
-              </div>
-              <div className="pt-6">
-                <button className="bg-red-400 px-10 py-6 text-white text-2xl font-semibold rounded-full">
-                  Register
-                </button>
-                <p className="py-4 text-white text-center">until 19 NOV 2021</p>
+            <div className="block absolute h-full w-full">
+              <div className="flex flex-col w-full h-screen items-center justify-center">
+                <div>
+                  <p className="font-display py-1 font-extrabold text-4xl sm:text-5xl text-white text-center">
+                    Thailand
+                  </p>
+                  <p className="font-display py-1 font-extrabold text-4xl sm:text-5xl text-white text-center">
+                    Online
+                  </p>
+                  <p className="font-display py-1 font-extrabold text-4xl sm:text-5xl text-white text-center">
+                    Competitive
+                  </p>
+                  <p className="font-display py-1 font-extrabold text-4xl sm:text-5xl text-white text-center">
+                    Programming
+                  </p>
+                  <p className="font-display py-1 font-extrabold text-4xl sm:text-5xl text-white text-center">
+                    Contest
+                  </p>
+                  <p className="font-display py-1 font-extrabold text-4xl sm:text-5xl text-white text-center">
+                    2021
+                  </p>
+                  <p className="font-display py-6 text-white text-center">
+                    20-21 NOV 2021
+                  </p>
+                </div>
+                <div className="pt-6">
+                  <button className="bg-red-400 px-8 py-4 sm:px-10 sm:py-6 text-white text-2xl font-semibold rounded-full">
+                    Register
+                  </button>
+                  <p className="font-display py-4 text-white text-center">
+                    until 19 NOV 2021
+                  </p>
+                </div>
               </div>
             </div>
           </section>
-          <section className="flex justify-center w-full h-auto bg-gray-900 px-8 sm:px-20 md:px-32 py-36">
+          <section className="flex justify-center w-full h-auto bg-gray-900 px-8 sm:px-20 md:px-32 py-20 sm:py-36">
             <div className="grid grid-rows-3 lg:grid-rows-1 lg:grid-cols-3 gap-24 w-full max-w-4xl">
-              <div className="flex flex-col">
+              <div className="flex flex-col justify-between h-full">
                 <div className="bg-red-400 rounded-lg p-2 w-min">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -70,16 +76,18 @@ const Home: NextPage = () => {
                     />
                   </svg>
                 </div>
-                <p className="text-white font-bold text-2xl py-6">ห้ามพลาด</p>
-                <p className="text-white py-2">
+                <p className="font-display text-white font-bold text-2xl py-6">
+                  ห้ามพลาด
+                </p>
+                <p className="font-display text-white py-2">
                   การแข่งขันจะจัดขึ้นในวันเสาร์ที่ 20 และวันอาทิตย์ที่ 21
                   ของเดือนพฤศจิกายน พ.ศ.2564 สามารถดูกำหนดการเพิ่มเติมได้ที่นี่
                 </p>
-                <p className="text-white font-bold text-xl py-4 underline">
+                <p className="font-display text-white font-bold text-xl py-4 underline">
                   กำหนดการ
                 </p>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col justify-between h-full">
                 <div className="bg-red-400 rounded-lg p-2 w-min">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -96,19 +104,19 @@ const Home: NextPage = () => {
                     />
                   </svg>
                 </div>
-                <p className="text-white font-bold text-2xl py-6">
+                <p className="font-display text-white font-bold text-2xl py-6">
                   ต้องการแต่งโจทย์?
                 </p>
-                <p className="text-white py-2">
+                <p className="font-display text-white py-2">
                   เราพร้อมให้ทุกคนมีส่วนร่วมในการแต่งโจทย์
                   หากต้องการร่วมงานกับเรา
                   สามารถศึกษากระบวนการแต่งโจทย์และการส่งโจทย์ได้ตามนี้
                 </p>
-                <p className="text-white font-bold text-xl py-4 underline">
+                <p className="font-display text-white font-bold text-xl py-4 underline">
                   กระบวนการแต่งโจทย์
                 </p>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col justify-between h-full">
                 <div className="bg-red-400 rounded-lg p-2 w-min">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -125,15 +133,15 @@ const Home: NextPage = () => {
                     />
                   </svg>
                 </div>
-                <p className="text-white font-bold text-2xl py-6">
+                <p className="font-display text-white font-bold text-2xl py-6">
                   รูปแบบการแข่งขัน
                 </p>
-                <p className="text-white py-2">
+                <p className="font-display text-white py-2">
                   การแข่งขันยาวรอบละ 3 ชั่วโมง จัดขึ้น 2 รอบ
                   โดยมีโจทย์การแข่งขันรอบละ 3 ข้อ
                   สามารถดูรายละเอียดโจทย์แต่ละข้อและขอบเขตเนื้อหาที่ใช้ในการแข่งขันได้ที่นี่
                 </p>
-                <p className="text-white font-bold text-xl py-4 underline">
+                <p className="font-display text-white font-bold text-xl py-4 underline">
                   รูปแบบการแข่งขัน
                 </p>
               </div>
@@ -142,8 +150,10 @@ const Home: NextPage = () => {
           <section className="flex flex-col items-center justify-center px-8 sm:px-20 md:px-32 py-12 sm:py-24 md:py-32">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-18 max-w-4xl">
               <div className="flex flex-col">
-                <p className="font-semibold text-2xl">ร่วมบริจาค</p>
-                <p className="font-thin text-2xl pt-10">
+                <p className="font-display font-semibold text-2xl">
+                  ร่วมบริจาค
+                </p>
+                <p className="font-display font-thin text-2xl pt-10">
                   เนื่องจากเราเป็นกลุ่มผู้ไม่แสวงหาผลกำไร
                   และไม่มีค่าใช้จ่ายในการเข้าร่วม
                   เราจึงต้องการเงินทุนช่วยเหลือสำหรับการจัดการดูแลตัวตรวจ
@@ -152,23 +162,23 @@ const Home: NextPage = () => {
               </div>
               <div>
                 <div className="flex">
-                  <div className="p-2 w-1/2">
-                    <button className="bg-gray-200 px-4 py-6 text-2xl font-semibold rounded-full w-full" />
+                  <div className="py-2.5 mr-10 w-1/2">
+                    <div className="bg-gray-200 py-6 rounded-full w-full" />
                   </div>
-                  <div className="p-2 w-1/2">
-                    <button className="bg-gray-200 px-4 py-6 text-2xl font-semibold rounded-full w-full" />
+                  <div className="py-2.5 w-1/2">
+                    <div className="bg-gray-200 py-6 rounded-full w-full" />
                   </div>
                 </div>
-                <div className="p-2 w-full">
-                  <button className="bg-gray-200 px-4 py-6 text-2xl font-semibold rounded-full w-full" />
+                <div className="py-2.5 w-full">
+                  <div className="bg-gray-200 py-6 rounded-full w-full" />
                 </div>
-                <div className="p-2 w-full">
-                  <button className="bg-gray-200 px-4 py-6 text-2xl font-semibold rounded-full w-full" />
+                <div className="py-2.5 w-full">
+                  <div className="bg-gray-200 py-6 rounded-full w-full" />
                 </div>
-                <div className="p-2 w-full">
-                  <button className="bg-gray-200 px-4 py-6 text-2xl font-semibold rounded-full w-full" />
+                <div className="py-2.5 w-full">
+                  <div className="bg-gray-200 py-6 rounded-full w-full" />
                 </div>
-                <div className="p-2 w-full flex flex-row-reverse">
+                <div className="py-2.5 w-full flex flex-row-reverse">
                   <button className="bg-red-400 px-4 py-4 text-2xl font-semibold rounded-full w-1/2 text-white">
                     Donate
                   </button>
@@ -177,66 +187,86 @@ const Home: NextPage = () => {
             </div>
             <div className="flex flex-col border-black justify-center border-t border-b max-w-4xl w-full mt-16">
               <div className="flex bg-white -mt-4 w-min pl-1 pr-4">
-                <p className="text-2xl w-max">รายชื่อผู้ร่วมบริจาค</p>
+                <p className="font-display text-2xl w-max">
+                  รายชื่อผู้ร่วมบริจาค
+                </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-4">
                 <div className="flex flex-col items-center justify-center py-4 md:py-8">
-                  <p className="font-semibold">iammarkps</p>
-                  <p className="font-semibold text-red-400">1600฿</p>
+                  <p className="font-display font-semibold">iammarkps</p>
+                  <p className="font-display font-semibold text-red-400">
+                    1600฿
+                  </p>
                 </div>
                 <div className="flex flex-col items-center justify-center py-4 md:py-8">
-                  <p className="font-semibold">iammarkps</p>
-                  <p className="font-semibold text-red-400">1600฿</p>
+                  <p className="font-display font-semibold">iammarkps</p>
+                  <p className="font-display font-semibold text-red-400">
+                    1600฿
+                  </p>
                 </div>
                 <div className="flex flex-col items-center justify-center py-4 md:py-8">
-                  <p className="font-semibold">iammarkps</p>
-                  <p className="font-semibold text-red-400">1600฿</p>
+                  <p className="font-display font-semibold">iammarkps</p>
+                  <p className="font-display font-semibold text-red-400">
+                    1600฿
+                  </p>
                 </div>
                 <div className="flex flex-col items-center justify-center py-4 md:py-8">
-                  <p className="font-semibold">iammarkps</p>
-                  <p className="font-semibold text-red-400">1600฿</p>
+                  <p className="font-display font-semibold">iammarkps</p>
+                  <p className="font-display font-semibold text-red-400">
+                    1600฿
+                  </p>
                 </div>
                 <div className="flex flex-col items-center justify-center py-4 md:py-8">
-                  <p className="font-semibold">iammarkps</p>
-                  <p className="font-semibold text-red-400">1600฿</p>
+                  <p className="font-display font-semibold">iammarkps</p>
+                  <p className="font-display font-semibold text-red-400">
+                    1600฿
+                  </p>
                 </div>
                 <div className="flex flex-col items-center justify-center py-4 md:py-8">
-                  <p className="font-semibold">iammarkps</p>
-                  <p className="font-semibold text-red-400">1600฿</p>
+                  <p className="font-display font-semibold">iammarkps</p>
+                  <p className="font-display font-semibold text-red-400">
+                    1600฿
+                  </p>
                 </div>
                 <div className="flex flex-col items-center justify-center py-4 md:py-8">
-                  <p className="font-semibold">iammarkps</p>
-                  <p className="font-semibold text-red-400">1600฿</p>
+                  <p className="font-display font-semibold">iammarkps</p>
+                  <p className="font-display font-semibold text-red-400">
+                    1600฿
+                  </p>
                 </div>
                 <div className="flex flex-col items-center justify-center py-4 md:py-8">
-                  <p className="font-semibold">iammarkps</p>
-                  <p className="font-semibold text-red-400">1600฿</p>
+                  <p className="font-display font-semibold">iammarkps</p>
+                  <p className="font-display font-semibold text-red-400">
+                    1600฿
+                  </p>
                 </div>
               </div>
             </div>
           </section>
           <section className="flex flex-col items-center justify-center w-full bg-gray-800">
-            <div className="flex py-36 items-center justify-center">
+            <div className="flex py-48 items-center justify-center">
               <div className="flex flex-col">
-                <p className="text-xl sm:text-2xl text-white text-right">
+                <p className="font-display text-xl sm:text-2xl text-white text-right">
                   สมัครแล้ว
                 </p>
-                <p className="text-xl sm:text-2xl text-white text-right">
+                <p className="font-display text-xl sm:text-2xl text-white text-right">
                   กว่า
                 </p>
               </div>
-              <p className="text-6xl sm:text-8xl text-red-400 font-extrabold px-4">
-                400
+              <p className="font-display text-6xl sm:text-8xl text-red-400 font-bold px-4">
+                215
               </p>
-              <p className="text-3xl sm:text-5xl text-white font-medium">คน</p>
+              <p className="font-display text-3xl sm:text-5xl text-white font-medium">
+                คน
+              </p>
             </div>
             <div className="px-6 sm:px-20 md:px-32 w-full flex items-center justify-center pb-12">
               <div className="flex flex-col justify-center items-center border border-red-400 max-w-4xl w-full rounded-3xl">
                 <div className="flex flex-col items-center bg-gray-800 -mt-5 px-1 md:px-4 pb-8 sm:pb-16 lg:pb-24 max-w-xl">
-                  <p className="text-red-400 font-semibold text-sm sm:text-md">
+                  <p className="font-display text-red-400 font-semibold text-sm sm:text-md">
                     กำหนดการ
                   </p>
-                  <p className="text-red-400 text-sm sm:text-md text-center">
+                  <p className="font-display text-red-400 text-sm sm:text-md text-center">
                     GMT+7 (เวลามาตรฐานประเทศไทย)
                   </p>
                 </div>
@@ -253,10 +283,14 @@ const Home: NextPage = () => {
                         </span>
                         <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
                           <div className="flex flex-col w-40">
-                            <p className="text-white">00 OCT 2021</p>
-                            <p className="text-white text-sm">11.00 น.</p>
+                            <p className="font-display text-white">
+                              00 OCT 2021
+                            </p>
+                            <p className="font-display text-white text-sm">
+                              11.00 น.
+                            </p>
                           </div>
-                          <p className="text-white pt-2 md:pt-0 pr-2 max-w-sm">
+                          <p className="font-display text-white pt-2 md:pt-0 pr-2 max-w-sm">
                             เปิดรับสมัครผู้แต่งโจทย์และผู้เข้าแข่งขัน
                           </p>
                         </span>
@@ -273,10 +307,14 @@ const Home: NextPage = () => {
                         </span>
                         <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
                           <div className="flex flex-col w-40">
-                            <p className="text-white">00 OCT 2021</p>
-                            <p className="text-white text-sm">11.00 น.</p>
+                            <p className="font-display text-white">
+                              00 OCT 2021
+                            </p>
+                            <p className="font-display text-white text-sm">
+                              11.00 น.
+                            </p>
                           </div>
-                          <p className="text-white pt-2 md:pt-0 pr-2 max-w-sm">
+                          <p className="font-display text-white pt-2 md:pt-0 pr-2 max-w-sm">
                             ปิดรับโจทย์
                           </p>
                         </span>
@@ -293,10 +331,14 @@ const Home: NextPage = () => {
                         </span>
                         <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
                           <div className="flex flex-col w-40">
-                            <p className="text-white">00 OCT 2021</p>
-                            <p className="text-white text-sm">11.00 น.</p>
+                            <p className="font-display text-white">
+                              00 OCT 2021
+                            </p>
+                            <p className="font-display text-white text-sm">
+                              11.00 น.
+                            </p>
                           </div>
-                          <p className="text-white pt-2 md:pt-0 pr-2 max-w-sm">
+                          <p className="font-display text-white pt-2 md:pt-0 pr-2 max-w-sm">
                             ปิดรับสมัครผู้เข้าแข่งขัน
                           </p>
                         </span>
@@ -313,10 +355,14 @@ const Home: NextPage = () => {
                         </span>
                         <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
                           <div className="flex flex-col w-40">
-                            <p className="text-white">00 OCT 2021</p>
-                            <p className="text-white text-sm">11.00 น.</p>
+                            <p className="font-display text-white">
+                              00 OCT 2021
+                            </p>
+                            <p className="font-display text-white text-sm">
+                              11.00 น.
+                            </p>
                           </div>
-                          <p className="text-white pt-2 md:pt-0 pr-2 max-w-sm">
+                          <p className="font-display text-white pt-2 md:pt-0 pr-2 max-w-sm">
                             การแข่งขันวันที่ 1
                           </p>
                         </span>
@@ -333,10 +379,14 @@ const Home: NextPage = () => {
                         </span>
                         <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
                           <div className="flex flex-col w-40">
-                            <p className="text-white">00 OCT 2021</p>
-                            <p className="text-white text-sm">11.00 น.</p>
+                            <p className="font-display text-white">
+                              00 OCT 2021
+                            </p>
+                            <p className="font-display text-white text-sm">
+                              11.00 น.
+                            </p>
                           </div>
-                          <p className="text-white pt-2 md:pt-0 pr-2 max-w-sm">
+                          <p className="font-display text-white pt-2 md:pt-0 pr-2 max-w-sm">
                             การแข่งขันวันที่ 2
                           </p>
                         </span>
@@ -349,10 +399,14 @@ const Home: NextPage = () => {
                         </span>
                         <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
                           <div className="flex flex-col w-40">
-                            <p className="text-white">00 OCT 2021</p>
-                            <p className="text-white text-sm">11.00 น.</p>
+                            <p className="font-display text-white">
+                              00 OCT 2021
+                            </p>
+                            <p className="font-display text-white text-sm">
+                              11.00 น.
+                            </p>
                           </div>
-                          <p className="text-white pt-2 md:pt-0 pr-2 max-w-sm">
+                          <p className="font-display text-white pt-2 md:pt-0 pr-2 max-w-sm">
                             ประกาศผลการคัดเลือกอย่างเป็นทางการ
                           </p>
                         </span>
@@ -364,9 +418,9 @@ const Home: NextPage = () => {
             </div>
             <div className="flex flex-col w-full pt-16 px-8 sm:px-20 md:px-32 items-center">
               <div className="flex flex-col max-w-4xl w-full">
-                <p className="text-2xl text-white">เกี่ยวกับเรา</p>
+                <p className="font-display text-3xl text-white">เกี่ยวกับเรา</p>
                 <div className="w-24 h-2 bg-red-400 mt-1" aria-hidden="true" />
-                <p className="text-white text-sm py-8">
+                <p className="font-display font-light text-white py-8">
                   พวกเราคือกลุ่มอดีตนักเรียนค่ายโอลิมปิกวิชาการคอมพิวเตอร์ที่มีความมุ่งหมายจะพัฒนาวงการโอลิมปิกวิชาการคอมพิวเตอร์
                   สาขาวิชาวิทยาการคำนวณ
                   และวิชาการด้านคอมพิวเตอร์ทั่วไปภายในประเทศไทย
@@ -374,7 +428,7 @@ const Home: NextPage = () => {
                   การเขียนโปรแกรม การสร้างแบบจำลองโจทย์อย่างสร้างสรรค์
                   และการพัฒนาวิธีการในการแก้โจทย์ให้มีประสิทธิภาพมากยิ่งขึ้น
                 </p>
-                <p className="text-white text-sm py-8">
+                <p className="font-display font-light text-white py-8">
                   พวกเราคาดหวังว่า นักเรียน ครู อาจารย์
                   หรือบุคคลทั่วไปที่สนใจการเขียนโปรแกรมทุกท่าน
                   จะได้รับประโยชน์จากการเข้าร่วมการแข่งขันครั้งนี้ ไม่มากก็น้อย
@@ -386,7 +440,9 @@ const Home: NextPage = () => {
             </div>
             <div className="flex flex-col w-full py-16 px-8 sm:px-20 md:px-32 items-center">
               <div className="flex flex-col max-w-4xl w-full">
-                <p className="text-2xl text-white">ผู้สนับสนุนหลัก</p>
+                <p className="font-display text-3xl text-white">
+                  ผู้สนับสนุนหลัก
+                </p>
                 <div className="w-24 h-2 bg-red-400 mt-1" aria-hidden="true" />
                 <div className="flex flex-col md:flex-row rounded-3xl bg-gray-700 my-8 w-full justify-around py-8 md:py-16 px-4 md:px-16 items-center">
                   <ProgLogo />
