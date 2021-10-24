@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-const detectOuside = (ref: any, dep: boolean, callback: () => void) => {
+const DetectOuside = (ref: any, dep: boolean, callback: () => void) => {
   useEffect(() => {
     function handleClickOutside(event: any) {
       if (ref.current && !ref.current.contains(event.target) && dep) {
@@ -38,7 +38,7 @@ export const Nav = () => {
     },
   }
 
-  detectOuside(panel, reveal, () => {
+  DetectOuside(panel, reveal, () => {
     setReaveal(false)
   })
 
