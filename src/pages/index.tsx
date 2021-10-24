@@ -1,13 +1,42 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { useState, useRef, useEffect } from 'react'
 import { MainFootage } from 'components/footage'
-import { Footer } from 'components/Footer'
 import { ProgLogo } from 'components/ProgLogo'
-import { Nav } from 'components/Nav'
+import Countup from 'react-countup'
 
 const Home: NextPage = () => {
+  const [isShowingInteractive, showInteractive] = useState<boolean>(false)
+  const interactive = useRef<HTMLElement>()
+
+  useEffect(() => {
+    let detectInteractive = () => {
+      if (
+        typeof interactive.current === 'undefined' ||
+        interactive.current === null
+      )
+        return
+
+      let interactivePosition = interactive.current.getBoundingClientRect().top
+
+      if (interactivePosition === 0) return
+
+      if (interactivePosition > window.innerHeight / 1.3) return
+
+      showInteractive(true)
+
+      window.removeEventListener('scroll', detectInteractive)
+    }
+
+    window.addEventListener('scroll', detectInteractive, {
+      passive: true,
+    })
+
+    detectInteractive()
+  }, [])
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="relative flex flex-col items-center justify-center min-h-screen">
       <Head>
         <title>TOCPC 2021</title>
         <link rel="icon" href="/favicon.ico" />
@@ -56,9 +85,6 @@ const Home: NextPage = () => {
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="block absolute w-full">
-              <Nav />
             </div>
           </section>
           <section className="flex justify-center w-full h-auto bg-gray-900 px-16 sm:px-20 md:px-32 py-20 sm:py-36">
@@ -247,7 +273,10 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section>
-          <section className="flex flex-col items-center justify-center w-full bg-gray-800">
+          <section
+            className="flex flex-col items-center justify-center w-full bg-gray-800"
+            ref={interactive as any}
+          >
             <div className="flex py-48 items-center justify-center">
               <div className="flex flex-col">
                 <p className="font-display text-xl sm:text-2xl text-white text-right">
@@ -257,9 +286,28 @@ const Home: NextPage = () => {
                   กว่า
                 </p>
               </div>
-              <p className="font-display text-6xl sm:text-8xl text-red-400 font-bold px-4">
-                215
-              </p>
+              {isShowingInteractive ? (
+                <Countup
+                  start={0}
+                  end={215}
+                  duration={3}
+                  delay={0}
+                  useEasing={true}
+                  separator=","
+                >
+                  {({ countUpRef }) => (
+                    <p
+                      className="font-display text-6xl sm:text-8xl text-red-400 font-bold px-4"
+                      ref={countUpRef as any}
+                    />
+                  )}
+                </Countup>
+              ) : (
+                <p className="font-display text-6xl sm:text-8xl text-red-400 font-bold px-4">
+                  0
+                </p>
+              )}
+
               <p className="font-display text-3xl sm:text-5xl text-white font-medium">
                 คน
               </p>
@@ -457,7 +505,6 @@ const Home: NextPage = () => {
           </section>
         </div>
       </main>
-      <Footer />
     </div>
   )
 }
