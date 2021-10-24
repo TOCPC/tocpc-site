@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { MainFootage } from 'components/footage'
 import { Footer } from 'components/Footer'
 import { ProgLogo } from 'components/ProgLogo'
+import { Nav } from 'components/Nav'
 
 const Home: NextPage = () => {
   return (
@@ -56,8 +57,11 @@ const Home: NextPage = () => {
                 </div>
               </div>
             </div>
+            <div className="block absolute w-full">
+              <Nav />
+            </div>
           </section>
-          <section className="flex justify-center w-full h-auto bg-gray-900 px-8 sm:px-20 md:px-32 py-20 sm:py-36">
+          <section className="flex justify-center w-full h-auto bg-gray-900 px-16 sm:px-20 md:px-32 py-20 sm:py-36">
             <div className="grid grid-rows-3 lg:grid-rows-1 lg:grid-cols-3 gap-24 w-full max-w-4xl">
               <div className="flex flex-col justify-between h-full">
                 <div className="bg-red-400 rounded-lg p-2 w-min">
