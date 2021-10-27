@@ -1,40 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useState, useRef, useEffect } from 'react'
 import { MainFootage } from 'components/footage'
 import { ProgLogo } from 'components/ProgLogo'
 import Countup from 'react-countup'
 
 const Home: NextPage = () => {
-  const [isShowingInteractive, showInteractive] = useState<boolean>(false)
-  const interactive = useRef<HTMLElement>()
-
-  useEffect(() => {
-    let detectInteractive = () => {
-      if (
-        typeof interactive.current === 'undefined' ||
-        interactive.current === null
-      )
-        return
-
-      let interactivePosition = interactive.current.getBoundingClientRect().top
-
-      if (interactivePosition === 0) return
-
-      if (interactivePosition > window.innerHeight / 1.3) return
-
-      showInteractive(true)
-
-      window.removeEventListener('scroll', detectInteractive)
-    }
-
-    window.addEventListener('scroll', detectInteractive, {
-      passive: true,
-    })
-
-    detectInteractive()
-  }, [])
-
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen">
       <Head>
@@ -87,92 +57,187 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section>
-          <section className="flex justify-center w-full h-auto bg-gray-900 px-16 sm:px-20 md:px-32 py-20 sm:py-36">
-            <div className="grid grid-rows-3 lg:grid-rows-1 lg:grid-cols-3 gap-24 w-full max-w-4xl">
-              <div className="flex flex-col justify-between h-full">
-                <div className="bg-red-400 rounded-lg p-2 w-min">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-10 w-10"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="white"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                    />
-                  </svg>
+          <section className="flex flex-col items-center w-full h-auto bg-gray-800 px-8 sm:px-20 md:px-32 py-10 sm:py-18">
+            <div className="flex max-w-4xl rounded-xl shadow-2xl overflow-hidden w-full">
+              <div className="flex flex-col w-full h-full p-6 sm:p-10 md:p-16">
+                <div className="flex flex-col gap-2">
+                  <p className="font-display text-3xl text-white">Overview</p>
+                  <div
+                    className="w-24 h-2 bg-red-400 mt-1"
+                    aria-hidden="true"
+                  />
                 </div>
-                <p className="font-display text-white font-bold text-2xl py-6">
-                  ห้ามพลาด
-                </p>
-                <p className="font-display text-white py-2">
-                  การแข่งขันจะจัดขึ้นในวันเสาร์ที่ 20 และวันอาทิตย์ที่ 21
-                  ของเดือนพฤศจิกายน พ.ศ.2564 สามารถดูกำหนดการเพิ่มเติมได้ที่นี่
-                </p>
-                <p className="font-display text-white font-bold text-xl py-4 underline">
-                  กำหนดการ
-                </p>
+                <div className="flex flex-col gap-4 mt-6">
+                  <div className="flex">
+                    <span className="h-5 w-5 mt-0.5">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-white fill-current"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    <p className="font-display text-white ml-6">
+                      20-21 พฤศจิกายน 2021 (เสาร์-อาทิตย์) แข่งออนไลน์วันละ 3
+                      ชั่วโมง
+                    </p>
+                  </div>
+                  <div className="flex">
+                    <span className="h-5 w-5 mt-0.5">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-white fill-current"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    <p className="font-display text-white ml-6">
+                      สมัครได้ทุกคน ทุกเพศ ทุกวัย ไม่จำกัดอายุหรือสถานะ
+                    </p>
+                  </div>
+                  <div className="flex">
+                    <span className="h-5 w-5 mt-0.5">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-white fill-current"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                        <path
+                          fillRule="evenodd"
+                          d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    <p className="font-display text-white ml-6">
+                      ในการแข่งขัน
+                      ทุกคนจะได้รับโจทย์แข่งขันคอมพิวเตอร์โอลิมปิกเหมือนกัน 3
+                      ข้อ
+                    </p>
+                  </div>
+                  <div className="flex">
+                    <span className="h-5 w-5 mt-0.5">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-white fill-current"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    <p className="font-display text-white ml-6">
+                      ขอบเขตเนื้อหาเทียบเคียงได้กับโจทย์ในการแข่งขันคอมพิวเตอร์โอลิมปิกระหว่างประเทศ
+                      (IOI) แต่จะไม่เกินการแข่งขันคอมพิวเตอร์โอลิมปิกระดับชาติ
+                      (TOI)
+                    </p>
+                  </div>
+                  <div className="flex">
+                    <span className="h-5 w-5 mt-0.5">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-white fill-current"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+
+                    <p className="font-display text-white ml-6">
+                      โจทย์ทุกข้อจะใช้การเขียนอ่านข้อมูลทาง standard input
+                      (คีย์บอร์ด) และ standard output (หน้าจอ) เท่านั้น
+                      จะไม่มีโจทย์ประเภท interactive หรือ output-only
+                      และจะอนุญาตให้ใช้เฉพาะภาษา C และ C++ เท่านั้น
+                      โดยมีรุ่นของภาษาเป็น C11 และ C++11 ตามลำดับ
+                    </p>
+                  </div>
+                  <div className="flex">
+                    <span className="h-5 w-5 mt-0.5">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-white fill-current"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+
+                    <p className="font-display text-white ml-6">
+                      ใช้ระบบจัดการแข่งขัน CMS (Contest Management System)
+                      ซึ่งเป็นระบบเดียวกับที่ใช้ในการแข่งขันคอมพิวเตอร์โอลิมปิกระหว่างประเทศ
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-col justify-between h-full">
-                <div className="bg-red-400 rounded-lg p-2 w-min">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-10 w-10"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="white"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                    />
-                  </svg>
+            </div>
+            <div className="flex flex-col max-w-3xl py-10">
+              <p className="font-display text-3xl text-white">การคิดคะแนน</p>
+              <div className="flex flex-col py-6">
+                <div className="flex">
+                  <span className="h-8 flex items-center">
+                    <span className="relative z-10 w-4 h-4 flex items-center justify-center bg-red-400 rounded-full -mt-1"></span>
+                  </span>
+                  <p className="text-white font-display ml-4">
+                    ผู้เข้าแข่งขันจะสามารถเห็นคะแนนของตนเองได้ทันทีที่ส่ง
+                    (Complete Feedback)
+                  </p>
                 </div>
-                <p className="font-display text-white font-bold text-2xl py-6">
-                  ต้องการแต่งโจทย์?
-                </p>
-                <p className="font-display text-white py-2">
-                  เราพร้อมให้ทุกคนมีส่วนร่วมในการแต่งโจทย์
-                  หากต้องการร่วมงานกับเรา
-                  สามารถศึกษากระบวนการแต่งโจทย์และการส่งโจทย์ได้ตามนี้
-                </p>
-                <p className="font-display text-white font-bold text-xl py-4 underline">
-                  กระบวนการแต่งโจทย์
-                </p>
+                <div className="flex">
+                  <span className="h-8 flex items-center">
+                    <span className="relative z-10 w-4 h-4 flex items-center justify-center bg-red-400 rounded-full -mt-1"></span>
+                  </span>
+                  <p className="text-white font-display ml-4">
+                    ส่งได้ไม่จำกัดจำนวนครั้ง (รออย่างน้อย 30 วินาที
+                    สำหรับการส่งครั้งถัดไป)
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col justify-between h-full">
-                <div className="bg-red-400 rounded-lg p-2 w-min">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-10 w-10"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="white"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                    />
-                  </svg>
-                </div>
-                <p className="font-display text-white font-bold text-2xl py-6">
-                  รูปแบบการแข่งขัน
+              <div className="flex flex-col">
+                <p className="text-white font-display mb-6">
+                  ในโจทย์แต่ละข้อเราจะแบ่งออกเป็นปัญหาย่อย (subtasks) หลายๆ
+                  ปัญหาย่อย ในแต่ละปัญหาย่อยจะประกอบด้วยข้อมูลทดสอบหลายชุด
+                  ผู้เข้าแข่งขันจะได้คะแนนเต็มของปัญหาย่อย
+                  ก็ต่อเมื่อผู้เข้าแข่งขันได้คะแนนเต็มของข้อมูลทดสอบทุกชุดในปัญหาย่อยนั้นๆ
+                  หากมีการผิดพลาดแม้แต่ชุดทดสอบเดียว
+                  จะถือว่าปัญหาย่อยนั้นได้คะแนนเป็นศูนย์
+                  กฎดังกล่าวอาจมีการเปลี่ยนแปลง
+                  และจะมีการแจ้งในโจทย์แต่ละข้อหากมีการคิดคะแนนที่แตกต่างออกไป
+                  (เช่น ไม่มีปัญหาย่อย นับคะแนนตามจำนวนชุดทดสอบ หรือ
+                  นับคะแนนตามประสิทธิภาพของคำตอบ)
                 </p>
-                <p className="font-display text-white py-2">
-                  การแข่งขันยาวรอบละ 3 ชั่วโมง จัดขึ้น 2 รอบ
-                  โดยมีโจทย์การแข่งขันรอบละ 3 ข้อ
-                  สามารถดูรายละเอียดโจทย์แต่ละข้อและขอบเขตเนื้อหาที่ใช้ในการแข่งขันได้ที่นี่
-                </p>
-                <p className="font-display text-white font-bold text-xl py-4 underline">
-                  รูปแบบการแข่งขัน
+                <p className="text-white font-display">
+                  หากผู้เข้าแข่งขันส่งหลายครั้ง
+                  คะแนนสุดท้ายที่จะได้รับคือผลรวมของคะแนนสุดท้ายในแต่ละปัญหาย่อย
+                  และคะแนนสุดท้ายในแต่ละปัญหาย่อย
+                  คือค่ามากสุดของคะแนนที่ได้รับในปัญหาย่อยนั้นจากการส่งทุกครั้งที่ผ่านมา
                 </p>
               </div>
             </div>
@@ -273,10 +338,7 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section>
-          <section
-            className="flex flex-col items-center justify-center w-full bg-gray-800"
-            ref={interactive as any}
-          >
+          <section className="flex flex-col items-center justify-center w-full bg-gray-800">
             <div className="flex py-48 items-center justify-center">
               <div className="flex flex-col">
                 <p className="font-display text-xl sm:text-2xl text-white text-right">
@@ -286,27 +348,9 @@ const Home: NextPage = () => {
                   กว่า
                 </p>
               </div>
-              {isShowingInteractive ? (
-                <Countup
-                  start={0}
-                  end={215}
-                  duration={3}
-                  delay={0}
-                  useEasing={true}
-                  separator=","
-                >
-                  {({ countUpRef }) => (
-                    <p
-                      className="font-display text-6xl sm:text-8xl text-red-400 font-bold px-4"
-                      ref={countUpRef as any}
-                    />
-                  )}
-                </Countup>
-              ) : (
-                <p className="font-display text-6xl sm:text-8xl text-red-400 font-bold px-4">
-                  0
-                </p>
-              )}
+              <p className="font-display text-6xl sm:text-8xl text-red-400 font-bold px-4">
+                0
+              </p>
 
               <p className="font-display text-3xl sm:text-5xl text-white font-medium">
                 คน
@@ -326,12 +370,12 @@ const Home: NextPage = () => {
                   <ol>
                     <li className="relative pb-10">
                       <div
-                        className="-ml-px absolute mt-0.5 top-4 left-7 w-0.5 h-full bg-red-400"
+                        className="-ml-px absolute mt-0.5 top-4 left-5.5 w-0.5 h-full bg-red-400"
                         aria-hidden="true"
                       />
                       <div className="relative flex items-start group px-4">
                         <span className="h-9 flex items-center">
-                          <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
+                          <span className="relative z-10 w-3 h-3 flex items-center justify-center bg-red-400 rounded-full" />
                         </span>
                         <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
                           <div className="flex flex-col w-40">
@@ -350,12 +394,12 @@ const Home: NextPage = () => {
                     </li>
                     <li className="relative pb-10">
                       <div
-                        className="-ml-px absolute mt-0.5 top-4 left-7 w-0.5 h-full bg-red-400"
+                        className="-ml-px absolute mt-0.5 top-4 left-5.5 w-0.5 h-full bg-red-400"
                         aria-hidden="true"
                       />
                       <div className="relative flex items-start group px-4">
                         <span className="h-9 flex items-center">
-                          <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
+                          <span className="relative z-10 w-3 h-3 flex items-center justify-center bg-red-400 rounded-full" />
                         </span>
                         <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
                           <div className="flex flex-col w-40">
@@ -374,12 +418,12 @@ const Home: NextPage = () => {
                     </li>
                     <li className="relative pb-10">
                       <div
-                        className="-ml-px absolute mt-0.5 top-4 left-7 w-0.5 h-full bg-red-400"
+                        className="-ml-px absolute mt-0.5 top-4 left-5.5 w-0.5 h-full bg-red-400"
                         aria-hidden="true"
                       />
                       <div className="relative flex items-start group px-4">
                         <span className="h-9 flex items-center">
-                          <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
+                          <span className="relative z-10 w-3 h-3 flex items-center justify-center bg-red-400 rounded-full" />
                         </span>
                         <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
                           <div className="flex flex-col w-40">
@@ -398,12 +442,12 @@ const Home: NextPage = () => {
                     </li>
                     <li className="relative pb-10">
                       <div
-                        className="-ml-px absolute mt-0.5 top-4 left-7 w-0.5 h-full bg-red-400"
+                        className="-ml-px absolute mt-0.5 top-4 left-5.5 w-0.5 h-full bg-red-400"
                         aria-hidden="true"
                       />
                       <div className="relative flex items-start group px-4">
                         <span className="h-9 flex items-center">
-                          <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
+                          <span className="relative z-10 w-3 h-3 flex items-center justify-center bg-red-400 rounded-full" />
                         </span>
                         <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
                           <div className="flex flex-col w-40">
@@ -422,12 +466,12 @@ const Home: NextPage = () => {
                     </li>
                     <li className="relative pb-10">
                       <div
-                        className="-ml-px absolute mt-0.5 top-4 left-7 w-0.5 h-full bg-red-400"
+                        className="-ml-px absolute mt-0.5 top-4 left-5.5 w-0.5 h-full bg-red-400"
                         aria-hidden="true"
                       />
                       <div className="relative flex items-start group px-4">
                         <span className="h-9 flex items-center">
-                          <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
+                          <span className="relative z-10 w-3 h-3 flex items-center justify-center bg-red-400 rounded-full" />
                         </span>
                         <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
                           <div className="flex flex-col w-40">
@@ -447,7 +491,7 @@ const Home: NextPage = () => {
                     <li className="relative pb-8 sm:pb-16 lg:pb-24">
                       <div className="relative flex items-start group px-4">
                         <span className="h-9 flex items-center">
-                          <span className="relative z-10 w-6 h-6 flex items-center justify-center bg-red-400 rounded-full" />
+                          <span className="relative z-10 w-3 h-3 flex items-center justify-center bg-red-400 rounded-full" />
                         </span>
                         <span className="ml-4 sm:ml-8 flex flex-col md:flex-row justify-between">
                           <div className="flex flex-col w-40">

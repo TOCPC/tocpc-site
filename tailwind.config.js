@@ -72,6 +72,9 @@ module.exports = {
           },
         },
       }),
+      inset: {
+        5.5: '1.375rem',
+      },
     },
     screens: {
       sm: '640px',
