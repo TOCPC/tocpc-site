@@ -130,7 +130,7 @@ export const Nav = () => {
             </a>
           </Link>
           <Link href="/login">
-            <button className="font-display bg-white font-semibold px-6 py-2.5 rounded-full">
+            <button className="font-display bg-white font-semibold px-6 py-2.5 rounded-full hover:bg-gray-300">
               Login
             </button>
           </Link>

@@ -11,8 +11,8 @@ const Login = () => {
           </p>
           <p className="font-display text-white text-center pb-8">
             Or{' '}
-            <Link href="/login">
-              <span className="text-red-400">login here</span>
+            <Link href="/login" passHref>
+              <a className="text-red-400">login here</a>
             </Link>
           </p>
         </div>

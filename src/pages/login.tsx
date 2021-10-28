@@ -7,12 +7,12 @@ const Login = () => {
       <div className="flex flex-col items-center justify-center h-screen">
         <div>
           <p className="font-display text-3xl text-white text-center font-extrabold py-2">
-            Register
+            Login
           </p>
           <p className="font-display text-white text-center pb-8">
             Or{' '}
-            <Link href="/login">
-              <span className="text-red-400">login here</span>
+            <Link href="/register" passHref>
+              <a className="text-red-400">register here</a>
             </Link>
           </p>
         </div>
@@ -32,7 +32,7 @@ const Login = () => {
                 fill="#1877F2"
               />
             </svg>
-            <p className="px-4">Sign up with Facebook</p>
+            <p className="px-4">Sign in with Facebook</p>
           </button>
           <button className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6">
             <svg
@@ -71,7 +71,7 @@ const Login = () => {
                 </clipPath>
               </defs>
             </svg>
-            <p className="px-4">Sign up with Google</p>
+            <p className="px-4">Sign in with Google</p>
           </button>
           <button className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6">
             <svg
@@ -88,7 +88,7 @@ const Login = () => {
                 fill="#111827"
               />
             </svg>
-            <p className="px-4">Sign up with Github</p>
+            <p className="px-4">Sign in with Github</p>
           </button>
         </div>
       </div>
