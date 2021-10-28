@@ -70,10 +70,7 @@ export const Footer = () => {
                 Home
               </a>
             </Link>
-            <a className="font-display sm:pr-8 pb-6 sm:pb-0 font-extrabold text-white">
-              Submission
-            </a>
-            <Link href="/about">
+            <Link href="/about" passHref>
               <a
                 className={classNames(
                   'font-display sm:pr-8 pb-6 sm:pb-0 font-extrabold text-white',
@@ -83,9 +80,11 @@ export const Footer = () => {
                 About us
               </a>
             </Link>
-            <button className="font-display bg-red-400 text-white font-extrabold px-6 py-2.5 rounded-full">
-              Register
-            </button>
+            <Link href="login">
+              <button className="font-display bg-red-400 text-white font-extrabold px-6 py-2.5 rounded-full">
+                Login
+              </button>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end sm:py-12">

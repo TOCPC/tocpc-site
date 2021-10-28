@@ -73,7 +73,7 @@ export const Nav = () => {
       <div
         className={classnames(
           'flex w-full justify-between max-w-4xl items-center border-white py-5 sm:pt-12',
-          pathname !== '/' && 'border-b'
+          (pathname === '/about' || pathname === 'scope') && 'border-b'
         )}
       >
         <div className="flex items-center justify-center">
@@ -109,7 +109,7 @@ export const Nav = () => {
           <p className="font-light text-2xl text-white">TOCPC</p>
         </div>
         <div className="hidden sm:flex items-center">
-          <Link href="/">
+          <Link href="/" passHref>
             <a
               className={classnames(
                 'font-display sm:pr-4 md:pr-8 pb-6 sm:pb-0 font-semibold text-white',
@@ -119,7 +119,7 @@ export const Nav = () => {
               Home
             </a>
           </Link>
-          <Link href="/about">
+          <Link href="/about" passHref>
             <a
               className={classnames(
                 'font-display sm:pr-4 md:pr-8 pb-6 sm:pb-0 font-semibold text-white',
@@ -129,9 +129,11 @@ export const Nav = () => {
               About us
             </a>
           </Link>
-          <button className="font-display bg-white font-semibold px-6 py-2.5 rounded-full">
-            Register
-          </button>
+          <Link href="/login">
+            <button className="font-display bg-white font-semibold px-6 py-2.5 rounded-full">
+              Login
+            </button>
+          </Link>
         </div>
         <button onClick={() => setReveal(!reveal)} className="sm:hidden">
           <svg
