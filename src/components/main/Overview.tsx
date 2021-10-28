@@ -1,5 +1,5 @@
 export const Overview = () => (
-  <section className="flex flex-col items-center w-full h-auto bg-gray-800 px-8 sm:px-20 md:px-32 py-10 sm:py-18">
+  <section className="flex flex-col items-center w-full h-auto bg-gray-900 px-8 sm:px-20 md:px-32 py-10 sm:py-18">
     <div className="flex max-w-4xl rounded-xl shadow-2xl overflow-hidden w-full">
       <div className="flex flex-col w-full h-full p-6 sm:p-10 md:p-16">
         <div className="flex flex-col gap-2">
