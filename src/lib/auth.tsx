@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react'
 import Router from 'next/router'
+import cookie from 'js-cookie'
 
 import {
   getAuth,
@@ -9,13 +10,14 @@ import {
   GithubAuthProvider,
   signInWithPopup,
   signOut,
+  onIdTokenChanged,
 } from 'firebase/auth'
-import { onSnapshot } from 'firebase/firestore'
 import firebaseApp from './firebase'
-import { createUser, getUserRef } from './db'
+import { createUser, getCurrentUserData } from './db'
+import { AUTH_COOKIE } from './constants'
 import { Loading } from 'components/Loading'
 
-interface UserData extends IInitialUserData {
+export interface IUserData extends IInitialUserData {
   username: string
   password: string
   firstname?: string
@@ -38,7 +40,8 @@ interface IInitialUserData {
 const auth = getAuth(firebaseApp)
 
 interface IAuthContext {
-  user: UserData | null
+  user: User | null
+  userData: IUserData | null
   loading: boolean
   signinWithFacebook: (redirect: string) => Promise<void>
   signinWithGoogle: (redirect: string) => Promise<void>
@@ -55,45 +58,49 @@ export const useAuth = () => {
 export const AuthProvider: React.FC = ({ children }) => {
   const auth = useProvideAuth()
 
-  return <Loading />
-  // if (auth.loading) {
-  //   return <Loading />
-  // }
+  if (auth.loading) {
+    return <Loading />
+  }
 
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>
 }
 
 function useProvideAuth() {
-  const [user, setUser] = useState<UserData | null>(null)
+  const [user, setUser] = useState<User | null>(null)
+  const [userData, setUserData] = useState<IUserData | null>(null)
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    if (user?.uid) {
-      const userRef = getUserRef(user.uid)
-      const unsubscribe = onSnapshot(userRef, (doc) => {
-        setUser({
-          ...user,
-          ...doc.data(),
-        })
-        setLoading(false)
-      })
-      return () => unsubscribe()
+  const updateUserData = useCallback(async () => {
+    const data = await getCurrentUserData(user?.uid as string)
+
+    if (data) {
+      setUserData(data as IUserData)
+    } else {
+      setUserData(null)
     }
   }, [user?.uid])
+
+  useEffect(() => {
+    if (user) {
+      updateUserData()
+    }
+  }, [user, updateUserData])
 
   const handleUser = async (rawUser: User | null) => {
     if (rawUser) {
       const user = formatUser(rawUser)
-      await createUser(user.uid, user)
-      const tempUser: UserData = {
-        ...user,
-        username: '',
-        password: '',
-        anonymous: true,
-      }
-      setUser(tempUser)
+      createUser(user.uid, user)
+      setUser(rawUser)
+
+      cookie.set(AUTH_COOKIE, 'true', {
+        expires: 1,
+      })
+
+      setLoading(false)
     } else {
       setUser(null)
+      cookie.remove(AUTH_COOKIE)
+
       setLoading(false)
     }
   }
@@ -141,8 +148,15 @@ function useProvideAuth() {
     return await handleUser(null)
   }
 
+  useEffect(() => {
+    const unsubscribe = onIdTokenChanged(auth, handleUser)
+
+    return () => unsubscribe()
+  }, [])
+
   return {
     user,
+    userData,
     loading,
     signinWithFacebook,
     signinWithGoogle,
