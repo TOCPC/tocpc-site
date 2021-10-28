@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react'
 import Router from 'next/router'
-import cookie from 'js-cookie'
 
 import {
   getAuth,
@@ -12,9 +11,9 @@ import {
   signOut,
   onIdTokenChanged,
 } from 'firebase/auth'
+import { onSnapshot } from 'firebase/firestore'
 import firebaseApp from './firebase'
-import { createUser, getCurrentUserData } from './db'
-import { AUTH_COOKIE } from './constants'
+import { createUser, getUserRef } from './db'
 import { Loading } from 'components/Loading'
 
 export interface IUserData extends IInitialUserData {
@@ -70,36 +69,38 @@ function useProvideAuth() {
   const [userData, setUserData] = useState<IUserData | null>(null)
   const [loading, setLoading] = useState(true)
 
-  const updateUserData = useCallback(async () => {
-    const data = await getCurrentUserData(user?.uid as string)
+  useEffect(() => {
+    if (user?.uid) {
+      const userRef = getUserRef(user.uid)
+      const unsubscribe = onSnapshot(userRef, (doc) => {
+        setUserData((data) => {
+          if (data) {
+            setLoading(false)
+            return { ...data, ...doc.data() }
+          } else return null
+        })
+      })
 
-    if (data) {
-      setUserData(data as IUserData)
-    } else {
-      setUserData(null)
+      return () => {
+        setUserData(null)
+        unsubscribe()
+      }
     }
   }, [user?.uid])
-
-  useEffect(() => {
-    if (user) {
-      updateUserData()
-    }
-  }, [user, updateUserData])
 
   const handleUser = async (rawUser: User | null) => {
     if (rawUser) {
       const user = formatUser(rawUser)
-      createUser(user.uid, user)
-      setUser(rawUser)
-
-      cookie.set(AUTH_COOKIE, 'true', {
-        expires: 1,
+      await createUser(user.uid, user)
+      setUserData({
+        ...user,
+        username: '',
+        password: '',
+        anonymous: true,
       })
-
-      setLoading(false)
+      setUser(rawUser)
     } else {
       setUser(null)
-      cookie.remove(AUTH_COOKIE)
 
       setLoading(false)
     }
