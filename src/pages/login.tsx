@@ -1,6 +1,8 @@
 import Link from 'next/link'
+import { useAuth } from 'lib/auth'
 
 const Login = () => {
+  const auth = useAuth()
   return (
     <main className="relative w-full min-h-screen bg-gray-900">
       <div className="absolute right-full bg-red-400 w-20 h-full transform translate-x-2 sm:translate-x-10 md:translate-x-20 z-10"></div>
@@ -17,7 +19,10 @@ const Login = () => {
           </p>
         </div>
         <div>
-          <button className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6">
+          <button
+            className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6"
+            onClick={() => auth?.signinWithFacebook('/dashboard')}
+          >
             <svg
               width="36"
               height="35"
@@ -34,7 +39,10 @@ const Login = () => {
             </svg>
             <p className="px-4">Sign in with Facebook</p>
           </button>
-          <button className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6">
+          <button
+            className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6"
+            onClick={() => auth?.signinWithGoogle('/dashboard')}
+          >
             <svg
               width="30"
               height="31"
@@ -73,7 +81,10 @@ const Login = () => {
             </svg>
             <p className="px-4">Sign in with Google</p>
           </button>
-          <button className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6">
+          <button
+            className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6"
+            onClick={() => auth?.signinWithGitHub('/dashboard')}
+          >
             <svg
               width="30"
               height="31"

@@ -1,7 +1,9 @@
 import { Formik, Field, Form } from 'formik'
 import { useState, useEffect } from 'react'
+import Router from 'next/router'
 import Link from 'next/link'
 import classnames from 'classnames'
+import { useAuth } from 'lib/auth'
 
 const Normal = () => (
   <Formik
@@ -153,6 +155,17 @@ const Anonymous = () => (
 )
 
 const Register = () => {
+  const auth = useAuth()
+  useEffect(() => {
+    if (auth?.user) {
+      if (auth?.userData?.password !== '') {
+        Router.push('/dashboard')
+      }
+    } else {
+      Router.push('/')
+    }
+  }, [auth])
+
   const [anonymous, setAnonymous] = useState<boolean>(false)
 
   return (
