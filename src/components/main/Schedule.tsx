@@ -1,7 +1,7 @@
 import { ProgLogo } from 'components/ProgLogo'
 
 export const Schedule = () => (
-  <section className="flex flex-col items-center justify-center w-full bg-gray-800">
+  <section className="flex flex-col items-center justify-center w-full bg-gray-900">
     <div className="flex py-48 items-center justify-center">
       <div className="flex flex-col">
         <p className="font-display text-xl sm:text-2xl text-white text-right">
@@ -21,7 +21,7 @@ export const Schedule = () => (
     </div>
     <div className="px-6 sm:px-20 md:px-32 w-full flex items-center justify-center pb-12">
       <div className="flex flex-col justify-center items-center border border-red-400 max-w-4xl w-full rounded-3xl">
-        <div className="flex flex-col items-center bg-gray-800 -mt-5 px-1 md:px-4 pb-8 sm:pb-16 lg:pb-24 max-w-xl">
+        <div className="flex flex-col items-center bg-gray-900 -mt-5 px-1 md:px-4 pb-8 sm:pb-16 lg:pb-24 max-w-xl">
           <p className="font-display text-red-400 font-semibold text-sm sm:text-md">
             กำหนดการ
           </p>

@@ -1,7 +1,8 @@
 import { MainFootage } from 'components/footage'
+import Link from 'next/link'
 
 export const THACO = () => (
-  <section className="w-full h-screen bg-gray-800 relative overflow-hidden">
+  <section className="w-full h-screen bg-gray-900 relative overflow-hidden">
     <div className="block absolute h-full w-full">
       <div className="relative h-full max-w-7xl">
         <MainFootage />
@@ -33,9 +34,11 @@ export const THACO = () => (
           </p>
         </div>
         <div className="pt-6">
-          <button className="bg-red-400 px-8 py-4 sm:px-10 sm:py-6 text-white text-2xl font-semibold rounded-full">
-            Register
-          </button>
+          <Link href="/register">
+            <button className="bg-red-400 px-8 py-4 sm:px-10 sm:py-6 text-white text-2xl font-semibold rounded-full">
+              Register
+            </button>
+          </Link>
           <p className="font-display py-4 text-white text-center">
             until 19 NOV 2021
           </p>

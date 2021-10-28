@@ -27,8 +27,8 @@ export const Footer = () => {
   return (
     <footer className="flex bg-black w-full justify-center">
       <div className="flex flex-col max-w-4xl w-full px-16 sm:px-8 lg:px-0">
-        <div className="flex flex-col-reverse sm:flex-row justify-between items-center sm:border-b border-gray-800">
-          <div className="flex items-center justify-center py-8 sm:py-0 border-t border-b sm:border-0 w-full sm:w-auto border-gray-800">
+        <div className="flex flex-col-reverse sm:flex-row justify-between items-center sm:border-b border-gray-900">
+          <div className="flex items-center justify-center py-8 sm:py-0 border-t border-b sm:border-0 w-full sm:w-auto border-gray-900">
             <svg
               width="50"
               height=""
@@ -89,7 +89,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end sm:py-12">
-          <div className="flex flex-col w-full sm:w-auto items-center sm:items-baseline py-28 sm:py-0 border-b sm:border-0 border-gray-800">
+          <div className="flex flex-col w-full sm:w-auto items-center sm:items-baseline py-28 sm:py-0 border-b sm:border-0 border-gray-900">
             <p className="font-display font-bold w-36 sm:w-72 pb-12 sm:pb-0 items-center text-white text-center sm:text-left">
               หากสนใจเป็นผู้ร่วมสนับสนุนหรือเป็นพันธมิตรกับพวกเราสามารถติดต่อเราได้ที่
             </p>
