@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react'
-import Router from 'next/router'
+import React, { useState, useEffect, useContext, useMemo } from 'react'
+import Router, { useRouter } from 'next/router'
 
 import {
   getAuth,
@@ -56,8 +56,54 @@ export const useAuth = () => {
 
 export const AuthProvider: React.FC = ({ children }) => {
   const auth = useProvideAuth()
+  const { pathname } = useRouter()
 
-  if (auth.loading) {
+  const checkOnboard = useMemo(() => {
+    let status = false
+    if (pathname === '/onboard') {
+      status = true
+    }
+    if (auth?.userData?.password === '') {
+      status = false
+    }
+    if (auth.user !== null) {
+      status = false
+    }
+    return status
+  }, [pathname, auth])
+
+  const checkDashboard = useMemo(() => {
+    let status = false
+    if (pathname === '/dashboard') {
+      status = true
+    }
+    if (auth?.userData?.password !== '') {
+      status = false
+    }
+    if (auth.user !== null) {
+      status = false
+    }
+    return status
+  }, [pathname, auth])
+
+  useEffect(() => {
+    if (pathname === '/onboard') {
+      if (auth.user === null) {
+        Router.push('/')
+      } else if (auth?.userData?.password !== '') {
+        Router.push('/dashboard')
+      }
+    }
+    if (pathname === '/dashboard') {
+      if (auth.user === null) {
+        Router.push('/')
+      } else if (auth?.userData?.password === '') {
+        Router.push('/onboard')
+      }
+    }
+  }, [pathname, auth])
+
+  if (auth.loading || checkOnboard || checkDashboard) {
     return <Loading />
   }
 

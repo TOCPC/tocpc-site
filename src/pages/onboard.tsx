@@ -155,16 +155,16 @@ const Anonymous = () => (
 )
 
 const Register = () => {
-  const auth = useAuth()
-  useEffect(() => {
-    if (auth?.user) {
-      if (auth?.userData?.password !== '') {
-        Router.push('/dashboard')
-      }
-    } else {
-      Router.push('/')
-    }
-  }, [auth])
+  // const auth = useAuth()
+  // useEffect(() => {
+  //   if (auth?.user) {
+  //     if (auth?.userData?.password !== '') {
+  //       Router.push('/dashboard')
+  //     }
+  //   } else {
+  //     Router.push('/')
+  //   }
+  // }, [auth])
 
   const [anonymous, setAnonymous] = useState<boolean>(false)
 
