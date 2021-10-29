@@ -13,7 +13,7 @@ import {
 } from 'firebase/auth'
 import { onSnapshot } from 'firebase/firestore'
 import firebaseApp from './firebase'
-import { createUser, getUserRef } from './db'
+import { createUser, getUserRef, getCurrentUserData } from './db'
 import { Loading } from 'components/Loading'
 
 export interface IUserData extends IInitialUserData {
@@ -38,10 +38,11 @@ interface IInitialUserData {
 
 const auth = getAuth(firebaseApp)
 
-interface IAuthContext {
+export interface IAuthContext {
   user: User | null
   userData: IUserData | null
   loading: boolean
+  setLoading: (loading: boolean) => void
   signinWithFacebook: (redirect: string) => Promise<void>
   signinWithGoogle: (redirect: string) => Promise<void>
   signinWithGitHub: (redirect: string) => Promise<void>
@@ -60,48 +61,51 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   const checkOnboard = useMemo(() => {
     let status = false
-    if (pathname === '/onboard') {
+    if (pathname === '/onboard' && auth.user === null) {
       status = true
     }
-    if (auth?.userData?.password === '') {
-      status = false
+    if ((pathname === '/onboard') !== (auth?.userData?.password === '')) {
+      status = true
     }
-    if (auth.user !== null) {
-      status = false
-    }
+
     return status
   }, [pathname, auth])
 
   const checkDashboard = useMemo(() => {
     let status = false
-    if (pathname === '/dashboard') {
+    if (pathname === '/dashboard' && auth.user === null) {
       status = true
     }
-    if (auth?.userData?.password !== '') {
-      status = false
-    }
-    if (auth.user !== null) {
-      status = false
+    if (pathname === '/dashboard' && auth?.userData?.password === '') {
+      status = true
     }
     return status
   }, [pathname, auth])
 
   useEffect(() => {
-    if (pathname === '/onboard') {
-      if (auth.user === null) {
-        Router.push('/')
-      } else if (auth?.userData?.password !== '') {
-        Router.push('/dashboard')
-      }
-    }
-    if (pathname === '/dashboard') {
-      if (auth.user === null) {
-        Router.push('/')
-      } else if (auth?.userData?.password === '') {
+    if (auth.loading === false) {
+      if (pathname === '/onboard') {
+        if (auth?.user === null) {
+          Router.push('/')
+        } else if (auth?.userData?.password !== '') {
+          Router.push('/dashboard')
+        }
+      } else if (auth?.user && auth?.userData?.password === '') {
+        console.log('====> ', auth?.userData?.password)
         Router.push('/onboard')
+      } else if (auth.user === null) {
+        if (pathname === '/dashboard' || pathname === '/onboard') {
+          Router.push('/')
+        }
+      } else {
+        if (pathname === '/login' || pathname === '/register') {
+          Router.push('/')
+        }
       }
     }
   }, [pathname, auth])
+
+  console.log(auth.loading, auth?.userData)
 
   if (auth.loading || checkOnboard || checkDashboard) {
     return <Loading />
@@ -118,10 +122,10 @@ function useProvideAuth() {
   useEffect(() => {
     if (user?.uid) {
       const userRef = getUserRef(user.uid)
+
       const unsubscribe = onSnapshot(userRef, (doc) => {
         setUserData((data) => {
           if (data) {
-            setLoading(false)
             return { ...data, ...doc.data() }
           } else return null
         })
@@ -135,17 +139,22 @@ function useProvideAuth() {
   }, [user?.uid])
 
   const handleUser = async (rawUser: User | null) => {
-    if (rawUser) {
+    if (rawUser && user === null) {
       const user = formatUser(rawUser)
       await createUser(user.uid, user)
+
+      setUser(rawUser)
+      const tmpData: any = await getCurrentUserData(user.uid)
+      console.log(user.uid)
+      console.log('->', tmpData)
       setUserData({
-        ...user,
         username: '',
         password: '',
         anonymous: true,
+        ...tmpData,
       })
-      setUser(rawUser)
-    } else {
+      setLoading(false)
+    } else if (rawUser === null) {
       setUser(null)
 
       setLoading(false)
@@ -205,6 +214,7 @@ function useProvideAuth() {
     user,
     userData,
     loading,
+    setLoading,
     signinWithFacebook,
     signinWithGoogle,
     signinWithGitHub,
