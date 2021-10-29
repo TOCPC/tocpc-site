@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
+import { useAuth } from 'lib/auth'
 
 export const Footer = () => {
   const { pathname } = useRouter()
+  const auth = useAuth()
 
   const getClass = (expected: string, part: 'ul' | 'color') => {
     if (pathname == expected) {
@@ -22,6 +24,13 @@ export const Footer = () => {
           return 'text-white'
       }
     }
+  }
+  if (
+    pathname === '/login' ||
+    pathname === '/register' ||
+    pathname === '/onboard'
+  ) {
+    return null
   }
 
   return (
@@ -63,7 +72,7 @@ export const Footer = () => {
             <Link href="/">
               <a
                 className={classNames(
-                  'font-display sm:pr-8 pb-6 sm:pb-0 font-extrabold text-white',
+                  'font-display pb-6 sm:pb-0 font-extrabold text-white',
                   getClass('/', 'ul')
                 )}
               >
@@ -73,18 +82,20 @@ export const Footer = () => {
             <Link href="/about" passHref>
               <a
                 className={classNames(
-                  'font-display sm:pr-8 pb-6 sm:pb-0 font-extrabold text-white',
+                  'font-display sm:ml-8 pb-6 sm:pb-0 font-extrabold text-white',
                   getClass('/about', 'ul')
                 )}
               >
                 About us
               </a>
             </Link>
-            <Link href="login">
-              <button className="font-display bg-red-400 text-white font-extrabold px-6 py-2.5 rounded-full">
-                Login
-              </button>
-            </Link>
+            {auth?.user === null && (
+              <Link href="login">
+                <button className="font-display sm:ml-8 bg-red-400 text-white font-extrabold px-6 py-2.5 rounded-full">
+                  Login
+                </button>
+              </Link>
+            )}
           </div>
         </div>
         <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end sm:py-12">

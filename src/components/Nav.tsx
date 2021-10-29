@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
+import { useAuth } from 'lib/auth'
 import classnames from 'classnames'
 
 const DetectOuside = (ref: any, dep: boolean, callback: () => void) => {
@@ -68,6 +69,8 @@ export const Nav = () => {
     }
   }
 
+  const auth = useAuth()
+
   return (
     <nav className="absolute flex justify-center w-full px-10 sm:px-16 md:px-24 z-50">
       <div
@@ -109,31 +112,58 @@ export const Nav = () => {
           <p className="font-light text-2xl text-white">TOCPC</p>
         </div>
         <div className="hidden sm:flex items-center">
-          <Link href="/" passHref>
-            <a
-              className={classnames(
-                'font-display sm:pr-4 md:pr-8 pb-6 sm:pb-0 font-semibold text-white',
-                getClass('/', 'ul')
-              )}
+          {((auth?.userData?.password !== '' && auth?.user !== null) ||
+            auth?.user === null) && (
+            <>
+              <Link href="/" passHref>
+                <a
+                  className={classnames(
+                    'font-display sm:pr-4 md:pr-8 pb-6 sm:pb-0 font-semibold text-white',
+                    getClass('/', 'ul')
+                  )}
+                >
+                  Home
+                </a>
+              </Link>
+              <Link href="/about" passHref>
+                <a
+                  className={classnames(
+                    'font-display sm:pr-4 md:pr-8 pb-6 sm:pb-0 font-semibold text-white',
+                    getClass('/about', 'ul')
+                  )}
+                >
+                  About us
+                </a>
+              </Link>
+            </>
+          )}
+          {auth?.userData?.password !== '' && auth?.user !== null && (
+            <Link href="/dashboard" passHref>
+              <a
+                className={classnames(
+                  'font-display sm:pr-4 md:pr-8 pb-6 sm:pb-0 font-semibold text-white',
+                  getClass('/dashboard', 'ul')
+                )}
+              >
+                Dashboard
+              </a>
+            </Link>
+          )}
+
+          {auth?.user ? (
+            <button
+              className="font-display bg-white font-semibold px-6 py-2.5 rounded-full hover:bg-gray-300"
+              onClick={() => auth?.signout()}
             >
-              Home
-            </a>
-          </Link>
-          <Link href="/about" passHref>
-            <a
-              className={classnames(
-                'font-display sm:pr-4 md:pr-8 pb-6 sm:pb-0 font-semibold text-white',
-                getClass('/about', 'ul')
-              )}
-            >
-              About us
-            </a>
-          </Link>
-          <Link href="/login">
-            <button className="font-display bg-white font-semibold px-6 py-2.5 rounded-full hover:bg-gray-300">
-              Login
+              Logout
             </button>
-          </Link>
+          ) : (
+            <Link href="/login">
+              <button className="font-display bg-white font-semibold px-6 py-2.5 rounded-full hover:bg-gray-300">
+                Login
+              </button>
+            </Link>
+          )}
         </div>
         <button onClick={() => setReveal(!reveal)} className="sm:hidden">
           <svg
@@ -186,86 +216,151 @@ export const Nav = () => {
             </svg>
           </button>
           <div className="grid grid-cols-1 gap-6">
-            <Link href="/" passHref>
-              <div className="flex flex-col items-center">
-                <svg
-                  className={classnames('fill-current', getClass('/', 'color'))}
-                  width="30"
-                  height="31"
-                  viewBox="0 0 30 31"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M16.3196 1.27874C15.5909 0.549991 14.4093 0.549991 13.6806 1.27874L0.618093 14.3412C-0.110653 15.07 -0.110653 16.2515 0.618093 16.9803C1.34684 17.709 2.52837 17.709 3.25712 16.9803L3.80368 16.4337V28.7232C3.80368 29.7539 4.63914 30.5893 5.66975 30.5893H9.40189C10.4325 30.5893 11.268 29.7539 11.268 28.7232V24.9911C11.268 23.9605 12.1034 23.125 13.134 23.125H16.8662C17.8968 23.125 18.7322 23.9605 18.7322 24.9911V28.7232C18.7322 29.7539 19.5677 30.5893 20.5983 30.5893H24.3305C25.3611 30.5893 26.1965 29.7539 26.1965 28.7232V16.4337L26.7431 16.9803C27.4718 17.709 28.6534 17.709 29.3821 16.9803C30.1109 16.2515 30.1109 15.07 29.3821 14.3412L16.3196 1.27874Z" />
-                </svg>
-                <p
-                  className={classnames(
-                    'mt-2 font-semibold text-sm',
-                    getClass('/', 'color'),
-                    getClass('/', 'ul')
-                  )}
-                >
-                  Home
-                </p>
-              </div>
-            </Link>
-            <Link href="/about" passHref>
-              <div className="flex flex-col items-center">
-                <svg
-                  className={classnames(
-                    'fill-current',
-                    getClass('/about', 'color')
-                  )}
-                  width="38"
-                  height="38"
-                  viewBox="0 0 38 38"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M24.5982 11.8394C24.5982 14.9312 22.0918 17.4376 19 17.4376C15.9082 17.4376 13.4018 14.9312 13.4018 11.8394C13.4018 8.74762 15.9082 6.24121 19 6.24121C22.0918 6.24121 24.5982 8.74762 24.5982 11.8394Z" />
-                  <path d="M33.9285 15.5716C33.9285 17.6328 32.2576 19.3037 30.1964 19.3037C28.1352 19.3037 26.4643 17.6328 26.4643 15.5716C26.4643 13.5104 28.1352 11.8394 30.1964 11.8394C32.2576 11.8394 33.9285 13.5104 33.9285 15.5716Z" />
-                  <path d="M26.4643 28.6341C26.4643 24.5117 23.1224 21.1698 19 21.1698C14.8776 21.1698 11.5357 24.5117 11.5357 28.6341V34.2323H26.4643V28.6341Z" />
-                  <path d="M11.5357 15.5716C11.5357 17.6328 9.86474 19.3037 7.80354 19.3037C5.74233 19.3037 4.07139 17.6328 4.07139 15.5716C4.07139 13.5104 5.74233 11.8394 7.80354 11.8394C9.86474 11.8394 11.5357 13.5104 11.5357 15.5716Z" />
-                  <path d="M30.1964 34.2323V28.6341C30.1964 26.667 29.6891 24.8183 28.7982 23.2119C29.2451 23.097 29.7136 23.0359 30.1964 23.0359C33.2882 23.0359 35.7946 25.5423 35.7946 28.6341V34.2323H30.1964Z" />
-                  <path d="M9.20171 23.2119C8.31082 24.8183 7.80354 26.667 7.80354 28.6341V34.2323H2.20532V28.6341C2.20532 25.5423 4.71173 23.0359 7.80354 23.0359C8.28631 23.0359 8.7548 23.097 9.20171 23.2119Z" />
-                </svg>
-                <p
-                  className={classnames(
-                    'mt-2 font-semibold text-sm',
-                    getClass('/about', 'color'),
-                    getClass('/about', 'ul')
-                  )}
-                >
-                  About
-                </p>
-              </div>
-            </Link>
+            {((auth?.userData?.password !== '' && auth?.user !== null) ||
+              auth?.user === null) && (
+              <>
+                <Link href="/" passHref>
+                  <div className="flex flex-col items-center">
+                    <svg
+                      className={classnames(
+                        'fill-current',
+                        getClass('/', 'color')
+                      )}
+                      width="30"
+                      height="31"
+                      viewBox="0 0 30 31"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M16.3196 1.27874C15.5909 0.549991 14.4093 0.549991 13.6806 1.27874L0.618093 14.3412C-0.110653 15.07 -0.110653 16.2515 0.618093 16.9803C1.34684 17.709 2.52837 17.709 3.25712 16.9803L3.80368 16.4337V28.7232C3.80368 29.7539 4.63914 30.5893 5.66975 30.5893H9.40189C10.4325 30.5893 11.268 29.7539 11.268 28.7232V24.9911C11.268 23.9605 12.1034 23.125 13.134 23.125H16.8662C17.8968 23.125 18.7322 23.9605 18.7322 24.9911V28.7232C18.7322 29.7539 19.5677 30.5893 20.5983 30.5893H24.3305C25.3611 30.5893 26.1965 29.7539 26.1965 28.7232V16.4337L26.7431 16.9803C27.4718 17.709 28.6534 17.709 29.3821 16.9803C30.1109 16.2515 30.1109 15.07 29.3821 14.3412L16.3196 1.27874Z" />
+                    </svg>
+                    <p
+                      className={classnames(
+                        'mt-2 font-semibold text-sm',
+                        getClass('/', 'color'),
+                        getClass('/', 'ul')
+                      )}
+                    >
+                      Home
+                    </p>
+                  </div>
+                </Link>
+                <Link href="/about" passHref>
+                  <div className="flex flex-col items-center">
+                    <svg
+                      className={classnames(
+                        'fill-current',
+                        getClass('/about', 'color')
+                      )}
+                      width="38"
+                      height="38"
+                      viewBox="0 0 38 38"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M24.5982 11.8394C24.5982 14.9312 22.0918 17.4376 19 17.4376C15.9082 17.4376 13.4018 14.9312 13.4018 11.8394C13.4018 8.74762 15.9082 6.24121 19 6.24121C22.0918 6.24121 24.5982 8.74762 24.5982 11.8394Z" />
+                      <path d="M33.9285 15.5716C33.9285 17.6328 32.2576 19.3037 30.1964 19.3037C28.1352 19.3037 26.4643 17.6328 26.4643 15.5716C26.4643 13.5104 28.1352 11.8394 30.1964 11.8394C32.2576 11.8394 33.9285 13.5104 33.9285 15.5716Z" />
+                      <path d="M26.4643 28.6341C26.4643 24.5117 23.1224 21.1698 19 21.1698C14.8776 21.1698 11.5357 24.5117 11.5357 28.6341V34.2323H26.4643V28.6341Z" />
+                      <path d="M11.5357 15.5716C11.5357 17.6328 9.86474 19.3037 7.80354 19.3037C5.74233 19.3037 4.07139 17.6328 4.07139 15.5716C4.07139 13.5104 5.74233 11.8394 7.80354 11.8394C9.86474 11.8394 11.5357 13.5104 11.5357 15.5716Z" />
+                      <path d="M30.1964 34.2323V28.6341C30.1964 26.667 29.6891 24.8183 28.7982 23.2119C29.2451 23.097 29.7136 23.0359 30.1964 23.0359C33.2882 23.0359 35.7946 25.5423 35.7946 28.6341V34.2323H30.1964Z" />
+                      <path d="M9.20171 23.2119C8.31082 24.8183 7.80354 26.667 7.80354 28.6341V34.2323H2.20532V28.6341C2.20532 25.5423 4.71173 23.0359 7.80354 23.0359C8.28631 23.0359 8.7548 23.097 9.20171 23.2119Z" />
+                    </svg>
+                    <p
+                      className={classnames(
+                        'mt-2 font-semibold text-sm',
+                        getClass('/about', 'color'),
+                        getClass('/about', 'ul')
+                      )}
+                    >
+                      About
+                    </p>
+                  </div>
+                </Link>
+              </>
+            )}
+            {auth?.userData?.password !== '' && auth?.user !== null && (
+              <Link href="/dashboard" passHref>
+                <div className="flex flex-col items-center">
+                  <svg
+                    className={classnames(
+                      'fill-current',
+                      getClass('/dashboard', 'color')
+                    )}
+                    width="42"
+                    height="43"
+                    viewBox="0 0 42 43"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M37.8001 21.3039C37.8001 30.5823 30.2785 38.1039 21.0002 38.1039C11.7218 38.1039 4.2002 30.5823 4.2002 21.3039C4.2002 12.0255 11.7218 4.50391 21.0002 4.50391C30.2785 4.50391 37.8001 12.0255 37.8001 21.3039ZM25.2001 15.0039C25.2001 17.3235 23.3197 19.2039 21.0002 19.2039C18.6806 19.2039 16.8002 17.3235 16.8002 15.0039C16.8002 12.6843 18.6806 10.8039 21.0002 10.8039C23.3197 10.8039 25.2001 12.6843 25.2001 15.0039ZM21 23.4039C16.7632 23.4039 13.1125 25.9133 11.453 29.5269C13.7636 32.2072 17.1837 33.9039 21.0001 33.9039C24.8164 33.9039 28.2365 32.2072 30.5471 29.5271C28.8877 25.9134 25.2369 23.4039 21 23.4039Z"
+                    />
+                  </svg>
+                  <p
+                    className={classnames(
+                      'mt-2 font-semibold text-sm',
+                      getClass('/dashboard', 'color'),
+                      getClass('/dashboard', 'ul')
+                    )}
+                  >
+                    Dashboard
+                  </p>
+                </div>
+              </Link>
+            )}
 
-            <Link href="/login" passHref>
-              <div className="flex flex-col items-center rounded-xl bg-white w-24 h-24 justify-center">
+            {auth?.user ? (
+              <div
+                className="flex flex-col items-center rounded-xl bg-white w-24 h-24 justify-center"
+                onClick={() => auth.signout()}
+              >
                 <svg
-                  width="38"
-                  height="38"
-                  viewBox="0 0 38 38"
+                  width="36"
+                  height="37"
+                  viewBox="0 0 36 37"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M15.3 4.16455C14.2783 4.16455 13.45 4.99282 13.45 6.01455C13.45 7.03628 14.2783 7.86455 15.3 7.86455H19C20.0218 7.86455 20.85 7.03628 20.85 6.01455C20.85 4.99282 20.0218 4.16455 19 4.16455H15.3Z"
-                    fill="black"
+                    d="M5.4001 5.70361C4.40599 5.70361 3.6001 6.5095 3.6001 7.50361V29.1036C3.6001 30.0977 4.40599 30.9036 5.4001 30.9036C6.39421 30.9036 7.2001 30.0977 7.2001 29.1036V7.50361C7.2001 6.5095 6.39421 5.70361 5.4001 5.70361Z"
+                    fill="#111827"
                   />
                   <path
-                    d="M6.05005 9.71455C6.05005 7.6711 7.7066 6.01455 9.75005 6.01455C9.75005 9.07973 12.2349 11.5646 15.3 11.5646H19C22.0652 11.5646 24.55 9.07973 24.55 6.01455C26.5935 6.01455 28.25 7.6711 28.25 9.71455V20.8146H19.7663L22.1582 18.4227C22.8807 17.7002 22.8807 16.5289 22.1582 15.8064C21.4357 15.0839 20.2644 15.0839 19.5419 15.8064L13.9919 21.3564C13.2694 22.0789 13.2694 23.2502 13.9919 23.9727L19.5419 29.5227C20.2644 30.2452 21.4357 30.2452 22.1582 29.5227C22.8807 28.8002 22.8807 27.6289 22.1582 26.9064L19.7663 24.5145H28.25V30.0645C28.25 32.108 26.5935 33.7645 24.55 33.7645H9.75005C7.7066 33.7645 6.05005 32.108 6.05005 30.0645V9.71455Z"
-                    fill="black"
-                  />
-                  <path
-                    d="M28.25 20.8146H31.95C32.9718 20.8146 33.8 21.6428 33.8 22.6646C33.8 23.6863 32.9718 24.5145 31.95 24.5145H28.25V20.8146Z"
-                    fill="black"
+                    d="M23.9273 22.4308C23.2244 23.1338 23.2244 24.2735 23.9273 24.9764C24.6302 25.6793 25.7699 25.6793 26.4729 24.9764L31.8729 19.5764C32.2104 19.2388 32.4001 18.781 32.4001 18.3036C32.4001 17.8262 32.2104 17.3684 31.8729 17.0308L26.4729 11.6308C25.7699 10.9279 24.6302 10.9279 23.9273 11.6308C23.2244 12.3338 23.2244 13.4735 23.9273 14.1764L26.2545 16.5036L12.6001 16.5036C11.606 16.5036 10.8001 17.3095 10.8001 18.3036C10.8001 19.2977 11.606 20.1036 12.6001 20.1036H26.2545L23.9273 22.4308Z"
+                    fill="#111827"
                   />
                 </svg>
-                <p className="mt-2 font-semibold text-sm">Login</p>
+                <p className="mt-2 font-semibold text-sm">Logout</p>
               </div>
-            </Link>
+            ) : (
+              <Link href="/login" passHref>
+                <div className="flex flex-col items-center rounded-xl bg-white w-24 h-24 justify-center">
+                  <svg
+                    width="38"
+                    height="38"
+                    viewBox="0 0 38 38"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.3 4.16455C14.2783 4.16455 13.45 4.99282 13.45 6.01455C13.45 7.03628 14.2783 7.86455 15.3 7.86455H19C20.0218 7.86455 20.85 7.03628 20.85 6.01455C20.85 4.99282 20.0218 4.16455 19 4.16455H15.3Z"
+                      fill="black"
+                    />
+                    <path
+                      d="M6.05005 9.71455C6.05005 7.6711 7.7066 6.01455 9.75005 6.01455C9.75005 9.07973 12.2349 11.5646 15.3 11.5646H19C22.0652 11.5646 24.55 9.07973 24.55 6.01455C26.5935 6.01455 28.25 7.6711 28.25 9.71455V20.8146H19.7663L22.1582 18.4227C22.8807 17.7002 22.8807 16.5289 22.1582 15.8064C21.4357 15.0839 20.2644 15.0839 19.5419 15.8064L13.9919 21.3564C13.2694 22.0789 13.2694 23.2502 13.9919 23.9727L19.5419 29.5227C20.2644 30.2452 21.4357 30.2452 22.1582 29.5227C22.8807 28.8002 22.8807 27.6289 22.1582 26.9064L19.7663 24.5145H28.25V30.0645C28.25 32.108 26.5935 33.7645 24.55 33.7645H9.75005C7.7066 33.7645 6.05005 32.108 6.05005 30.0645V9.71455Z"
+                      fill="black"
+                    />
+                    <path
+                      d="M28.25 20.8146H31.95C32.9718 20.8146 33.8 21.6428 33.8 22.6646C33.8 23.6863 32.9718 24.5145 31.95 24.5145H28.25V20.8146Z"
+                      fill="black"
+                    />
+                  </svg>
+                  <p className="mt-2 font-semibold text-sm">Login</p>
+                </div>
+              </Link>
+            )}
           </div>
         </motion.div>
       </div>

@@ -3,9 +3,55 @@ import { useState, useEffect } from 'react'
 import Router from 'next/router'
 import Link from 'next/link'
 import classnames from 'classnames'
-import { useAuth } from 'lib/auth'
+import { useAuth, IAuthContext } from 'lib/auth'
+import { submitRegisterNormal } from 'lib/process'
 
-const Normal = () => (
+const validate = (values: any) => {
+  const errors: any = {}
+  if (!values.firstname) {
+    errors.firstname = 'จำเป็นต้องใส่'
+  } else if (values.firstname.length > 32) {
+    errors.firstname = 'ความยาวต้องไม่เกิน 32 ตัวอักษร'
+  }
+
+  if (!values.lastname) {
+    errors.lastname = 'จำเป็นต้องใส่'
+  } else if (values.lastname.length > 32) {
+    errors.lastname = 'ความยาวต้องไม่เกิน 32 ตัวอักษร'
+  }
+
+  if (!values.password) {
+    errors.password = 'จำเป็นต้องใส่'
+  } else if (values.password.length < 8 || values.password.length > 32) {
+    errors.password = 'ความยาวต้องอยู่ระหว่าง 8 ถึง 32 ตัวอักษร'
+  }
+
+  if (!values.verify) {
+    errors.verify = 'จำเป็นต้องใส่'
+  } else if (values.password !== values.verify) {
+    errors.verify = 'รหัสผ่านไม่ตรงกับยืนยันรหัสผ่าน'
+  }
+
+  if (!values.tel) {
+    errors.tel = 'จำเป็นต้องใส่'
+  } else if (values.tel.length > 16) {
+    errors.tel = 'ความยาวต้องไม่เกิน 16 ตัวอักษร'
+  }
+
+  if (!values.address) {
+    errors.address = 'จำเป็นต้องใส่'
+  } else if (values.tel.length > 256) {
+    errors.address = 'ความยาวต้องไม่เกิน 256 ตัวอักษร'
+  }
+
+  if (!values.size) {
+    errors.size = 'จำเป็นต้องใส่'
+  }
+
+  return errors
+}
+
+const Normal = ({ auth }: { auth: IAuthContext | null }) => (
   <Formik
     initialValues={{
       firstname: '',
@@ -14,110 +60,191 @@ const Normal = () => (
       verify: '',
       tel: '',
       address: '',
-      postalcode: '',
       size: '',
     }}
-    onSubmit={() => {}}
+    validate={validate}
+    onSubmit={(data) => {
+      submitRegisterNormal(data, auth)
+    }}
+    validateOnChange={false}
+    validateOnBlur={false}
   >
-    <Form className="font-display text-sm text-white py-4">
-      <label className="block my-1" htmlFor="firstname">
-        ชื่อ (ภาษาไทย ไม่ต้องมีคำนำหน้า)
-      </label>
-      <Field
-        className="block w-full bg-black mb-6 p-3 focus:outline-none rounded-md"
-        id="firstName"
-        name="firstName"
-        placeholder="(ภาษาไทย ไม่ต้องมีคำนำหน้า)"
-      />
-      <label className="block my-1" htmlFor="lastname">
-        นามสกุล (ภาษาไทย)
-      </label>
-      <Field
-        className="block w-full bg-black mb-6 p-3 focus:outline-none rounded-md"
-        id="lastName"
-        name="lastName"
-        placeholder="นามสกุล (ภาษาไทย)"
-      />
-      <label className="block font-display  my-1" htmlFor="password">
-        ตั้งรหัสผ่าน CMS
-      </label>
-      <Field
-        className="block font-display  w-full bg-black mb-6 p-3 focus:outline-none rounded-md"
-        id="password"
-        name="password"
-        placeholder="ความยาวระหว่าง 8-32 ตัวอักษร"
-        type="password"
-      />
-      <label className="block font-display my-1" htmlFor="verify">
-        ยืนยันรหัสผ่าน
-      </label>
-      <Field
-        className="block font-display  w-full bg-black mb-6 p-3 focus:outline-none rounded-md"
-        id="confirmPassword"
-        name="confirmPassword"
-        placeholder="ยืนยันรหัสผ่าน"
-        type="password"
-      />
-      <label className="block font-display my-1" htmlFor="tel">
-        เบอร์โทรศัพท์สำหรับติดต่อ
-      </label>
-      <Field
-        className="block font-display w-full bg-black mb-6 p-3 focus:outline-none rounded-md"
-        id="tel"
-        name="tel"
-        placeholder="เบอร์โทรศัพท์สำหรับติดต่อ"
-        type="tel"
-      />
-      <label className="block font-display  my-1" htmlFor="address">
-        ที่อยู่สำหรับส่งของรางวัล
-      </label>
-      <Field
-        className="block font-display  w-full bg-black mb-6 p-3 focus:outline-none rounded-md"
-        id="address"
-        name="address"
-        placeholder="ที่อยู่สำหรับส่งของรางวัล 50 ตัวอักษร"
-        type="address"
-      />
-      <label className="block font-display  my-1" htmlFor="postalcode">
-        รหัสไปรษณีย์
-      </label>
-      <Field
-        className="block font-display w-full bg-black mb-6 p-3 focus:outline-none rounded-md"
-        id="postalcode"
-        name="postalcode"
-        placeholder="รหัสไปรษณีย์"
-      />
-      <p className="font-display w-full mb-4">ขนาดเสื้อ</p>
-      <div role="group" aria-labelledby="my-radio-group">
-        <label className="flex items-center font-display my-1">
-          <Field
-            className="inline font-display mr-3 text-black focus:outline-none unc"
-            name="size"
-            type="radio"
-            value="S"
-          />
-          S (รอบอก XX ความยาวตัว XX)
+    {({ errors }) => (
+      <Form className="font-display text-sm text-white py-4">
+        <label className="block my-1" htmlFor="firstname">
+          ชื่อ (ภาษาไทย ไม่ต้องมีคำนำหน้า)
         </label>
-        <label className="flex items-center font-display my-1">
-          <Field
-            className="inline font-display mr-3 text-black focus:outline-none unc"
-            name="size"
-            type="radio"
-            value="M"
-          />
-          M (รอบอก XX ความยาวตัว XX)
+        <Field
+          className={classnames(
+            'border block w-full bg-black p-3 focus:outline-none rounded-md',
+            errors.firstname ? 'border-red-400' : 'border-black'
+          )}
+          id="firstname"
+          name="firstname"
+          placeholder="(ภาษาไทย ไม่ต้องมีคำนำหน้า)"
+        />
+        {errors.firstname ? (
+          <p className="text-red-400 mt-1">{errors.firstname}</p>
+        ) : (
+          <div className="h-6" aria-hidden></div>
+        )}
+        <label className="block my-1" htmlFor="lastname">
+          นามสกุล (ภาษาไทย)
         </label>
-        <label className="flex items-center font-display my-1">
-          <Field
-            className="inline font-display mr-3 text-black focus:outline-none unc"
-            name="size"
-            type="radio"
-            value="L"
-          />
-          L (รอบอก XX ความยาวตัว XX)
+        <Field
+          className={classnames(
+            'border block w-full bg-black p-3 focus:outline-none rounded-md',
+            errors.lastname ? 'border-red-400' : 'border-black'
+          )}
+          id="lastname"
+          name="lastname"
+          placeholder="นามสกุล (ภาษาไทย)"
+        />
+        {errors.lastname ? (
+          <p className="text-red-400 mt-1">{errors.lastname}</p>
+        ) : (
+          <div className="h-6" aria-hidden></div>
+        )}
+        <label className="block font-display  my-1" htmlFor="password">
+          ตั้งรหัสผ่าน CMS
         </label>
-      </div>
-    </Form>
+        <Field
+          className={classnames(
+            'border block w-full bg-black p-3 focus:outline-none rounded-md',
+            errors.password ? 'border-red-400' : 'border-black'
+          )}
+          id="password"
+          name="password"
+          placeholder="ความยาวระหว่าง 8-32 ตัวอักษร"
+          type="password"
+        />
+        {errors.password ? (
+          <p className="text-red-400 mt-1">{errors.password}</p>
+        ) : (
+          <div className="h-6" aria-hidden></div>
+        )}
+        <label className="block font-display my-1" htmlFor="verify">
+          ยืนยันรหัสผ่าน
+        </label>
+        <Field
+          className={classnames(
+            'border block w-full bg-black p-3 focus:outline-none rounded-md',
+            errors.verify ? 'border-red-400' : 'border-black'
+          )}
+          id="verify"
+          name="verify"
+          placeholder="ยืนยันรหัสผ่าน"
+          type="password"
+        />
+        {errors.verify ? (
+          <p className="text-red-400 mt-1">{errors.verify}</p>
+        ) : (
+          <div className="h-6" aria-hidden></div>
+        )}
+        <label className="block font-display my-1" htmlFor="tel">
+          เบอร์โทรศัพท์สำหรับติดต่อ
+        </label>
+        <Field
+          className={classnames(
+            'border block w-full bg-black p-3 focus:outline-none rounded-md',
+            errors.tel ? 'border-red-400' : 'border-black'
+          )}
+          id="tel"
+          name="tel"
+          placeholder="เบอร์โทรศัพท์สำหรับติดต่อ"
+          type="tel"
+        />
+        {errors.tel ? (
+          <p className="text-red-400 mt-1">{errors.tel}</p>
+        ) : (
+          <div className="h-6" aria-hidden></div>
+        )}
+        <label className="block font-display my-1" htmlFor="address">
+          ที่อยู่สำหรับส่งของรางวัล
+        </label>
+        <Field
+          className={classnames(
+            'border block w-full bg-black p-3 focus:outline-none rounded-md',
+            errors.address ? 'border-red-400' : 'border-black'
+          )}
+          id="address"
+          name="address"
+          placeholder="ที่อยู่สำหรับส่งของรางวัล 50 ตัวอักษร"
+          type="address"
+        />
+        {errors.address ? (
+          <p className="text-red-400 mt-1">{errors.address}</p>
+        ) : (
+          <div className="h-6" aria-hidden></div>
+        )}
+        <p className="font-display w-full mb-4">ขนาดเสื้อ</p>
+        <div role="group" aria-labelledby="my-radio-group">
+          <label className="flex items-center font-display my-1">
+            <Field
+              className="inline font-display mr-3 text-black focus:outline-none unc"
+              name="size"
+              type="radio"
+              value="S"
+            />
+            S (รอบอก XX ความยาวตัว XX)
+          </label>
+          <label className="flex items-center font-display my-1">
+            <Field
+              className="inline font-display mr-3 text-black focus:outline-none unc"
+              name="size"
+              type="radio"
+              value="M"
+            />
+            M (รอบอก XX ความยาวตัว XX)
+          </label>
+          <label className="flex items-center font-display my-1">
+            <Field
+              className="inline font-display mr-3 text-black focus:outline-none unc"
+              name="size"
+              type="radio"
+              value="L"
+            />
+            L (รอบอก XX ความยาวตัว XX)
+          </label>
+        </div>
+        {errors.size ? (
+          <p className="text-red-400 mt-1">{errors.size}</p>
+        ) : (
+          <div className="h-6" aria-hidden></div>
+        )}
+        <div className="py-6 border-b border-t">
+          <p className="font-display text-white">
+            โปรดตรวจสอบข้อมูลของท่านให้เรียบร้อยก่อนกดปุ่มลงทะเบียน
+            เนื่องจากข้อมูลทั้งหมด
+            <span className="text-red-400">
+              {' ไม่สามารถแก้ไขได้อีกต่อไป '}
+            </span>
+            หลังจากกดปุ่มแล้ว
+          </p>
+          <p className="font-display mt-6 text-white">
+            หากพบว่าข้อมูลที่ได้รับ ไม่ตรงกับความเป็นจริง
+            หรือข้อมูลบางส่วนบกพร่อง
+            ทางทีมงานมีสิทธิ์ในการยุติการลงทะเบียนของท่านได้
+          </p>
+        </div>
+        <div className="py-6 text-white">
+          <button
+            className="bg-red-400 w-full mb-3 rounded-full p-3"
+            type="submit"
+          >
+            Sign up
+          </button>
+          <p className="font-display text-center mb-24">
+            การลงทะเบียนถือว่ายอมรับ
+            <Link href="/">
+              <a className="text-red-400 underline">
+                ข้อตกลงและเงื่อนไขการแข่งขัน
+              </a>
+            </Link>
+          </p>
+        </div>
+      </Form>
+    )}
   </Formik>
 )
 
@@ -150,22 +277,36 @@ const Anonymous = () => (
         placeholder="ยืนยันรหัสผ่าน"
         type="password"
       />
+      <div className="py-6 border-b border-t">
+        <p className="font-display text-white">
+          โปรดตรวจสอบข้อมูลของท่านให้เรียบร้อยก่อนกดปุ่มลงทะเบียน
+          เนื่องจากข้อมูลทั้งหมด
+          <span className="text-red-400">{' ไม่สามารถแก้ไขได้อีกต่อไป '}</span>
+          หลังจากกดปุ่มแล้ว
+        </p>
+      </div>
+      <div className="py-6 text-white">
+        <button
+          className="bg-red-400 w-full mb-3 rounded-full p-3"
+          type="submit"
+        >
+          Sign up
+        </button>
+        <p className="font-display text-center mb-24">
+          การลงทะเบียนถือว่ายอมรับ
+          <Link href="/">
+            <a className="text-red-400 underline">
+              ข้อตกลงและเงื่อนไขการแข่งขัน
+            </a>
+          </Link>
+        </p>
+      </div>
     </Form>
   </Formik>
 )
 
 const Register = () => {
-  // const auth = useAuth()
-  // useEffect(() => {
-  //   if (auth?.user) {
-  //     if (auth?.userData?.password !== '') {
-  //       Router.push('/dashboard')
-  //     }
-  //   } else {
-  //     Router.push('/')
-  //   }
-  // }, [auth])
-
+  const auth = useAuth()
   const [anonymous, setAnonymous] = useState<boolean>(false)
 
   return (
@@ -260,40 +401,7 @@ const Register = () => {
                 </p>
               </div>
             </div>
-            {anonymous ? <Anonymous /> : <Normal />}
-            <div className="py-6 border-b border-t">
-              <p className="font-display text-white">
-                โปรดตรวจสอบข้อมูลของท่านให้เรียบร้อยก่อนกดปุ่มลงทะเบียน
-                เนื่องจากข้อมูลทั้งหมด
-                <span className="text-red-400">
-                  {' ไม่สามารถแก้ไขได้อีกต่อไป '}
-                </span>
-                หลังจากกดปุ่มแล้ว
-              </p>
-              {!anonymous && (
-                <p className="font-display mt-6 text-white">
-                  หากพบว่าข้อมูลที่ได้รับ ไม่ตรงกับความเป็นจริง
-                  หรือข้อมูลบางส่วนบกพร่อง
-                  ทางทีมงานมีสิทธิ์ในการยุติการลงทะเบียนของท่านได้
-                </p>
-              )}
-            </div>
-            <div className="py-6 text-white">
-              <button
-                className="bg-red-400 w-full mb-3 rounded-full p-3"
-                type="submit"
-              >
-                Sign up
-              </button>
-              <p className="font-display text-center mb-24">
-                การลงทะเบียนถือว่ายอมรับ
-                <Link href="/">
-                  <a className="text-red-400 underline">
-                    ข้อตกลงและเงื่อนไขการแข่งขัน
-                  </a>
-                </Link>
-              </p>
-            </div>
+            {anonymous ? <Anonymous /> : <Normal auth={auth} />}
           </div>
           <div className="flex flex-col max-w-sm w-full text-white"></div>
         </div>

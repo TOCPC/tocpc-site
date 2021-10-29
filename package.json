@@ -10,6 +10,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "bcryptjs": "^2.4.3",
     "classnames": "^2.3.1",
     "firebase": "^9.1.1",
     "formik": "^2.2.9",
@@ -17,7 +19,6 @@
     "js-cookie": "^3.0.1",
     "next": "^12.0.1",
     "react": "17.0.2",
-    "react-countup": "^6.0.0",
     "react-dom": "17.0.2"
   },
   "devDependencies": {

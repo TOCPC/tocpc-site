@@ -1,18 +1,7 @@
-import { useEffect } from 'react'
-import Router from 'next/router'
 import { useAuth } from 'lib/auth'
 
 const Dashboard = () => {
   const auth = useAuth()
-  // useEffect(() => {
-  //   if (auth?.user) {
-  //     if (auth?.userData?.password !== '') {
-  //       Router.push('/onboard')
-  //     }
-  //   } else {
-  //     Router.push('/')
-  //   }
-  // }, [auth])
   return (
     <main className="relative w-full min-h-screen bg-gray-900">
       <div className="absolute right-full bg-red-400 w-20 h-full transform translate-x-2 sm:translate-x-10 md:translate-x-20 z-10"></div>
@@ -29,36 +18,35 @@ const Dashboard = () => {
           </div>
           <div className="flex w-full py-6">
             <p className="w-1/3 text-white font-semibold">ชื่อผู้ใช้</p>
-            <p className="w-2/3 text-white">iammarkps</p>
+            <p className="w-2/3 text-white">{auth?.userData?.username}</p>
           </div>
           <div className="flex w-full py-6">
             <p className="w-1/3 text-white font-semibold">ชื่อ-สกุล</p>
-            <p className="w-2/3 text-white">พศวัต สุขใส</p>
+            <p className="w-2/3 text-white">
+              {auth?.userData?.firstname} {auth?.userData?.lastname}
+            </p>
           </div>
           <div className="flex w-full py-6">
             <p className="w-1/3 text-white font-semibold">อีเมล</p>
-            <p className="w-2/3 text-white">iammark@gmail.com</p>
+            <p className="w-2/3 text-white overflow-x-scroll">
+              {auth?.userData?.email}
+            </p>
           </div>
           <div className="flex w-full py-6">
             <p className="w-1/3 text-white font-semibold">
               เบอร์โทรศัพท์สำหรับติดต่อ
             </p>
-            <p className="w-2/3 text-white">01234569846</p>
+            <p className="w-2/3 text-white">{auth?.userData?.tel}</p>
           </div>
           <div className="flex w-full py-6">
             <p className="w-1/3 text-white font-semibold">
               ที่อยู่สำหรับส่งของรางวัล
             </p>
-            <p className="w-2/3 text-white">
-              Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-              incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
-              consequat sint. Sit id mollit nulla mollit nostrud in ea officia
-              proident. Irure nostrud pariatur mollit.
-            </p>
+            <p className="w-2/3 text-white">{auth?.userData?.address}</p>
           </div>
           <div className="flex w-full py-6">
             <p className="w-1/3 text-white font-semibold">ขนาดเสื้อ</p>
-            <p className="w-2/3 text-white">S (รอบอก... ความยาวตัว...)</p>
+            <p className="w-2/3 text-white">{auth?.userData?.size}</p>
           </div>
         </div>
       </div>
