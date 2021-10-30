@@ -76,7 +76,7 @@ export const Nav = () => {
       <div
         className={classnames(
           'flex w-full justify-between max-w-4xl items-center border-white py-5 sm:pt-12',
-          (pathname === '/about' || pathname === 'scope') && 'border-b'
+          (pathname === '/about' || pathname === '/scope') && 'border-b'
         )}
       >
         <div className="flex items-center justify-center">
