@@ -20,34 +20,46 @@ const Dashboard = () => {
             <p className="w-1/3 text-white font-semibold">ชื่อผู้ใช้</p>
             <p className="w-2/3 text-white">{auth?.userData?.username}</p>
           </div>
-          <div className="flex w-full py-6">
-            <p className="w-1/3 text-white font-semibold">ชื่อ-สกุล</p>
-            <p className="w-2/3 text-white">
-              {auth?.userData?.firstname} {auth?.userData?.lastname}
-            </p>
-          </div>
-          <div className="flex w-full py-6">
-            <p className="w-1/3 text-white font-semibold">อีเมล</p>
-            <p className="w-2/3 text-white overflow-x-scroll">
-              {auth?.userData?.email}
-            </p>
-          </div>
-          <div className="flex w-full py-6">
-            <p className="w-1/3 text-white font-semibold">
-              เบอร์โทรศัพท์สำหรับติดต่อ
-            </p>
-            <p className="w-2/3 text-white">{auth?.userData?.tel}</p>
-          </div>
-          <div className="flex w-full py-6">
-            <p className="w-1/3 text-white font-semibold">
-              ที่อยู่สำหรับส่งของรางวัล
-            </p>
-            <p className="w-2/3 text-white">{auth?.userData?.address}</p>
-          </div>
-          <div className="flex w-full py-6">
-            <p className="w-1/3 text-white font-semibold">ขนาดเสื้อ</p>
-            <p className="w-2/3 text-white">{auth?.userData?.size}</p>
-          </div>
+          {auth?.userData?.anonymous ? (
+            <div className="flex w-full py-6">
+              <p className="text-white">
+                <b>เข้าร่วมแบบไม่เปิดเผยตัวตน</b>{' '}
+                ไม่มีการแสดงคะแนนต่อสาธารณะในระหว่างการแข่ง
+                รวมถึงไม่นำไปคิดคะแนนแข่งขัน และไม่ได้รับของรางวัล
+              </p>
+            </div>
+          ) : (
+            <>
+              <div className="flex w-full py-6">
+                <p className="w-1/3 text-white font-semibold">ชื่อ-สกุล</p>
+                <p className="w-2/3 text-white">
+                  {auth?.userData?.firstname} {auth?.userData?.lastname}
+                </p>
+              </div>
+              <div className="flex w-full py-6">
+                <p className="w-1/3 text-white font-semibold">อีเมล</p>
+                <p className="w-2/3 text-white overflow-x-scroll">
+                  {auth?.userData?.email}
+                </p>
+              </div>
+              <div className="flex w-full py-6">
+                <p className="w-1/3 text-white font-semibold">
+                  เบอร์โทรศัพท์สำหรับติดต่อ
+                </p>
+                <p className="w-2/3 text-white">{auth?.userData?.tel}</p>
+              </div>
+              <div className="flex w-full py-6">
+                <p className="w-1/3 text-white font-semibold">
+                  ที่อยู่สำหรับส่งของรางวัล
+                </p>
+                <p className="w-2/3 text-white">{auth?.userData?.address}</p>
+              </div>
+              <div className="flex w-full py-6">
+                <p className="w-1/3 text-white font-semibold">ขนาดเสื้อ</p>
+                <p className="w-2/3 text-white">{auth?.userData?.size}</p>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </main>

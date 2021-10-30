@@ -4,7 +4,7 @@ import Router from 'next/router'
 import Link from 'next/link'
 import classnames from 'classnames'
 import { useAuth, IAuthContext } from 'lib/auth'
-import { submitRegisterNormal } from 'lib/process'
+import { submitRegisterAnonymous, submitRegisterNormal } from 'lib/process'
 
 const validate = (values: any) => {
   const errors: any = {}
@@ -46,6 +46,24 @@ const validate = (values: any) => {
 
   if (!values.size) {
     errors.size = 'จำเป็นต้องใส่'
+  }
+
+  return errors
+}
+
+const validatePassword = (values: any) => {
+  const errors: any = {}
+
+  if (!values.password) {
+    errors.password = 'จำเป็นต้องใส่'
+  } else if (values.password.length < 8 || values.password.length > 32) {
+    errors.password = 'ความยาวต้องอยู่ระหว่าง 8 ถึง 32 ตัวอักษร'
+  }
+
+  if (!values.verify) {
+    errors.verify = 'จำเป็นต้องใส่'
+  } else if (values.password !== values.verify) {
+    errors.verify = 'รหัสผ่านไม่ตรงกับยืนยันรหัสผ่าน'
   }
 
   return errors
@@ -248,60 +266,85 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
   </Formik>
 )
 
-const Anonymous = () => (
+const Anonymous = ({ auth }: { auth: IAuthContext | null }) => (
   <Formik
     initialValues={{
       password: '',
       verify: '',
     }}
-    onSubmit={() => {}}
+    validate={validatePassword}
+    onSubmit={(data) => {
+      submitRegisterAnonymous(data, auth)
+    }}
+    validateOnChange={false}
+    validateOnBlur={false}
   >
-    <Form className="font-display text-sm text-white py-4">
-      <label className="block font-display  my-1" htmlFor="password">
-        ตั้งรหัสผ่าน CMS
-      </label>
-      <Field
-        className="block font-display w-full bg-black mb-6 p-3 focus:outline-none rounded-md"
-        id="password"
-        name="password"
-        placeholder="ความยาวระหว่าง 8-32 ตัวอักษร"
-        type="password"
-      />
-      <label className="block font-display my-1" htmlFor="verify">
-        ยืนยันรหัสผ่าน
-      </label>
-      <Field
-        className="block font-display w-full bg-black p-3 focus:outline-none rounded-md"
-        id="confirmPassword"
-        name="confirmPassword"
-        placeholder="ยืนยันรหัสผ่าน"
-        type="password"
-      />
-      <div className="py-6 border-b border-t">
-        <p className="font-display text-white">
-          โปรดตรวจสอบข้อมูลของท่านให้เรียบร้อยก่อนกดปุ่มลงทะเบียน
-          เนื่องจากข้อมูลทั้งหมด
-          <span className="text-red-400">{' ไม่สามารถแก้ไขได้อีกต่อไป '}</span>
-          หลังจากกดปุ่มแล้ว
-        </p>
-      </div>
-      <div className="py-6 text-white">
-        <button
-          className="bg-red-400 w-full mb-3 rounded-full p-3"
-          type="submit"
-        >
-          Sign up
-        </button>
-        <p className="font-display text-center mb-24">
-          การลงทะเบียนถือว่ายอมรับ
-          <Link href="/">
-            <a className="text-red-400 underline">
-              ข้อตกลงและเงื่อนไขการแข่งขัน
-            </a>
-          </Link>
-        </p>
-      </div>
-    </Form>
+    {({ errors }) => (
+      <Form className="font-display text-sm text-white py-4">
+        <label className="block font-display  my-1" htmlFor="password">
+          ตั้งรหัสผ่าน CMS
+        </label>
+        <Field
+          className={classnames(
+            'border block w-full bg-black p-3 focus:outline-none rounded-md',
+            errors.password ? 'border-red-400' : 'border-black'
+          )}
+          id="password"
+          name="password"
+          placeholder="ความยาวระหว่าง 8-32 ตัวอักษร"
+          type="password"
+        />
+        {errors.password ? (
+          <p className="text-red-400 mt-1">{errors.password}</p>
+        ) : (
+          <div className="h-6" aria-hidden></div>
+        )}
+        <label className="block font-display my-1" htmlFor="verify">
+          ยืนยันรหัสผ่าน
+        </label>
+        <Field
+          className={classnames(
+            'border block w-full bg-black p-3 focus:outline-none rounded-md',
+            errors.verify ? 'border-red-400' : 'border-black'
+          )}
+          id="verify"
+          name="verify"
+          placeholder="ยืนยันรหัสผ่าน"
+          type="password"
+        />
+        {errors.verify ? (
+          <p className="text-red-400 mt-1">{errors.verify}</p>
+        ) : (
+          <div className="h-6" aria-hidden></div>
+        )}
+        <div className="py-6 border-b border-t">
+          <p className="font-display text-white">
+            โปรดตรวจสอบข้อมูลของท่านให้เรียบร้อยก่อนกดปุ่มลงทะเบียน
+            เนื่องจากข้อมูลทั้งหมด
+            <span className="text-red-400">
+              {' ไม่สามารถแก้ไขได้อีกต่อไป '}
+            </span>
+            หลังจากกดปุ่มแล้ว
+          </p>
+        </div>
+        <div className="py-6 text-white">
+          <button
+            className="bg-red-400 w-full mb-3 rounded-full p-3"
+            type="submit"
+          >
+            Sign up
+          </button>
+          <p className="font-display text-center mb-24">
+            การลงทะเบียนถือว่ายอมรับ
+            <Link href="/">
+              <a className="text-red-400 underline">
+                ข้อตกลงและเงื่อนไขการแข่งขัน
+              </a>
+            </Link>
+          </p>
+        </div>
+      </Form>
+    )}
   </Formik>
 )
 
@@ -401,7 +444,7 @@ const Register = () => {
                 </p>
               </div>
             </div>
-            {anonymous ? <Anonymous /> : <Normal auth={auth} />}
+            {anonymous ? <Anonymous auth={auth} /> : <Normal auth={auth} />}
           </div>
           <div className="flex flex-col max-w-sm w-full text-white"></div>
         </div>

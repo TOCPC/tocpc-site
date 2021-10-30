@@ -16,3 +16,20 @@ export const submitRegisterNormal = (data: any, auth: IAuthContext | null) => {
     }
   })
 }
+
+export const submitRegisterAnonymous = (
+  data: any,
+  auth: IAuthContext | null
+) => {
+  data = { ...data, anonymous: true }
+  bcrypt.hash(data.password, 10, async (err, encrypted) => {
+    data = { ...data, password: encrypted }
+    delete data.verify
+    if (auth?.userData?.uid) {
+      auth?.setLoading(true)
+      await updateUser(auth?.userData?.uid, data)
+      Router.push('/dashboard')
+      auth?.setLoading(false)
+    }
+  })
+}
