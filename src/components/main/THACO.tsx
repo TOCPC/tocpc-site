@@ -39,7 +39,7 @@ export const THACO = () => {
           </div>
           {auth?.user === null && (
             <div className="pt-6">
-              <Link href="/register">
+              <Link href="/register" passHref>
                 <button className="bg-red-400 px-8 py-4 sm:px-10 sm:py-6 text-white text-2xl font-semibold rounded-full">
                   Register
                 </button>

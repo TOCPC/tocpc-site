@@ -17,7 +17,7 @@ const DetectOuside = (ref: any, dep: boolean, callback: () => void) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [ref, dep])
+  }, [ref, dep, callback])
 }
 
 export const Nav = () => {
@@ -158,7 +158,7 @@ export const Nav = () => {
               Logout
             </button>
           ) : (
-            <Link href="/login">
+            <Link href="/login" passHref>
               <button className="font-display bg-white font-semibold px-6 py-2.5 rounded-full hover:bg-gray-300">
                 Login
               </button>

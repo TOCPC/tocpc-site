@@ -90,7 +90,7 @@ export const Footer = () => {
               </a>
             </Link>
             {auth?.user === null && (
-              <Link href="login">
+              <Link href="login" passHref>
                 <button className="font-display sm:ml-8 bg-red-400 text-white font-extrabold px-6 py-2.5 rounded-full">
                   Login
                 </button>

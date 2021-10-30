@@ -31,7 +31,6 @@ export const getCurrentUserData = async (
 ): Promise<null | DocumentData> => {
   const userRef = getUserRef(uid)
   const doc = await getDoc(userRef)
-  console.log('====>', doc.data())
 
   if (doc.exists()) {
     return doc.data()

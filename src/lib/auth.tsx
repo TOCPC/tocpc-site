@@ -91,7 +91,6 @@ export const AuthProvider: React.FC = ({ children }) => {
           Router.push('/dashboard')
         }
       } else if (auth?.user && auth?.userData?.password === '') {
-        console.log('====> ', auth?.userData?.password)
         Router.push('/onboard')
       } else if (auth.user === null) {
         if (pathname === '/dashboard' || pathname === '/onboard') {
@@ -104,8 +103,6 @@ export const AuthProvider: React.FC = ({ children }) => {
       }
     }
   }, [pathname, auth])
-
-  console.log(auth.loading, auth?.userData)
 
   if (auth.loading || checkOnboard || checkDashboard) {
     return <Loading />
@@ -145,8 +142,6 @@ function useProvideAuth() {
 
       setUser(rawUser)
       const tmpData: any = await getCurrentUserData(user.uid)
-      console.log(user.uid)
-      console.log('->', tmpData)
       setUserData({
         username: '',
         password: '',
