@@ -354,7 +354,7 @@ const Register = () => {
 
   return (
     <main className="relative w-full min-h-screen bg-gray-900">
-      <div className="absolute right-full bg-red-400 w-20 h-full transform translate-x-2 sm:translate-x-10 md:translate-x-20 z-10" />
+      <div className="absolute right-full bg-red-400 w-20 h-full transform translate-x-2 sm:translate-x-6 md:translate-x-12 lg:translate-x-16 xl:translate-x-20 lg: z-10" />
       <div className="flex flex-col">
         <div className="flex flex-col items-center px-8 sm:px-40 mt-28 sm:mt-26">
           <p className="font-display text-3xl text-center font-extrabold text-white pt-8">
