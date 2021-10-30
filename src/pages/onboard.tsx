@@ -4,7 +4,7 @@ import Router from 'next/router'
 import Link from 'next/link'
 import classnames from 'classnames'
 import { useAuth, IAuthContext } from 'lib/auth'
-import { submitRegisterNormal } from 'lib/process'
+import { submitRegisterAnonymous, submitRegisterNormal } from 'lib/process'
 
 const validate = (values: any) => {
   const errors: any = {}
@@ -248,13 +248,15 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
   </Formik>
 )
 
-const Anonymous = () => (
+const Anonymous = ({ auth }: { auth: IAuthContext | null }) => (
   <Formik
     initialValues={{
       password: '',
       verify: '',
     }}
-    onSubmit={() => {}}
+    onSubmit={(data) => {
+      submitRegisterAnonymous(data, auth)
+    }}
   >
     <Form className="font-display text-sm text-white py-4">
       <label className="block font-display  my-1" htmlFor="password">
@@ -401,7 +403,7 @@ const Register = () => {
                 </p>
               </div>
             </div>
-            {anonymous ? <Anonymous /> : <Normal auth={auth} />}
+            {anonymous ? <Anonymous auth={auth} /> : <Normal auth={auth} />}
           </div>
           <div className="flex flex-col max-w-sm w-full text-white"></div>
         </div>
