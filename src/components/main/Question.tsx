@@ -84,14 +84,14 @@ const question = [
 
 export const Question = () => (
   <section className="flex flex-col items-center w-full h-auto bg-gray-900 px-8 sm:px-20 md:px-32 py-20 sm:py-32">
-    <div className="flex flex-col md:flex-row max-w-4xl gap-12">
-      <div className="flex-none">
+    <div className="flex flex-col md:flex-row max-w-4xl">
+      <div className="flex-none mr-12 mb-8">
         <p className="font-display text-3xl text-white">คำถามที่พบบ่อย</p>
         <div className="w-24 h-2 bg-red-400 mt-1" aria-hidden="true" />
       </div>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col">
         {question.map(({ question, answer }) => (
-          <div key="question">
+          <div key={question} className="mb-8">
             <p className="text-white font-display font-bold mb-4">{question}</p>
             <p className="text-white font-display">{answer}</p>
           </div>

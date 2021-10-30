@@ -3,7 +3,7 @@ const About = () => {
     <main className="relative w-full min-h-screen bg-gray-900">
       <div className="absolute right-full bg-red-400 w-20 h-full transform translate-x-2 sm:translate-x-10 md:translate-x-20 z-10"></div>
       <div className="flex flex-col items-center">
-        <div className="flex flex-col px-10 sm:px-16 md:px-24 mt-28 sm:mt-36 max-w-4xl">
+        <div className="flex flex-col px-10 sm:px-16 md:px-24 mt-28 sm:mt-40 max-w-4xl">
           <p className="font-display text-3xl text-white">เกี่ยวกับเรา</p>
           <p className="font-display text-white py-8">
             พวกเราคือกลุ่มอดีตนักเรียนค่ายโอลิมปิกวิชาการคอมพิวเตอร์ที่ตั้งใจจะจัดการแข่งขันเพื่อส่งเสริมและพัฒนาเหล่านักเรียนค่ายรุ่นต่อๆ
