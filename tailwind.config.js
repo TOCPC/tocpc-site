@@ -17,23 +17,27 @@ module.exports = {
       typography: (theme) => ({
         default: {
           css: {
+            fontFamily: `${theme('fontFamily.display')}`,
+            color: 'white',
+            a: {
+              color: 'white',
+            },
+            'ol > li::before': {
+              color: 'white',
+            },
             h1: {
-              color: defaultTheme.colors.gray[900],
               fontWeight: '800',
               fontFamily: `${theme('fontFamily.display')}`,
             },
             h2: {
-              color: defaultTheme.colors.gray[900],
               fontWeight: '700',
               fontFamily: `${theme('fontFamily.display')}`,
             },
             h3: {
-              color: defaultTheme.colors.gray[900],
               fontWeight: '600',
               fontFamily: `${theme('fontFamily.display')}`,
             },
             h4: {
-              color: defaultTheme.colors.gray[900],
               fontWeight: '600',
               fontFamily: `${theme('fontFamily.display')}`,
             },
@@ -41,6 +45,14 @@ module.exports = {
         },
         lg: {
           css: {
+            fontFamily: `${theme('fontFamily.display')}`,
+            color: 'white',
+            a: {
+              color: 'white',
+            },
+            'ol > li::before': {
+              color: 'white',
+            },
             h1: {
               fontFamily: `${theme('fontFamily.display')}`,
             },
@@ -57,6 +69,14 @@ module.exports = {
         },
         xl: {
           css: {
+            fontFamily: `${theme('fontFamily.display')}`,
+            color: 'white',
+            a: {
+              color: 'white',
+            },
+            'ol > li::before': {
+              color: 'white',
+            },
             h1: {
               fontFamily: `${theme('fontFamily.display')}`,
             },

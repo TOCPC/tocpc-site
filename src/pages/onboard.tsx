@@ -88,7 +88,7 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
     validateOnBlur={false}
   >
     {({ errors }) => (
-      <Form className="font-display text-sm text-white py-4">
+      <Form className="py-4 text-sm text-white font-display">
         <label className="block my-1" htmlFor="firstname">
           ชื่อ (ภาษาไทย ไม่ต้องมีคำนำหน้า)
         </label>
@@ -102,7 +102,7 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
           placeholder="(ภาษาไทย ไม่ต้องมีคำนำหน้า)"
         />
         {errors.firstname ? (
-          <p className="text-red-400 mt-1">{errors.firstname}</p>
+          <p className="mt-1 text-red-400">{errors.firstname}</p>
         ) : (
           <div className="h-6" aria-hidden></div>
         )}
@@ -119,11 +119,11 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
           placeholder="นามสกุล (ภาษาไทย)"
         />
         {errors.lastname ? (
-          <p className="text-red-400 mt-1">{errors.lastname}</p>
+          <p className="mt-1 text-red-400">{errors.lastname}</p>
         ) : (
           <div className="h-6" aria-hidden></div>
         )}
-        <label className="block font-display  my-1" htmlFor="password">
+        <label className="block my-1 font-display" htmlFor="password">
           ตั้งรหัสผ่าน CMS
         </label>
         <Field
@@ -137,11 +137,11 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
           type="password"
         />
         {errors.password ? (
-          <p className="text-red-400 mt-1">{errors.password}</p>
+          <p className="mt-1 text-red-400">{errors.password}</p>
         ) : (
           <div className="h-6" aria-hidden></div>
         )}
-        <label className="block font-display my-1" htmlFor="verify">
+        <label className="block my-1 font-display" htmlFor="verify">
           ยืนยันรหัสผ่าน
         </label>
         <Field
@@ -155,11 +155,11 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
           type="password"
         />
         {errors.verify ? (
-          <p className="text-red-400 mt-1">{errors.verify}</p>
+          <p className="mt-1 text-red-400">{errors.verify}</p>
         ) : (
           <div className="h-6" aria-hidden></div>
         )}
-        <label className="block font-display my-1" htmlFor="tel">
+        <label className="block my-1 font-display" htmlFor="tel">
           เบอร์โทรศัพท์สำหรับติดต่อ
         </label>
         <Field
@@ -173,11 +173,11 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
           type="tel"
         />
         {errors.tel ? (
-          <p className="text-red-400 mt-1">{errors.tel}</p>
+          <p className="mt-1 text-red-400">{errors.tel}</p>
         ) : (
           <div className="h-6" aria-hidden></div>
         )}
-        <label className="block font-display my-1" htmlFor="address">
+        <label className="block my-1 font-display" htmlFor="address">
           ที่อยู่สำหรับส่งของรางวัล
         </label>
         <Field
@@ -191,33 +191,33 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
           type="address"
         />
         {errors.address ? (
-          <p className="text-red-400 mt-1">{errors.address}</p>
+          <p className="mt-1 text-red-400">{errors.address}</p>
         ) : (
           <div className="h-6" aria-hidden></div>
         )}
-        <p className="font-display w-full mb-4">ขนาดเสื้อ</p>
+        <p className="w-full mb-4 font-display">ขนาดเสื้อ</p>
         <div role="group" aria-labelledby="my-radio-group">
-          <label className="flex items-center font-display my-1">
+          <label className="flex items-center my-1 font-display">
             <Field
-              className="inline font-display mr-3 text-black focus:outline-none unc"
+              className="inline mr-3 text-black font-display focus:outline-none unc"
               name="size"
               type="radio"
               value="S"
             />
             S (รอบอก XX ความยาวตัว XX)
           </label>
-          <label className="flex items-center font-display my-1">
+          <label className="flex items-center my-1 font-display">
             <Field
-              className="inline font-display mr-3 text-black focus:outline-none unc"
+              className="inline mr-3 text-black font-display focus:outline-none unc"
               name="size"
               type="radio"
               value="M"
             />
             M (รอบอก XX ความยาวตัว XX)
           </label>
-          <label className="flex items-center font-display my-1">
+          <label className="flex items-center my-1 font-display">
             <Field
-              className="inline font-display mr-3 text-black focus:outline-none unc"
+              className="inline mr-3 text-black font-display focus:outline-none unc"
               name="size"
               type="radio"
               value="L"
@@ -226,12 +226,12 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
           </label>
         </div>
         {errors.size ? (
-          <p className="text-red-400 mt-1">{errors.size}</p>
+          <p className="mt-1 text-red-400">{errors.size}</p>
         ) : (
           <div className="h-6" aria-hidden></div>
         )}
-        <div className="py-6 border-b border-t">
-          <p className="font-display text-white">
+        <div className="py-6 border-t border-b">
+          <p className="text-white font-display">
             โปรดตรวจสอบข้อมูลของท่านให้เรียบร้อยก่อนกดปุ่มลงทะเบียน
             เนื่องจากข้อมูลทั้งหมด
             <span className="text-red-400">
@@ -239,7 +239,7 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
             </span>
             หลังจากกดปุ่มแล้ว
           </p>
-          <p className="font-display mt-6 text-white">
+          <p className="mt-6 text-white font-display">
             หากพบว่าข้อมูลที่ได้รับ ไม่ตรงกับความเป็นจริง
             หรือข้อมูลบางส่วนบกพร่อง
             ทางทีมงานมีสิทธิ์ในการยุติการลงทะเบียนของท่านได้
@@ -247,12 +247,12 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
         </div>
         <div className="py-6 text-white">
           <button
-            className="bg-red-400 w-full mb-3 rounded-full p-3"
+            className="w-full p-3 mb-3 bg-red-400 rounded-full"
             type="submit"
           >
             Sign up
           </button>
-          <p className="font-display text-center mb-24">
+          <p className="mb-24 text-center font-display">
             การลงทะเบียนถือว่ายอมรับ
             <Link href="/">
               <a className="text-red-400 underline">
@@ -280,8 +280,8 @@ const Anonymous = ({ auth }: { auth: IAuthContext | null }) => (
     validateOnBlur={false}
   >
     {({ errors }) => (
-      <Form className="font-display text-sm text-white py-4">
-        <label className="block font-display  my-1" htmlFor="password">
+      <Form className="py-4 text-sm text-white font-display">
+        <label className="block my-1 font-display" htmlFor="password">
           ตั้งรหัสผ่าน CMS
         </label>
         <Field
@@ -295,11 +295,11 @@ const Anonymous = ({ auth }: { auth: IAuthContext | null }) => (
           type="password"
         />
         {errors.password ? (
-          <p className="text-red-400 mt-1">{errors.password}</p>
+          <p className="mt-1 text-red-400">{errors.password}</p>
         ) : (
           <div className="h-6" aria-hidden></div>
         )}
-        <label className="block font-display my-1" htmlFor="verify">
+        <label className="block my-1 font-display" htmlFor="verify">
           ยืนยันรหัสผ่าน
         </label>
         <Field
@@ -313,12 +313,12 @@ const Anonymous = ({ auth }: { auth: IAuthContext | null }) => (
           type="password"
         />
         {errors.verify ? (
-          <p className="text-red-400 mt-1">{errors.verify}</p>
+          <p className="mt-1 text-red-400">{errors.verify}</p>
         ) : (
           <div className="h-6" aria-hidden></div>
         )}
-        <div className="py-6 border-b border-t">
-          <p className="font-display text-white">
+        <div className="py-6 border-t border-b">
+          <p className="text-white font-display">
             โปรดตรวจสอบข้อมูลของท่านให้เรียบร้อยก่อนกดปุ่มลงทะเบียน
             เนื่องจากข้อมูลทั้งหมด
             <span className="text-red-400">
@@ -329,14 +329,14 @@ const Anonymous = ({ auth }: { auth: IAuthContext | null }) => (
         </div>
         <div className="py-6 text-white">
           <button
-            className="bg-red-400 w-full mb-3 rounded-full p-3"
+            className="w-full p-3 mb-3 bg-red-400 rounded-full"
             type="submit"
           >
             Sign up
           </button>
-          <p className="font-display text-center mb-24">
+          <p className="mb-24 text-center font-display">
             การลงทะเบียนถือว่ายอมรับ
-            <Link href="/">
+            <Link href="/tos">
               <a className="text-red-400 underline">
                 ข้อตกลงและเงื่อนไขการแข่งขัน
               </a>
@@ -354,17 +354,17 @@ const Register = () => {
 
   return (
     <main className="relative w-full min-h-screen bg-gray-900">
-      <div className="absolute right-full bg-red-400 w-20 h-full transform translate-x-2 sm:translate-x-6 md:translate-x-12 lg:translate-x-16 xl:translate-x-20 lg: z-10" />
+      <div className="absolute z-10 w-20 h-full transform translate-x-2 bg-red-400 right-full sm:translate-x-6 md:translate-x-12 lg:translate-x-16 xl:translate-x-20 lg:" />
       <div className="flex flex-col">
         <div className="flex flex-col items-center px-8 sm:px-40 mt-28 sm:mt-26">
-          <p className="font-display text-3xl text-center font-extrabold text-white pt-8">
+          <p className="pt-8 text-3xl font-extrabold text-center text-white font-display">
             ลงทะเบียนแข่งขัน
           </p>
-          <p className="font-display text-md  text-center text-white">
+          <p className="text-center text-white font-display text-md">
             เข้าร่วมแบบ: {anonymous ? 'ไม่เปิดเผยตัวตน' : 'ทั่วไป'}
           </p>
           <div className="max-w-lg">
-            <div className="grid grid-cols-2 py-8 border-b gap-6">
+            <div className="grid grid-cols-2 gap-6 py-8 border-b">
               <div className={anonymous ? 'text-gray-600' : 'text-white'}>
                 <button
                   className={classnames(
@@ -376,7 +376,7 @@ const Register = () => {
                   onClick={() => setAnonymous(false)}
                   type="button"
                 >
-                  <div className="flex flex-col sm:flex-row justify-center">
+                  <div className="flex flex-col justify-center sm:flex-row">
                     <div className="m-2">
                       <svg
                         className="fill-current"
@@ -393,13 +393,13 @@ const Register = () => {
                         />
                       </svg>
                     </div>
-                    <div className="text-left mx-2">
-                      <p className="font-display text-xs">เข้าร่วมแบบ</p>
-                      <p className="font-display font-bold">ทั่วไป</p>
+                    <div className="mx-2 text-left">
+                      <p className="text-xs font-display">เข้าร่วมแบบ</p>
+                      <p className="font-bold font-display">ทั่วไป</p>
                     </div>
                   </div>
                 </button>
-                <p className="font-display text-xs">
+                <p className="text-xs font-display">
                   เหมาะสำหรับบุคคลทั่วไปทุกเพศทุกวัยที่สะดวกเปิดเผยข้อมูลส่วนตัวและรับของรางวัลเราจะเก็บข้อมูลที่จำเป็นต่อการจัดส่งรางวัล
                   เช่น ชื่อ ที่อยู่ และข้อมูลสำคัญอื่น ๆ
                 </p>
@@ -415,7 +415,7 @@ const Register = () => {
                   onClick={() => setAnonymous(true)}
                   type="button"
                 >
-                  <div className="flex flex-col sm:flex-row justify-center">
+                  <div className="flex flex-col justify-center sm:flex-row">
                     <div className="m-2">
                       <svg
                         width="20"
@@ -432,13 +432,13 @@ const Register = () => {
                         />
                       </svg>
                     </div>
-                    <div className="text-left mx-2">
-                      <p className="font-display text-xs">เข้าร่วมแบบ</p>
-                      <p className="font-display font-bold">ไม่เปิดเผยตัวตน</p>
+                    <div className="mx-2 text-left">
+                      <p className="text-xs font-display">เข้าร่วมแบบ</p>
+                      <p className="font-bold font-display">ไม่เปิดเผยตัวตน</p>
                     </div>
                   </div>
                 </button>
-                <p className="font-display text-xs">
+                <p className="text-xs font-display">
                   เหมาะสำหรับผู้ที่ต้องการได้รับประสบการณ์การแข่งขันแต่ไม่สะดวกเปิดเผยข้อมูลส่วนตัวหรือไม่สะดวกรับของรางวัลโดยจะไม่มีการแสดงคะแนนต่อสาธารณะในระหว่างการแข่งรวมถึงไม่นำไปคิดคะแนนแข่งขัน
                   และไม่ได้รับของรางวัล
                 </p>
@@ -446,7 +446,7 @@ const Register = () => {
             </div>
             {anonymous ? <Anonymous auth={auth} /> : <Normal auth={auth} />}
           </div>
-          <div className="flex flex-col max-w-sm w-full text-white"></div>
+          <div className="flex flex-col w-full max-w-sm text-white"></div>
         </div>
       </div>
     </main>

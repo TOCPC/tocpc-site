@@ -34,10 +34,10 @@ export const Footer = () => {
   }
 
   return (
-    <footer className="flex bg-black w-full justify-center">
-      <div className="flex flex-col max-w-4xl w-full px-16 sm:px-8 lg:px-0">
-        <div className="flex flex-col-reverse sm:flex-row justify-between items-center sm:border-b border-gray-900">
-          <div className="flex items-center justify-center py-8 sm:py-0 border-t border-b sm:border-0 w-full sm:w-auto border-gray-900">
+    <footer className="flex justify-center w-full bg-black">
+      <div className="flex flex-col w-full max-w-4xl px-16 sm:px-8 lg:px-0">
+        <div className="flex flex-col-reverse items-center justify-between border-gray-900 sm:flex-row sm:border-b">
+          <div className="flex items-center justify-center w-full py-8 border-t border-b border-gray-900 sm:py-0 sm:border-0 sm:w-auto">
             <svg
               width="50"
               height=""
@@ -66,9 +66,9 @@ export const Footer = () => {
                 fill="white"
               />
             </svg>
-            <p className="font-light text-2xl text-white">TOCPC</p>
+            <p className="text-2xl font-light text-white">TOCPC</p>
           </div>
-          <div className="flex flex-col sm:flex-row ustify-between items-center py-16 sm:py-10">
+          <div className="flex flex-col items-center py-16 sm:flex-row ustify-between sm:py-10">
             <Link href="/">
               <a
                 className={classNames(
@@ -98,12 +98,12 @@ export const Footer = () => {
             )}
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end sm:py-12">
-          <div className="flex flex-col w-full sm:w-auto items-center sm:items-baseline py-28 sm:py-0 border-b sm:border-0 border-gray-900">
-            <p className="font-display font-bold w-36 sm:w-72 pb-12 sm:pb-0 items-center text-white text-center sm:text-left">
+        <div className="flex flex-col items-center justify-between sm:flex-row sm:items-end sm:py-12">
+          <div className="flex flex-col items-center w-full border-b border-gray-900 sm:w-auto sm:items-baseline py-28 sm:py-0 sm:border-0">
+            <p className="items-center pb-12 font-bold text-center text-white font-display w-36 sm:w-72 sm:pb-0 sm:text-left">
               หากสนใจเป็นผู้ร่วมสนับสนุนหรือเป็นพันธมิตรกับพวกเราสามารถติดต่อเราได้ที่
             </p>
-            <div className="flex flex-col mt-4 w-full items-center sm:items-baseline">
+            <div className="flex flex-col items-center w-full mt-4 sm:items-baseline">
               <div className="flex items-center">
                 <svg
                   width="18"
@@ -119,7 +119,7 @@ export const Footer = () => {
                     fill="#EEF2FF"
                   />
                 </svg>
-                <p className="text-white text-sm ml-2">TOCPC</p>
+                <p className="ml-2 text-sm text-white">TOCPC</p>
               </div>
               <div className="flex items-center mt-2">
                 <svg
@@ -136,13 +136,20 @@ export const Footer = () => {
                     fill="#EEF2FF"
                   />
                 </svg>
-                <p className="text-white text-sm ml-2">tocpc@gmail.com</p>
+                <p className="ml-2 text-sm text-white">tocpc@gmail.com</p>
               </div>
             </div>
           </div>
-          <p className="text-white text-sm font-extralight py-7 sm:py-0">
-            privacy policy
-          </p>
+          <Link href="/privacy-policy">
+            <a className="text-sm text-white font-extralight py-7 sm:py-0">
+              Privacy Policy
+            </a>
+          </Link>
+          <Link href="/tos">
+            <a className="text-sm text-white font-extralight py-7 sm:py-0">
+              Term of Services
+            </a>
+          </Link>
         </div>
       </div>
     </footer>
