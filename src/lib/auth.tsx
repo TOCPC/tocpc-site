@@ -76,7 +76,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     if (pathname === '/dashboard' && auth.user === null) {
       status = true
     }
-    if (pathname === '/dashboard' && auth?.userData?.password === '') {
+    if (pathname === '/dashboard' && auth.userData?.password === '') {
       status = true
     }
     return status
@@ -85,12 +85,12 @@ export const AuthProvider: React.FC = ({ children }) => {
   useEffect(() => {
     if (auth.loading === false) {
       if (pathname === '/onboard') {
-        if (auth?.user === null) {
+        if (auth.user === null) {
           Router.push('/')
-        } else if (auth?.userData?.password !== '') {
+        } else if (auth.userData?.password !== '') {
           Router.push('/dashboard')
         }
-      } else if (auth?.user && auth?.userData?.password === '') {
+      } else if (auth.user && auth.userData?.password === '') {
         Router.push('/onboard')
       } else if (auth.user === null) {
         if (pathname === '/dashboard' || pathname === '/onboard') {
@@ -129,8 +129,8 @@ function useProvideAuth() {
       })
 
       return () => {
-        setUserData(null)
         unsubscribe()
+        setUserData(null)
       }
     }
   }, [user?.uid])
@@ -151,8 +151,7 @@ function useProvideAuth() {
       setLoading(false)
     } else if (rawUser === null) {
       setUser(null)
-
-      setLoading(false)
+      setUserData(null)
     }
   }
 
@@ -193,10 +192,13 @@ function useProvideAuth() {
   }
 
   const signout = async () => {
+    setLoading(true)
+
+    await handleUser(null)
+    await signOut(auth)
     Router.push('/')
 
-    await signOut(auth)
-    return await handleUser(null)
+    setLoading(false)
   }
 
   useEffect(() => {
