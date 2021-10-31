@@ -152,6 +152,7 @@ function useProvideAuth() {
     } else if (rawUser === null) {
       setUser(null)
       setUserData(null)
+      setLoading(false)
     }
   }
 
@@ -195,10 +196,8 @@ function useProvideAuth() {
     setLoading(true)
 
     await handleUser(null)
-    await signOut(auth)
     Router.push('/')
-
-    setLoading(false)
+    await signOut(auth)
   }
 
   useEffect(() => {
