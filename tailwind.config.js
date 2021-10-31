@@ -112,6 +112,13 @@ module.exports = {
         ...defaultTheme.fontFamily.sans,
       ],
     },
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+      circle: 'circle',
+      square: 'square',
+    },
   },
   variants: {},
   plugins: [
