@@ -43,6 +43,30 @@ module.exports = {
             },
           },
         },
+        md: {
+          css: {
+            fontFamily: `${theme('fontFamily.display')}`,
+            color: 'white',
+            a: {
+              color: 'white',
+            },
+            'ol > li::before': {
+              color: 'white',
+            },
+            h1: {
+              fontFamily: `${theme('fontFamily.display')}`,
+            },
+            h2: {
+              fontFamily: `${theme('fontFamily.display')}`,
+            },
+            h3: {
+              fontFamily: `${theme('fontFamily.display')}`,
+            },
+            h4: {
+              fontFamily: `${theme('fontFamily.display')}`,
+            },
+          },
+        },
         lg: {
           css: {
             fontFamily: `${theme('fontFamily.display')}`,

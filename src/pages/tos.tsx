@@ -5,7 +5,7 @@ const About = () => {
       <div className="flex flex-col items-center">
         <div className="flex flex-col max-w-4xl px-10 sm:px-16 md:px-24 mt-28 sm:mt-40">
           <p className="text-3xl text-white font-display">เงื่อนไขการใช้งาน</p>
-          <div className="prose prose-xl">
+          <div className="prose prose-md">
             <ol>
               <li>
                 <p>ในเงื่อนไขการใช้งานฯ ฉบับนี้</p>

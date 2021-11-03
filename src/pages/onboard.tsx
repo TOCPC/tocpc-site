@@ -365,13 +365,13 @@ const Register = () => {
           </p>
           <div className="max-w-lg">
             <div className="grid grid-cols-2 gap-6 py-8 border-b">
-              <div className={anonymous ? 'text-gray-600' : 'text-white'}>
+              <div className={anonymous ? 'text-white' : 'text-red-400'}>
                 <button
                   className={classnames(
                     'w-full border rounded-2xl my-4 p-2 sm:px-0',
                     anonymous
-                      ? 'border-gray-600 border-1'
-                      : 'border-white border-2'
+                      ? 'border-white border-2'
+                      : 'border-red-400 border-2'
                   )}
                   onClick={() => setAnonymous(false)}
                   type="button"
@@ -404,13 +404,13 @@ const Register = () => {
                   เช่น ชื่อ ที่อยู่ และข้อมูลสำคัญอื่น ๆ
                 </p>
               </div>
-              <div className={anonymous ? 'text-white' : 'text-gray-600'}>
+              <div className={anonymous ? 'text-red-400' : 'text-white'}>
                 <button
                   className={classnames(
                     'w-full border rounded-2xl my-4 p-2 sm:px-0',
                     anonymous
-                      ? 'border-2 border-white '
-                      : 'border-1 border-gray-600'
+                      ? 'border-2 border-red-400'
+                      : 'border-2 border-white'
                   )}
                   onClick={() => setAnonymous(true)}
                   type="button"
@@ -418,6 +418,7 @@ const Register = () => {
                   <div className="flex flex-col justify-center sm:flex-row">
                     <div className="m-2">
                       <svg
+                        className="fill-current"
                         width="20"
                         height="21"
                         viewBox="0 0 20 21"
@@ -428,7 +429,6 @@ const Register = () => {
                           fillRule="evenodd"
                           clipRule="evenodd"
                           d="M20 10.5C20 16.0228 15.5228 20.5 10 20.5C4.47715 20.5 0 16.0228 0 10.5C0 4.97715 4.47715 0.5 10 0.5C15.5228 0.5 20 4.97715 20 10.5ZM10 6.75C9.53891 6.75 9.1345 6.99902 8.91648 7.37591C8.5708 7.97348 7.80614 8.17769 7.20857 7.83201C6.61099 7.48633 6.40679 6.72167 6.75247 6.12409C7.39897 5.00648 8.61041 4.25 10 4.25C12.0711 4.25 13.75 5.92893 13.75 8C13.75 9.63277 12.7065 11.0218 11.25 11.5366V11.75C11.25 12.4404 10.6904 13 10 13C9.30966 13 8.75002 12.4404 8.75002 11.75V10.5C8.75002 9.80964 9.30966 9.25 10 9.25C10.6904 9.25 11.25 8.69036 11.25 8C11.25 7.30964 10.6904 6.75 10 6.75ZM10 16.75C10.6904 16.75 11.25 16.1904 11.25 15.5C11.25 14.8096 10.6904 14.25 10 14.25C9.30964 14.25 8.75 14.8096 8.75 15.5C8.75 16.1904 9.30964 16.75 10 16.75Z"
-                          fill={anonymous ? 'white' : '#4A5563'}
                         />
                       </svg>
                     </div>

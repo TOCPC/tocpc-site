@@ -81,7 +81,7 @@ export const Footer = () => {
             <Link href="/about" passHref>
               <a
                 className={classNames(
-                  'font-display sm:ml-8 pt-6 sm:pt-0 font-extrabold text-white',
+                  'font-display sm:ml-8 mt-6 sm:mt-0 font-extrabold text-white',
                   getClass('/about', 'ul')
                 )}
               >
@@ -90,7 +90,7 @@ export const Footer = () => {
             </Link>
             {auth?.user === null && (
               <Link href="login" passHref>
-                <button className="font-display pt-6 sm:pt-0 sm:ml-8 bg-red-400 text-white font-extrabold px-6 py-2.5 rounded-full">
+                <button className="font-display mt-6 sm:mt-0 sm:ml-8 bg-red-400 text-white font-extrabold px-6 py-2.5 rounded-full">
                   Login
                 </button>
               </Link>

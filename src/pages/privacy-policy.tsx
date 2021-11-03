@@ -7,7 +7,7 @@ const About = () => {
           <p className="text-3xl text-white font-display">
             นโยบายความเป็นส่วนตัว
           </p>
-          <div className="prose prose-xl">
+          <div className="prose prose-md">
             <ol>
               <li>
                 <p>ในนโยบายความเป็นส่วนตัวฉบับนี้</p>
