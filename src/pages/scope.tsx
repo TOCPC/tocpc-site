@@ -90,8 +90,8 @@ const About = () => {
                               trees)
                             </li>
                             <li>
-                              1.2.5.6 'Decorated' graphs with edge/node labels,
-                              weights, colors
+                              1.2.5.6 &apos;Decorated&apos; graphs with
+                              edge/node labels, weights, colors
                             </li>
                             <li>
                               1.2.5.7 Multigraphs และ graphs ที่มี self loops
@@ -199,9 +199,9 @@ const About = () => {
                         <li>
                           3.3.1
                           อัลกอริทึมเชิงตัวเลขพื้นฐานที่เกี่ยวข้องกับจำนวนเต็ม
-                          เช่น Radix Conversion, Euclid's algorithm, Primality
-                          test in O(√N), Sieve of Eratosthenes, Factorization,
-                          Efficient exponentiation
+                          เช่น Radix Conversion, Euclid&apos;s algorithm,
+                          Primality test in O(√N), Sieve of Eratosthenes,
+                          Factorization, Efficient exponentiation
                         </li>
                         <li>
                           3.3.2 การจัดการอาร์เรย์ขั้นพื้นฐาน
@@ -233,7 +233,9 @@ const About = () => {
                           3.3.10 Shortest path algorithm เช่น Dijkstra,
                           Bellman-Ford และ Floyd-Warshall
                         </li>
-                        <li>3.3.11 Transitive closure (Floyd's algorithm)</li>
+                        <li>
+                          3.3.11 Transitive closure (Floyd&apos;s algorithm)
+                        </li>
                         <li>3.3.12 Minimum spanning tree</li>
                         <li>3.3.13 Topological sort</li>
                       </ul>
@@ -292,7 +294,7 @@ const About = () => {
                   โปรแกรมจะถูกสั่งให้ทำงานบนระบบปฏิบัติการและคอมไพเลอร์เดียวกันกับที่ผู้เข้าแข่งขันเลือกใช้
                   ทั้งนี้เครื่องที่ใช้ในการตรวจสอบคำตอบของผู้เข้าแข่งขันจะเลือกระบบปฏิบัติการและคอมไพเลอร์โดยพิจารณาข้อมูลจากที่กำหนดไว้ที่ต้นไฟล์คำตอบของผู้เข้าแข่งขัน
                   (รายละเอียดเพิ่มเติมอยู่ในหัวข้อ
-                  'ข้อมูลและรายละเอียดเพิ่มเติมเกี่ยวกับการแข่งขัน')
+                  &apos;ข้อมูลและรายละเอียดเพิ่มเติมเกี่ยวกับการแข่งขัน&apos;)
                 </li>
                 <li>
                   คอมไพเลอร์ออปชัน (compiler option)
