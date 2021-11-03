@@ -1,6 +1,6 @@
 export const MainFootage = () => (
   <svg
-    className="absolute left-full transform -translate-x-48 sm:-translate-x-64 md:-translate-x-80 lg:-translate-x-96 h-full py-4"
+    className="absolute left-full transform -translate-x-50vw h-full py-4"
     viewBox="0 0 759 627"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

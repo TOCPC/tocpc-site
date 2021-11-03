@@ -119,6 +119,9 @@ module.exports = {
       inset: {
         5.5: '1.375rem',
       },
+      translate: {
+        '-50vw': '-50vw',
+      },
     },
     screens: {
       sm: '640px',

@@ -7,11 +7,7 @@ export const THACO = () => {
 
   return (
     <section className="w-full h-screen bg-gray-900 relative overflow-hidden">
-      <div className="block absolute h-full w-full">
-        <div className="relative h-full max-w-7xl">
-          <MainFootage />
-        </div>
-      </div>
+      <MainFootage />
       <div className="block absolute h-full w-full">
         <div className="flex flex-col w-full h-screen items-center justify-center">
           <div>
