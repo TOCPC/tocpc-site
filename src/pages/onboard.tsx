@@ -4,7 +4,7 @@ import Router from 'next/router'
 import Link from 'next/link'
 import classnames from 'classnames'
 import { useAuth, IAuthContext } from 'lib/auth'
-import { submitRegisterAnonymous, submitRegisterNormal } from 'lib/process'
+import { submitRegister } from 'lib/process'
 
 const validate = (values: any) => {
   const errors: any = {}
@@ -82,7 +82,7 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
     }}
     validate={validate}
     onSubmit={(data) => {
-      submitRegisterNormal(data, auth)
+      submitRegister(data, auth, false)
     }}
     validateOnChange={false}
     validateOnBlur={false}
@@ -274,7 +274,7 @@ const Anonymous = ({ auth }: { auth: IAuthContext | null }) => (
     }}
     validate={validatePassword}
     onSubmit={(data) => {
-      submitRegisterAnonymous(data, auth)
+      submitRegister(data, auth, true)
     }}
     validateOnChange={false}
     validateOnBlur={false}

@@ -3,25 +3,12 @@ import Router from 'next/router'
 import { updateUser } from 'lib/db'
 import { IAuthContext } from 'lib/auth'
 
-export const submitRegisterNormal = (data: any, auth: IAuthContext | null) => {
-  data = { ...data, anonymous: false }
-  bcrypt.hash(data.password, 10, async (err, encrypted) => {
-    data = { ...data, password: encrypted }
-    delete data.verify
-    if (auth?.userData?.uid) {
-      auth?.setLoading(true)
-      await updateUser(auth?.userData?.uid, data)
-      Router.push('/dashboard')
-      auth?.setLoading(false)
-    }
-  })
-}
-
-export const submitRegisterAnonymous = (
+export const submitRegister = (
   data: any,
-  auth: IAuthContext | null
+  auth: IAuthContext | null,
+  anonymous: boolean
 ) => {
-  data = { ...data, anonymous: true }
+  data = { ...data, anonymous, username: '' }
   bcrypt.hash(data.password, 10, async (err, encrypted) => {
     data = { ...data, password: encrypted }
     delete data.verify

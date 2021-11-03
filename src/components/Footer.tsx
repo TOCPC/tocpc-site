@@ -154,6 +154,7 @@ export const Footer = () => {
           <a
             href="https://vercel.com/?utm_source=tocpc&utm_campaign=oss"
             target="_blank"
+            rel="noreferrer"
           >
             <svg
               className="-mr-4"
