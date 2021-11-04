@@ -118,7 +118,7 @@ export const Nav = () => {
               <Link href="/" passHref>
                 <a
                   className={classnames(
-                    'font-display sm:pr-4 md:pr-8 pb-6 sm:pb-0 font-semibold text-white',
+                    'font-display sm:mr-4 md:mr-8 mb-6 sm:mb-0 font-semibold text-white',
                     getClass('/', 'ul')
                   )}
                 >
@@ -128,7 +128,7 @@ export const Nav = () => {
               <Link href="/about" passHref>
                 <a
                   className={classnames(
-                    'font-display sm:pr-4 md:pr-8 pb-6 sm:pb-0 font-semibold text-white',
+                    'font-display sm:mr-4 md:mr-8 mb-6 sm:mb-0 font-semibold text-white',
                     getClass('/about', 'ul')
                   )}
                 >

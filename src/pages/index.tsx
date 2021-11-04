@@ -9,13 +9,13 @@ import { Layout } from 'components/Layout'
 
 const Home: NextPage = () => {
   return (
-    <Layout>
+    <>
       <THACO />
       <Overview />
       <Schedule />
       <Donation />
       <Question />
-    </Layout>
+    </>
   )
 }
 
