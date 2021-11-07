@@ -10,26 +10,26 @@ export const THACO = () => {
       <MainFootage />
       <div className="block absolute h-full w-full">
         <div className="flex flex-col w-full h-screen items-center justify-center">
-          <div>
-            <p className="font-display py-1 font-extrabold text-4xl sm:text-5xl text-white text-center">
+          <div className="pt-20">
+            <p className="font-display py-1 font-extrabold text-3xl sm:text-4xl text-white text-center">
               Thailand
             </p>
-            <p className="font-display py-1 font-extrabold text-4xl sm:text-5xl text-white text-center">
+            <p className="font-display py-1 font-extrabold text-3xl sm:text-4xl text-white text-center">
               Online
             </p>
-            <p className="font-display py-1 font-extrabold text-4xl sm:text-5xl text-white text-center">
+            <p className="font-display py-1 font-extrabold text-3xl sm:text-4xl text-white text-center">
               Competitive
             </p>
-            <p className="font-display py-1 font-extrabold text-4xl sm:text-5xl text-white text-center">
+            <p className="font-display py-1 font-extrabold text-3xl sm:text-4xl text-white text-center">
               Programming
             </p>
-            <p className="font-display py-1 font-extrabold text-4xl sm:text-5xl text-white text-center">
+            <p className="font-display py-1 font-extrabold text-3xl sm:text-4xl text-white text-center">
               Contest
             </p>
-            <p className="font-display py-1 font-extrabold text-4xl sm:text-5xl text-white text-center">
+            <p className="font-display py-1 font-extrabold text-3xl sm:text-4xl text-white text-center">
               2021
             </p>
-            <p className="font-display py-6 text-white text-center">
+            <p className="font-display py-6 text-xl text-white text-center">
               20-21 NOV 2021
             </p>
           </div>
@@ -41,7 +41,7 @@ export const THACO = () => {
                 </button>
               </Link>
               <p className="font-display py-4 text-white text-center">
-                until 19 NOV 2021
+                UNTIL 19 NOV 2021
               </p>
             </div>
           )}

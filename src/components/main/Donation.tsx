@@ -1,5 +1,5 @@
 export const Donation = () => (
-  <section className="flex flex-col items-center justify-center px-8 sm:px-20 md:px-32 py-12 sm:py-24 md:py-32">
+  <section className="flex flex-col items-center justify-center px-8 sm:px-16 md:px-24 lg:px-32 py-12 sm:py-24 md:py-32">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-18 max-w-4xl">
       <div className="flex flex-col">
         <p className="font-display font-semibold text-2xl">ร่วมบริจาค</p>

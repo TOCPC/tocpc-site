@@ -55,7 +55,7 @@ export const Nav = () => {
     if (pathname == expected) {
       switch (part) {
         case 'ul':
-          return 'underline'
+          return 'border-b-2 border-white'
         case 'color':
           return 'text-red-400'
       }
@@ -83,7 +83,8 @@ export const Nav = () => {
           <svg
             className="-ml-3"
             width="50"
-            height=""
+            height="50"
+            style={{ height: '100%' }}
             viewBox="0 0 174 146"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

@@ -1,19 +1,20 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import { THACO } from 'components/main/THACO'
-import { Donation } from 'components/main/Donation'
+import { Reward } from 'components/main/Reward'
 import { Overview } from 'components/main/Overview'
 import { Schedule } from 'components/main/Schedule'
 import { Question } from 'components/main/Question'
-import { Layout } from 'components/Layout'
+import { Description } from 'components/Description'
 
 const Home: NextPage = () => {
   return (
     <>
+      <Description />
       <THACO />
       <Overview />
+      <Reward />
       <Schedule />
-      <Donation />
+      {/* <Donation /> */}
       <Question />
     </>
   )
