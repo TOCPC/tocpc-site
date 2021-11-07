@@ -83,7 +83,7 @@ const question = [
 ]
 
 export const Question = () => (
-  <section className="flex flex-col items-center w-full h-auto bg-gray-900 px-8 sm:px-20 md:px-32 py-20 sm:py-32">
+  <section className="flex flex-col items-center w-full h-auto bg-gray-900 px-8 sm:px-16 md:px-24 lg:px-32 py-20 sm:py-32">
     <div className="flex flex-col md:flex-row max-w-4xl">
       <div className="flex-none mr-12 mb-8">
         <p className="font-display text-3xl text-white">คำถามที่พบบ่อย</p>
