@@ -42,10 +42,6 @@ export default class Document extends NextDocument {
             name="keywords"
             content="TOCPC, THACO, Thai Competitive Programming, Thai Programming, Thai Dev, Thai Code, Thailand Competitive Programming, Competitive Programming, การแข่งขันเขียนโปรแกรม, เขียนโปรแกรม, สอวน, สอวน คอม, แข่งเขียนโปรแกรม, TOI"
           />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
