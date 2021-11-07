@@ -256,7 +256,7 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
           </button>
           <p className="mb-24 text-center font-display">
             การลงทะเบียนถือว่ายอมรับ
-            <Link href="/">
+            <Link href="/tos">
               <a className="text-red-400 underline">
                 ข้อตกลงและเงื่อนไขการแข่งขัน
               </a>

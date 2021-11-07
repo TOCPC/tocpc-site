@@ -55,7 +55,7 @@ export const Nav = () => {
     if (pathname == expected) {
       switch (part) {
         case 'ul':
-          return 'border-b-2 border-white'
+          return 'border-b-2 border-red-400 sm:border-white'
         case 'color':
           return 'text-red-400'
       }

@@ -9,6 +9,7 @@ export const Description: NextPage = () => {
         name="description"
         content="การแข่งขันเขียนโปรแกรมแนว Competitive Programming สุดเท่ประจำปี 2021"
       />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
   )
 }
