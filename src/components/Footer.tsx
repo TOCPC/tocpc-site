@@ -154,7 +154,7 @@ export const Footer = () => {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <g clip-path="url(#clip0_929:446)">
+                  <g clipPath="url(#clip0_929:446)">
                     <path
                       d="M124.132 0H4.86792C2.17944 0 0 2.17944 0 4.86792V21.9057C0 24.5941 2.17944 26.7736 4.86792 26.7736H124.132C126.821 26.7736 129 24.5941 129 21.9057V4.86792C129 2.17944 126.821 0 124.132 0Z"
                       fill="black"
@@ -170,7 +170,7 @@ export const Footer = () => {
                     <path
                       d="M26.4692 0V26.7736"
                       stroke="#5E5E5E"
-                      stroke-width="0.608491"
+                      strokeWidth="0.608491"
                     />
                   </g>
                   <defs>
