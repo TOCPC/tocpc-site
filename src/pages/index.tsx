@@ -5,6 +5,7 @@ import { Reward } from 'components/main/Reward'
 import { Overview } from 'components/main/Overview'
 import { Schedule } from 'components/main/Schedule'
 import { Question } from 'components/main/Question'
+import { Donation } from 'components/main/Donation'
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +14,7 @@ const Home: NextPage = () => {
       <Overview />
       <Reward />
       <Schedule />
-      {/* <Donation /> */}
+      <Donation />
       <Question />
     </>
   )
