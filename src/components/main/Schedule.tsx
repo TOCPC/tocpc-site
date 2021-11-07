@@ -1,6 +1,6 @@
 import { ProgLogo } from 'components/ProgLogo'
 
-export const Schedule = () => (
+export const Schedule = ({ registerSize }: { registerSize: number }) => (
   <section className="flex flex-col items-center justify-center w-full bg-gray-900">
     <div className="flex items-center justify-center py-48">
       <div className="flex flex-col">
@@ -12,7 +12,7 @@ export const Schedule = () => (
         </p>
       </div>
       <p className="px-4 text-6xl font-bold text-red-400 font-display sm:text-8xl">
-        0
+        {registerSize}
       </p>
       <p className="text-3xl font-medium text-white font-display sm:text-5xl">
         คน

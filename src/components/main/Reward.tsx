@@ -22,6 +22,7 @@ export const Reward = () => (
               <span>
                 <Image
                   src={watch}
+                  alt=""
                   width={179}
                   height={196}
                   placeholder="blur"
@@ -30,6 +31,7 @@ export const Reward = () => (
               <span className="mt-4">
                 <Image
                   src={watch_logo}
+                  alt=""
                   width={145}
                   height={55.2}
                   placeholder="blur"
@@ -42,6 +44,7 @@ export const Reward = () => (
               <span className="p-6">
                 <Image
                   src={first_reward}
+                  alt=""
                   width={284}
                   height={188}
                   placeholder="blur"
@@ -69,6 +72,7 @@ export const Reward = () => (
               <span className="p-6">
                 <Image
                   src={discord}
+                  alt=""
                   width={277}
                   height={198}
                   placeholder="blur"
@@ -81,6 +85,7 @@ export const Reward = () => (
               <span className="p-6">
                 <Image
                   src={first_reward}
+                  alt=""
                   width={284}
                   height={188}
                   placeholder="blur"
@@ -108,6 +113,7 @@ export const Reward = () => (
               <span className="px-6 py-2">
                 <Image
                   src={airtag}
+                  alt=""
                   width={189}
                   height={191}
                   placeholder="blur"
@@ -121,6 +127,7 @@ export const Reward = () => (
               <span className="p-6">
                 <Image
                   src={first_reward}
+                  alt=""
                   width={284}
                   height={188}
                   placeholder="blur"
@@ -148,6 +155,7 @@ export const Reward = () => (
               <span className="p-6">
                 <Image
                   src={first_reward}
+                  alt=""
                   width={284}
                   height={188}
                   placeholder="blur"
@@ -173,6 +181,7 @@ export const Reward = () => (
               <span className="p-6">
                 <Image
                   src={second_reward}
+                  alt=""
                   width={279}
                   height={143}
                   placeholder="blur"
@@ -200,6 +209,7 @@ export const Reward = () => (
               <span className="p-6">
                 <Image
                   src={third_reward}
+                  alt=""
                   width={279}
                   height={130}
                   placeholder="blur"
@@ -223,6 +233,7 @@ export const Reward = () => (
               <span className="p-6">
                 <Image
                   src={fourth_reward}
+                  alt=""
                   width={279}
                   height={130}
                   placeholder="blur"
