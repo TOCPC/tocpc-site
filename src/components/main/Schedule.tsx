@@ -155,7 +155,7 @@ export const Schedule = () => (
       <div className="flex flex-col w-full max-w-4xl">
         <p className="text-3xl text-white font-display">ผู้สนับสนุนหลัก</p>
         <div className="w-24 h-2 mt-1 bg-red-400" aria-hidden="true" />
-        <div className="flex flex-col items-center justify-around w-full px-4 py-8 my-8 bg-gray-700 md:flex-row rounded-3xl md:py-16 md:px-16">
+        <div className="flex flex-col items-center justify-around w-full px-4 py-8 my-8 bg-gray-700 lg:flex-row rounded-3xl lg:py-16 lg:px-16">
           <ProgLogo />
           <ProgLogo />
         </div>

@@ -11,7 +11,7 @@ export const Footer = () => {
     if (pathname == expected) {
       switch (part) {
         case 'ul':
-          return 'underline'
+          return 'border-b-2 border-white'
         case 'color':
           return 'text-red-400'
       }
@@ -39,7 +39,8 @@ export const Footer = () => {
           <div className="flex items-center justify-center w-full py-8 border-t border-b border-gray-900 sm:py-0 sm:border-0 sm:w-auto">
             <svg
               width="50"
-              height=""
+              height="50"
+              style={{ height: '100%' }}
               viewBox="0 0 174 146"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +72,7 @@ export const Footer = () => {
             <Link href="/">
               <a
                 className={classNames(
-                  'font-display font-extrabold text-white',
+                  'font-display text-white',
                   getClass('/', 'ul')
                 )}
               >
@@ -81,7 +82,7 @@ export const Footer = () => {
             <Link href="/about" passHref>
               <a
                 className={classNames(
-                  'font-display sm:ml-8 mt-6 sm:mt-0 font-extrabold text-white',
+                  'font-display sm:ml-8 mt-6 sm:mt-0 text-white',
                   getClass('/about', 'ul')
                 )}
               >
@@ -90,7 +91,7 @@ export const Footer = () => {
             </Link>
             {auth?.user === null && (
               <Link href="login" passHref>
-                <button className="font-display mt-6 sm:mt-0 sm:ml-8 bg-red-400 text-white font-extrabold px-6 py-2.5 rounded-full">
+                <button className="font-display mt-6 sm:mt-0 sm:ml-8 bg-red-400 text-white px-6 py-2.5 rounded-full">
                   Login
                 </button>
               </Link>
