@@ -98,7 +98,7 @@ export const Footer = () => {
             )}
           </div>
         </div>
-        <div className="flex flex-col items-center justify-between sm:flex-row sm:items-end sm:py-12">
+        <div className="flex flex-col items-center justify-between sm:flex-row sm:items-end sm:my-8">
           <div className="flex flex-col items-center w-full py-16 border-b border-gray-900 sm:w-auto sm:items-baseline sm:py-0 sm:border-0">
             <p className="items-center pb-12 font-bold text-center text-white font-display w-36 sm:w-72 sm:pb-0 sm:text-left">
               หากสนใจเป็นผู้ร่วมสนับสนุนหรือเป็นพันธมิตรกับพวกเราสามารถติดต่อเราได้ที่
@@ -140,8 +140,9 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center order-last w-full py-8 sm:pt-0 sm:order-first ">
-            <div className="flex items-center self-center justify-center w-full sm:justify-start sm:mb-4">
+
+          <div className="flex flex-col-reverse sm:flex-col items-center w-full h-full justify-between py-6 text-center border-b border-gray-900 sm:w-auto sm:items-end sm:py-0 sm:border-0">
+            <div className="flex justify-center w-full mt-6 pt-6 border-t border-gray-900 sm:border-0 sm:mt-0 sm:pt-0">
               <a
                 href="https://vercel.com/?utm_source=tocpc&utm_campaign=oss"
                 target="_blank"
@@ -181,12 +182,10 @@ export const Footer = () => {
                 </svg>
               </a>
             </div>
-          </div>
-          <div className="flex flex-col items-center w-full py-6 text-center border-b border-gray-900 sm:w-auto sm:items-baseline sm:py-0 sm:border-0">
-            <div className="flex flex-col mb:space-y-2 mb:text-right">
+            <div className="flex flex-col sm:space-y-2 sm:text-right">
               <Link href="/tos">
                 <a className="py-1 text-sm text-white font-extralight sm:py-0">
-                  Term of Services
+                  Terms and Conditions
                 </a>
               </Link>
               <Link href="/privacy-policy">
