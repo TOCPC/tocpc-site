@@ -1,11 +1,48 @@
 import { DonationButton } from './Donation/DonationButton'
 import { ArrowIcon } from './Donation/ArrowIcon'
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import { query } from '@firebase/firestore'
 export const Donation = () => {
+  const router = useRouter()
+  const [donatorName, setDonatorName] = useState('')
+  const [donatorSurname, setDonatorSurname] = useState('')
+  const [donatorDisplayName, setDonatorDisplayName] = useState('')
+
   const [donators, setDonators] = useState([])
   const [donateAmount, setDonateAmount] = useState(0)
   const [customDonateAmount, setCustomDonateAmount] = useState(0)
   const [errorCustomDonateAmount, setErrorCustomDonateAmount] = useState(false)
+
+  const handleDonatorNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDonatorName(e.target.value)
+  }
+
+  const handleDonatorSurnameChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setDonatorSurname(e.target.value)
+  }
+
+  const handleDonatorDisplayName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDonatorDisplayName(e.target.value)
+  }
+
+  const handleSubmitForm = () => {
+    let amount = donateAmount
+    if (amount == -1) {
+      amount = customDonateAmount
+    }
+    router.push({
+      pathname: '/donate',
+      query: {
+        name: donatorName,
+        surname: donatorSurname,
+        displayName: donatorDisplayName,
+        amount,
+      },
+    })
+  }
 
   const handleCustomDonateAmountChange = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -20,7 +57,7 @@ export const Donation = () => {
 
     setCustomDonateAmount(parseFloat(e.target.value))
   }
-
+  // TODO : change to SSG
   useEffect(() => {
     async function fetchData() {
       const res = await fetch('/api/donators')
@@ -35,13 +72,13 @@ export const Donation = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-18 max-w-4xl">
         <div className="flex flex-col">
           <p className="font-display text-3xl">ร่วมบริจาค</p>
-          <p className="py-8 font-light font-display">
+          <p className="py-6 font-light font-display">
             เนื่องจากเราเป็นกลุ่มผู้ไม่แสวงหาผลกำไร
             และไม่มีค่าใช้จ่ายในการเข้าร่วม
             เราจึงต้องการเงินทุนช่วยเหลือสำหรับการจัดการดูแลตัวตรวจ
             การจัดส่งรางวัล และอื่น ๆ
           </p>
-          <ul className="font-light font-display list-disc list-inside">
+          <ul className="font-light font-display list-disc list-inside text-blue-900">
             <li>บริจาคเกิน 150 บาท รับสติกเกอร์ TOCPC</li>
             <li>บริจาคเกิน 300 บาท รับพวงกุญแจ TOCPC</li>
             <li>บริจาคเกิน 1,000 บาท รับเสื้อยืด TOCPC</li>
@@ -53,7 +90,7 @@ export const Donation = () => {
             จำนวนเงินที่ต้องการบริจาค
           </p>
 
-          <div className="flex mb-2 w-full gap-4">
+          <div className="flex my-2 w-full gap-4">
             {[150, 300, 500].map((val, key) => {
               return (
                 <div
@@ -71,7 +108,7 @@ export const Donation = () => {
               )
             })}
           </div>
-          <div className="flex mb-2 w-full gap-4">
+          <div className="flex my-2 w-full gap-4">
             {[1000, 2000].map((val, key) => {
               return (
                 <div
@@ -96,7 +133,7 @@ export const Donation = () => {
                   setDonateAmount(-1)
                 }}
                 placeholder="ระบุ..."
-                className={`text-center font-light font-display  border-gray-500 w-full py-1 border rounded-md shadow-sm hover:text-white hover:bg-black ${
+                className={`text-center font-light font-display  border-gray-500 w-full py-1 border rounded-md shadow-sm hover:text-white hover:bg-gray-900 ${
                   donateAmount == -1 ? 'text-white bg-black' : 'text-gray-500'
                 }`}
               />
@@ -117,17 +154,25 @@ export const Donation = () => {
 
           <div className="flex w-full gap-4 text-black">
             <input
+              onChange={handleDonatorNameChange}
+              value={donatorName}
               placeholder="ชื่อ"
               className="font-light font-display text-gray-500 border-gray-500  w-full py-1  pl-2 border rounded-md shadow-sm "
             />
             <input
+              onChange={handleDonatorSurnameChange}
+              value={donatorSurname}
               placeholder="สกุล"
               className="font-light font-display text-gray-500 border-gray-500  w-full py-1  pl-2 border rounded-md shadow-sm "
+              required
             />
           </div>
           <input
+            onChange={handleDonatorDisplayName}
+            value={donatorDisplayName}
             placeholder="ชื่อที่ต้องการให้แสดงบนเว็บไซต์"
             className="my-2 font-light font-display text-gray-500 border-gray-500 w-full py-1  pl-2 border rounded-md shadow-sm "
+            required
           />
 
           <div className="flex w-full justify-between items-center mt-4 gap-4">
@@ -137,7 +182,7 @@ export const Donation = () => {
                   type="checkbox"
                   name="hide-name"
                   id="hide-name"
-                  className="mr-2 rounded-full"
+                  className="mr-2 rounded-lg"
                 />
                 <label htmlFor="hide-name">
                   ไม่แสดงชื่อผู้บริจาคบนเว็บไซต์
@@ -154,8 +199,9 @@ export const Donation = () => {
               </div>
             </div>
             <button
+              onClick={handleSubmitForm}
               type="submit"
-              className="bg-red-400 px-4 py-4 text-2xl font-semibold rounded-full w-1/2 text-white"
+              className="bg-red-400 px-8 py-2  font-semibold rounded-full text-white"
             >
               ถัดไป
             </button>
