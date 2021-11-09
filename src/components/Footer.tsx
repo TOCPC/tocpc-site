@@ -27,7 +27,7 @@ export const Footer = () => {
   if (
     pathname === '/login' ||
     pathname === '/register' ||
-    pathname === '/onboard'
+    auth?.userData?.password === ''
   ) {
     return null
   }
