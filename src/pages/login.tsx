@@ -11,10 +11,10 @@ const Login = () => {
       <main className="relative w-full min-h-screen bg-gray-900">
         <div className="flex flex-col items-center justify-center h-screen">
           <div>
-            <p className="font-display text-3xl text-white text-center font-extrabold py-2">
+            <p className="py-2 text-3xl font-extrabold text-center text-white font-display">
               Login
             </p>
-            <p className="font-display text-white text-center pb-8">
+            <p className="pb-8 text-center text-white font-display">
               Or{' '}
               <Link href="/register" passHref>
                 <a className="text-red-400">register here</a>
@@ -22,8 +22,8 @@ const Login = () => {
             </p>
           </div>
           <div>
-            <button
-              className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6"
+            {/* <button
+              className="flex items-center justify-center py-3 mx-auto mb-6 bg-white rounded-full font-display hover:bg-gray-300 py-auto w-80"
               onClick={() => auth?.signinWithFacebook('/dashboard')}
             >
               <svg
@@ -41,9 +41,9 @@ const Login = () => {
                 />
               </svg>
               <p className="px-4">Sign in with Facebook</p>
-            </button>
+            </button> */}
             <button
-              className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6"
+              className="flex items-center justify-center py-3 mx-auto mb-6 bg-white rounded-full font-display hover:bg-gray-300 py-auto w-80"
               onClick={() => auth?.signinWithGoogle('/dashboard')}
             >
               <svg
@@ -85,7 +85,7 @@ const Login = () => {
               <p className="px-4">Sign in with Google</p>
             </button>
             <button
-              className="flex items-center justify-center mx-auto font-display bg-white hover:bg-gray-300 py-auto rounded-full w-80 py-3 mb-6"
+              className="flex items-center justify-center py-3 mx-auto mb-6 bg-white rounded-full font-display hover:bg-gray-300 py-auto w-80"
               onClick={() => auth?.signinWithGitHub('/dashboard')}
             >
               <svg
