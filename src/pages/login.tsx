@@ -22,7 +22,7 @@ const Login = () => {
             </p>
           </div>
           <div>
-            {/* <button
+            <button
               className="flex items-center justify-center py-3 mx-auto mb-6 bg-white rounded-full font-display hover:bg-gray-300 py-auto w-80"
               onClick={() => auth?.signinWithFacebook('/dashboard')}
             >
@@ -41,7 +41,7 @@ const Login = () => {
                 />
               </svg>
               <p className="px-4">Sign in with Facebook</p>
-            </button> */}
+            </button>
             <button
               className="flex items-center justify-center py-3 mx-auto mb-6 bg-white rounded-full font-display hover:bg-gray-300 py-auto w-80"
               onClick={() => auth?.signinWithGoogle('/dashboard')}
