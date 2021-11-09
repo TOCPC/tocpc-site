@@ -98,7 +98,7 @@ export const Footer = () => {
             )}
           </div>
         </div>
-        <div className="flex flex-col items-center justify-between sm:flex-row sm:items-end sm:py-12">
+        <div className="flex flex-col items-center justify-between sm:flex-row sm:items-end sm:my-8">
           <div className="flex flex-col items-center w-full py-16 border-b border-gray-700 sm:w-auto sm:items-baseline sm:py-0 sm:border-0">
             <p className="items-center pb-12 font-bold text-center text-white font-display w-36 sm:w-72 sm:pb-0 sm:text-left">
               หากสนใจเป็นผู้ร่วมสนับสนุนหรือเป็นพันธมิตรกับพวกเราสามารถติดต่อเราได้ที่
@@ -144,7 +144,7 @@ export const Footer = () => {
             <div className="flex flex-col w-full sm:w-full sm:space-y-2 border-b border-gray-700 sm:border-0 py-6 sm:py-0">
               <Link href="/tos">
                 <a className="py-1 text-sm text-white font-extralight sm:py-0">
-                  Term of Services
+                  Terms and Conditions
                 </a>
               </Link>
               <Link href="/privacy-policy">

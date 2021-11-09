@@ -9,7 +9,7 @@ export const submitRegister = (
   anonymous: boolean
 ) => {
   data = { ...data, anonymous, username: '' }
-  bcrypt.hash(data.password, 10, async (err, encrypted) => {
+  bcrypt.hash(data.password, 12, async (err, encrypted) => {
     data = { ...data, password: encrypted }
     delete data.verify
     if (auth?.userData?.uid) {
