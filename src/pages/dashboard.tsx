@@ -23,7 +23,7 @@ const Dashboard = () => {
             <div className="flex w-full py-6">
               <p className="w-1/3 text-white font-semibold">ชื่อผู้ใช้</p>
               <p className="w-2/3 text-white pl-4">
-                {auth?.userData?.username}
+                {auth?.userData?.username ?? '-'}
               </p>
             </div>
             {auth?.userData?.anonymous ? (
@@ -37,14 +37,16 @@ const Dashboard = () => {
             ) : (
               <>
                 <div className="flex w-full py-6">
-                  <p className="w-1/3 text-white font-semibold">ชื่อ-สกุล</p>
+                  <p className="w-1/3 text-white overflow-x-auto font-semibold">
+                    ชื่อ-สกุล
+                  </p>
                   <p className="w-2/3 text-white pl-4">
                     {auth?.userData?.firstname} {auth?.userData?.lastname}
                   </p>
                 </div>
                 <div className="flex w-full py-6">
                   <p className="w-1/3 text-white font-semibold">อีเมล</p>
-                  <p className="w-2/3 text-white overflow-x-scroll pl-4">
+                  <p className="w-2/3 text-white overflow-x-auto pl-4">
                     {auth?.userData?.email}
                   </p>
                 </div>
@@ -58,7 +60,7 @@ const Dashboard = () => {
                   <p className="w-1/3 text-white font-semibold">
                     ที่อยู่สำหรับส่งของรางวัล
                   </p>
-                  <p className="w-2/3 text-white pl-4">
+                  <p className="w-2/3 text-white overflow-x-auto pl-4">
                     {auth?.userData?.address}
                   </p>
                 </div>

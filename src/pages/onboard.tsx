@@ -189,7 +189,7 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
           )}
           id="address"
           name="address"
-          placeholder="ที่อยู่สำหรับส่งของรางวัล 50 ตัวอักษร"
+          placeholder="ที่อยู่สำหรับส่งของรางวัล"
           type="address"
         />
         {errors.address ? (
