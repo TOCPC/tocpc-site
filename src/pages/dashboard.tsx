@@ -1,13 +1,13 @@
 import { useAuth } from 'lib/auth'
 
 import { Layout } from 'components/Layout'
-import { Description } from 'components/Description'
+import { MetaData } from 'components/Meta'
 
 const Dashboard = () => {
   const auth = useAuth()
   return (
     <>
-      <Description />
+      <MetaData />
       <main className="relative w-full min-h-screen bg-gray-900">
         <div className="flex flex-col items-center px-10 sm:px-16 md:px-24">
           <div className="flex flex-col mt-28 sm:mt-32 mb-20 max-w-2xl divide-y divide-white w-full font-display border-b border-white">
@@ -23,7 +23,7 @@ const Dashboard = () => {
             <div className="flex w-full py-6">
               <p className="w-1/3 text-white font-semibold">ชื่อผู้ใช้</p>
               <p className="w-2/3 text-white pl-4">
-                {auth?.userData?.username}
+                {auth?.userData?.username ?? '-'}
               </p>
             </div>
             {auth?.userData?.anonymous ? (
@@ -37,14 +37,16 @@ const Dashboard = () => {
             ) : (
               <>
                 <div className="flex w-full py-6">
-                  <p className="w-1/3 text-white font-semibold">ชื่อ-สกุล</p>
+                  <p className="w-1/3 text-white overflow-x-auto font-semibold">
+                    ชื่อ-สกุล
+                  </p>
                   <p className="w-2/3 text-white pl-4">
                     {auth?.userData?.firstname} {auth?.userData?.lastname}
                   </p>
                 </div>
                 <div className="flex w-full py-6">
                   <p className="w-1/3 text-white font-semibold">อีเมล</p>
-                  <p className="w-2/3 text-white overflow-x-scroll pl-4">
+                  <p className="w-2/3 text-white overflow-x-auto pl-4">
                     {auth?.userData?.email}
                   </p>
                 </div>
@@ -58,7 +60,7 @@ const Dashboard = () => {
                   <p className="w-1/3 text-white font-semibold">
                     ที่อยู่สำหรับส่งของรางวัล
                   </p>
-                  <p className="w-2/3 text-white pl-4">
+                  <p className="w-2/3 text-white overflow-x-auto pl-4">
                     {auth?.userData?.address}
                   </p>
                 </div>

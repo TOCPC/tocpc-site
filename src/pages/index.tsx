@@ -4,14 +4,14 @@ import { Reward } from 'components/main/Reward'
 import { Overview } from 'components/main/Overview'
 import { Schedule } from 'components/main/Schedule'
 import { Question } from 'components/main/Question'
-import { Description } from 'components/Description'
+import { MetaData } from 'components/Meta'
 
 import db from 'lib/firebase-admin'
 
 const Home = ({ registerSize }: { registerSize: number }) => {
   return (
     <>
-      <Description />
+      <MetaData />
       <THACO />
       <Overview />
       <Reward />

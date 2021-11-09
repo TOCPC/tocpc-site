@@ -9,7 +9,7 @@ export const THACOLogo: NextPage = () => {
       width="120"
     >
       <defs>
-        <style>{`.cls-1,.cls-2{fill:none;stroke:#fff;stroke-linecap:round;stroke-width:7px;}.cls-1{stroke-linejoin:round;}.cls-2{stroke-miterlimit:10;}.cls-3{font-size:72px;font-family:"Inter var", "SF Pro Display", sans-serif;font-weight:500;letter-spacing:0.02em;}.cls-4{letter-spacing:0.02em;}.cls-5{letter-spacing:0.02em;}`}</style>
+        <style>{`.cls-1,.cls-2{fill:none;stroke:#fff;stroke-linecap:round;stroke-width:7px;}.cls-1{stroke-linejoin:round;}.cls-2{stroke-miterlimit:10;}.cls-3{fill:#fff;font-weight:500;font-size:72px;font-family:"Inter var", "SF Pro Display", sans-serif;letter-spacing:0.02em;}.cls-4{letter-spacing:0.02em;}.cls-5{letter-spacing:0.02em;}`}</style>
       </defs>
       <g id="Layer_2" data-name="Layer 2">
         <path
