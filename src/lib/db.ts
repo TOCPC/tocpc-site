@@ -46,27 +46,6 @@ export const getDonatorsRef = () => {
   return collection(db, 'donators')
 }
 
-export const getDonators = async (): Promise<Object[]> => {
-  // const donatorsRef = getDonatorsRef()
-  // const querySnapshot = await getDocs(donatorsRef)
-
-  // TODO: create type
-  const donators: Object[] = [
-    { name: 'iammarkps', amount: 1600 },
-    { name: 'iammarkps', amount: 1600 },
-    { name: 'iammarkps', amount: 1600 },
-    { name: 'iammarkps', amount: 1600 },
-    { name: 'iammarkps', amount: 1600 },
-    { name: 'iammarkps', amount: 1600 },
-    { name: 'iammarkps', amount: 1600 },
-    { name: 'iammarkps', amount: 1600 },
-  ]
-  // querySnapshot.forEach((doc) => {
-  //   donators.push({ name: doc.data().name, amount: doc.data().amount })
-  // })
-  return donators
-}
-
 export const addDonators = (data: DocumentData): Promise<DocumentData> => {
   const donatorsRef = getDonatorsRef()
   return addDoc(donatorsRef, data)

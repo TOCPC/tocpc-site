@@ -96,7 +96,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
   return (
     <section className="flex flex-col items-center justify-center px-8 sm:px-16 md:px-24 lg:px-32 py-12 sm:py-24 md:py-32">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-18 max-w-4xl">
-        <div className="flex flex-col max-w-sm">
+        <div className="flex flex-col">
           <p className="font-display text-3xl">ร่วมบริจาค</p>
           <p className="py-6 font-light font-display">
             เนื่องจากเราเป็นกลุ่มผู้ไม่แสวงหาผลกำไร
@@ -104,7 +104,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
             เราจึงต้องการเงินทุนช่วยเหลือสำหรับการจัดการดูแลตัวตรวจ
             การจัดส่งรางวัล และอื่น ๆ
           </p>
-          <ul className="font-light font-display list-disc list-inside text-gray-900">
+          <ul className="font-light font-display list-disc list-inside text-blue-900">
             <li>บริจาคเกิน 150 บาท รับสติกเกอร์ TOCPC</li>
             <li>บริจาคเกิน 300 บาท รับพวงกุญแจ TOCPC</li>
             <li>บริจาคเกิน 1,000 บาท รับเสื้อยืด TOCPC</li>
@@ -178,7 +178,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                             setDonateAmount(-1)
                           }}
                           placeholder="ระบุ..."
-                          className={`transition text-center font-display text-sm border-gray-500 w-full py-2 border rounded-md shadow-sm hover:text-white hover:bg-gray-900 focus:outline-none ${
+                          className={`text-center font-light font-display  border-gray-500 w-full py-1 border rounded-md shadow-sm hover:text-white hover:bg-gray-900 ${
                             donateAmount == -1
                               ? 'text-white bg-gray-900'
                               : 'text-gray-500'
@@ -188,11 +188,11 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                     </div>
                   </div>
                   {errors.amount ? (
-                    <p className="h-6 text-left font-light font-display text-sm text-red-500">
+                    <p className="h-6 mt-1 text-left font-light font-display text-sm text-red-500">
                       {errors.amount}
                     </p>
                   ) : (
-                    <div className="h-6" aria-hidden></div>
+                    <div className="h-6 mt-1" aria-hidden></div>
                   )}
                   <p className="font-light font-display text-sm text-gray-500 mb-2">
                     *ท่านต้องกรอกที่อยู่จัดส่งในหน้าถัดไปเพื่อรับเสื้อยืด TOCPC
@@ -203,7 +203,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                     <div className="w-full flex flex-col">
                       <Field
                         className={classnames(
-                          'font-light font-display text-gray-500 border-gray-500 w-full py-2 px-3 border rounded-md shadow-sm text-sm focus:outline-none',
+                          'font-light font-display text-gray-500 border-gray-500  w-full py-1  pl-2 border rounded-md shadow-sm ',
                           errors.firstname
                             ? 'border-red-400'
                             : 'border-gray-500'
@@ -217,13 +217,13 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                           {errors.firstname}
                         </p>
                       ) : (
-                        <div className="h-6" aria-hidden></div>
+                        <div className="h-6 mt-1" aria-hidden></div>
                       )}
                     </div>
                     <div className="w-full flex flex-col">
                       <Field
                         className={classnames(
-                          'font-light font-display text-gray-500 border-gray-500 w-full py-2 px-3 border rounded-md shadow-sm text-sm focus:outline-none',
+                          'font-light font-display text-gray-500 border-gray-500  w-full py-1  pl-2 border rounded-md shadow-sm ',
                           errors.lastname ? 'border-red-400' : 'border-gray-500'
                         )}
                         id="lastname"
@@ -235,14 +235,14 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                           {errors.lastname}
                         </p>
                       ) : (
-                        <div className="h-6" aria-hidden></div>
+                        <div className="h-6 mt-1" aria-hidden></div>
                       )}
                     </div>
                   </div>
                   <div className="w-full flex flex-col">
                     <Field
                       className={classnames(
-                        'font-light font-display text-gray-500 border-gray-500 w-full py-2 px-3 border rounded-md shadow-sm text-sm focus:outline-none',
+                        'font-light font-display text-gray-500 border-gray-500  w-full py-1  pl-2 border rounded-md shadow-sm ',
                         errors.displayName
                           ? 'border-red-400'
                           : 'border-gray-500'
@@ -256,7 +256,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                         {errors.displayName}
                       </p>
                     ) : (
-                      <div className="h-6" aria-hidden></div>
+                      <div className="h-6 mt-1" aria-hidden></div>
                     )}
                   </div>
 
@@ -326,23 +326,19 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
             animate={showAllDonators ? 'show' : 'hide'}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-4">
-              {donators
-                .slice(Math.max(donators.length - 8, 0))
-                .map((donator: any, key) => {
-                  return (
-                    <div
-                      key={`donator-${key}`}
-                      className="flex flex-col items-center justify-center py-4 md:py-8"
-                    >
-                      <p className="font-display font-semibold">
-                        {donator.name}
-                      </p>
-                      <p className="font-display font-semibold text-red-400">
-                        {donator.amount}฿
-                      </p>
-                    </div>
-                  )
-                })}
+              {donators.slice(8).map((donator: any, key) => {
+                return (
+                  <div
+                    key={`donator-${key}`}
+                    className="flex flex-col items-center justify-center py-4 md:py-8"
+                  >
+                    <p className="font-display font-semibold">{donator.name}</p>
+                    <p className="font-display font-semibold text-red-400">
+                      {donator.amount}฿
+                    </p>
+                  </div>
+                )
+              })}
             </div>
           </motion.div>
         </div>
