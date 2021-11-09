@@ -288,14 +288,15 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
           </button>
           <p className="mb-24 text-center font-display">
             การลงทะเบียนถือว่ายอมรับ
-            <a
-              target="_blank"
-              href="/tos"
-              rel="noopener noreferrer"
-              className="text-red-400 underline"
-            >
-              ข้อตกลงและเงื่อนไขการแข่งขัน
-            </a>
+            <Link href="/tos" passHref>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-red-400 underline"
+              >
+                ข้อตกลงและเงื่อนไขการแข่งขัน
+              </a>
+            </Link>
           </p>
         </div>
       </Form>
@@ -373,10 +374,9 @@ const Anonymous = ({ auth }: { auth: IAuthContext | null }) => (
           </button>
           <p className="mb-24 text-center font-display">
             การลงทะเบียนถือว่ายอมรับ
-            <Link href="/tos">
+            <Link href="/tos" passHref>
               <a
                 target="_blank"
-                href="/tos"
                 rel="noopener noreferrer"
                 className="text-red-400 underline"
               >
