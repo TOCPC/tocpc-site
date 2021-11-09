@@ -1,6 +1,5 @@
 import { useAuth } from 'lib/auth'
 
-import { Layout } from 'components/Layout'
 import { MetaData } from 'components/Meta'
 
 const Dashboard = () => {
@@ -10,19 +9,22 @@ const Dashboard = () => {
       <MetaData />
       <main className="relative w-full min-h-screen bg-gray-900">
         <div className="flex flex-col items-center px-10 sm:px-16 md:px-24">
-          <div className="flex flex-col mt-28 sm:mt-32 mb-20 max-w-2xl divide-y divide-white w-full font-display border-b border-white">
-            <div className="flex justify-between py-6 items-center">
+          <div className="flex flex-col w-full max-w-2xl mb-20 border-b border-white divide-y divide-white mt-28 sm:mt-32 font-display">
+            <div className="flex items-center justify-between py-6">
               <div className="flex flex-col">
                 <p className="font-semibold text-white">ข้อมูลผู้เข้าแข่งขัน</p>
                 <p className="text-white">Personal details</p>
               </div>
-              <button className="bg-red-400 py-3 px-4 text-white font-bold rounded-3xl">
+              <button
+                className="px-4 py-3 font-bold text-white bg-red-400 rounded-3xl"
+                disabled
+              >
                 เข้าสู่การแข่งขัน
               </button>
             </div>
             <div className="flex w-full py-6">
-              <p className="w-1/3 text-white font-semibold">ชื่อผู้ใช้</p>
-              <p className="w-2/3 text-white pl-4">
+              <p className="w-1/3 font-semibold text-white">ชื่อผู้ใช้</p>
+              <p className="w-2/3 pl-4 text-white">
                 {auth?.userData?.username ?? '-'}
               </p>
             </div>
@@ -37,36 +39,36 @@ const Dashboard = () => {
             ) : (
               <>
                 <div className="flex w-full py-6">
-                  <p className="w-1/3 text-white overflow-x-auto font-semibold">
+                  <p className="w-1/3 overflow-x-auto font-semibold text-white">
                     ชื่อ-สกุล
                   </p>
-                  <p className="w-2/3 text-white pl-4">
+                  <p className="w-2/3 pl-4 text-white">
                     {auth?.userData?.firstname} {auth?.userData?.lastname}
                   </p>
                 </div>
                 <div className="flex w-full py-6">
-                  <p className="w-1/3 text-white font-semibold">อีเมล</p>
-                  <p className="w-2/3 text-white overflow-x-auto pl-4">
+                  <p className="w-1/3 font-semibold text-white">อีเมล</p>
+                  <p className="w-2/3 pl-4 overflow-x-auto text-white">
                     {auth?.userData?.email}
                   </p>
                 </div>
                 <div className="flex w-full py-6">
-                  <p className="w-1/3 text-white font-semibold">
+                  <p className="w-1/3 font-semibold text-white">
                     เบอร์โทรศัพท์สำหรับติดต่อ
                   </p>
-                  <p className="w-2/3 text-white pl-4">{auth?.userData?.tel}</p>
+                  <p className="w-2/3 pl-4 text-white">{auth?.userData?.tel}</p>
                 </div>
                 <div className="flex w-full py-6">
-                  <p className="w-1/3 text-white font-semibold">
+                  <p className="w-1/3 font-semibold text-white">
                     ที่อยู่สำหรับส่งของรางวัล
                   </p>
-                  <p className="w-2/3 text-white overflow-x-auto pl-4">
+                  <p className="w-2/3 pl-4 overflow-x-auto text-white">
                     {auth?.userData?.address}
                   </p>
                 </div>
                 <div className="flex w-full py-6">
-                  <p className="w-1/3 text-white font-semibold">ขนาดเสื้อ</p>
-                  <p className="w-2/3 text-white pl-4">
+                  <p className="w-1/3 font-semibold text-white">ขนาดเสื้อ</p>
+                  <p className="w-2/3 pl-4 text-white">
                     {auth?.userData?.size}
                   </p>
                 </div>
