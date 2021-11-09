@@ -16,7 +16,7 @@ const Dashboard = () => {
                 <p className="text-white">Personal details</p>
               </div>
               <button
-                className="px-4 py-3 font-bold text-white bg-red-400 rounded-3xl"
+                className="px-4 py-3 font-bold text-white bg-red-400 rounded-3xl cursor-not-allowed"
                 disabled
               >
                 เข้าสู่การแข่งขัน
