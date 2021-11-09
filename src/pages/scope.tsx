@@ -1,10 +1,10 @@
-import { Description } from 'components/Description'
+import { MetaData } from 'components/Meta'
 import { Layout } from 'components/Layout'
 
 const About = () => {
   return (
     <>
-      <Description />
+      <MetaData />
       <main className="relative w-full min-h-screen bg-gray-900">
         <div className="flex flex-col items-center">
           <div className="flex flex-col px-10 sm:px-16 md:px-24 mt-20 sm:mt-32 max-w-4xl font-display text-white mb-12">

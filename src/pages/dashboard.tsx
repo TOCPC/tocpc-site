@@ -1,13 +1,13 @@
 import { useAuth } from 'lib/auth'
 
 import { Layout } from 'components/Layout'
-import { Description } from 'components/Description'
+import { MetaData } from 'components/Meta'
 
 const Dashboard = () => {
   const auth = useAuth()
   return (
     <>
-      <Description />
+      <MetaData />
       <main className="relative w-full min-h-screen bg-gray-900">
         <div className="flex flex-col items-center px-10 sm:px-16 md:px-24">
           <div className="flex flex-col mt-28 sm:mt-32 mb-20 max-w-2xl divide-y divide-white w-full font-display border-b border-white">

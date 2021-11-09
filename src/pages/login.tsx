@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { useAuth } from 'lib/auth'
 import { Layout } from 'components/Layout'
-import { Description } from 'components/Description'
+import { MetaData } from 'components/Meta'
 
 const Login = () => {
   const auth = useAuth()
   return (
     <>
-      <Description />
+      <MetaData />
       <main className="relative w-full min-h-screen bg-gray-900">
         <div className="flex flex-col items-center justify-center h-screen">
           <div>

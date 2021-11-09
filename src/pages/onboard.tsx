@@ -6,7 +6,7 @@ import classnames from 'classnames'
 import { useAuth, IAuthContext } from 'lib/auth'
 import { submitRegister } from 'lib/process'
 import { Layout } from 'components/Layout'
-import { Description } from 'components/Description'
+import { MetaData } from 'components/Meta'
 
 const validate = (values: any) => {
   const errors: any = {}
@@ -356,7 +356,7 @@ const Register = () => {
 
   return (
     <>
-      <Description />
+      <MetaData />
       <main className="relative w-full min-h-screen bg-gray-900">
         <div className="flex flex-col">
           <div className="flex flex-col items-center px-8 sm:px-40 mt-28 sm:mt-26">
