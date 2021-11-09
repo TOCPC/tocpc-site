@@ -12,7 +12,7 @@ export const Schedule = ({ registerSize }: { registerSize: number }) => (
         </p>
       </div>
       <p className="px-4 text-6xl font-bold text-red-400 font-display sm:text-8xl">
-        {registerSize}
+        {registerSize ?? '-'}
       </p>
       <p className="text-3xl font-medium text-white font-display sm:text-5xl">
         คน
