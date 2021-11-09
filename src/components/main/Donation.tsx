@@ -5,6 +5,9 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import classnames from 'classnames'
 import { motion } from 'framer-motion'
+import { GetStaticProps } from 'next'
+
+import db from 'lib/firebase-admin'
 
 const validate = (values: any, donateAmount: any, customDonateAmount: any) => {
   const errors: any = {}
@@ -43,7 +46,7 @@ const validate = (values: any, donateAmount: any, customDonateAmount: any) => {
   return errors
 }
 
-export const Donation = () => {
+const Donation = ({ donators }: { donators: Object[] }) => {
   const variants = {
     show: {
       height: 'auto',
@@ -57,7 +60,7 @@ export const Donation = () => {
   const router = useRouter()
 
   const [showAllDonators, setShowAllDonators] = useState(false)
-  const [donators, setDonators] = useState([])
+
   const [donateAmount, setDonateAmount] = useState(0)
   const [customDonateAmount, setCustomDonateAmount] = useState('')
 
@@ -89,15 +92,6 @@ export const Donation = () => {
   ) => {
     setCustomDonateAmount(e.target.value)
   }
-  // TODO : change to SSG
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch('/api/donators')
-      const data = await res.json()
-      setDonators(data)
-    }
-    fetchData()
-  }, [])
 
   return (
     <section className="flex flex-col items-center justify-center px-8 sm:px-16 md:px-24 lg:px-32 py-12 sm:py-24 md:py-32">
@@ -370,3 +364,5 @@ export const Donation = () => {
     </section>
   )
 }
+
+export default Donation

@@ -9,7 +9,13 @@ import { Description } from 'components/Description'
 
 import db from 'lib/firebase-admin'
 
-const Home = ({ registerSize }: { registerSize: number }) => {
+const Home = ({
+  registerSize,
+  donators,
+}: {
+  registerSize: number
+  donators: Object[]
+}) => {
   return (
     <>
       <Description />
@@ -17,13 +23,23 @@ const Home = ({ registerSize }: { registerSize: number }) => {
       <Overview />
       <Reward />
       <Schedule registerSize={registerSize} />
-      <Donation />
+      <Donation donators={donators} />
       <Question />
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  let donators: Object[] = []
+  await db()
+    .collection('donators')
+    .get()
+    .then((snap) => {
+      snap.forEach((donator) => {
+        donators.push(donator.data())
+      })
+    })
+
   const registerSize = await db()
     .collection('users')
     .get()
@@ -31,6 +47,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       registerSize,
+      donators,
     },
     revalidate: 60 * 60,
   }
