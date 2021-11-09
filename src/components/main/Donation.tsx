@@ -46,7 +46,7 @@ const validate = (values: any, donateAmount: any, customDonateAmount: any) => {
   return errors
 }
 
-const Donation = ({ donators }: { donators: Object[] }) => {
+export const Donation = ({ donators }: { donators: Object[] }) => {
   const variants = {
     show: {
       height: 'auto',
@@ -364,5 +364,3 @@ const Donation = ({ donators }: { donators: Object[] }) => {
     </section>
   )
 }
-
-export default Donation
