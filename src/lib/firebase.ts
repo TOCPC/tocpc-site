@@ -1,13 +1,13 @@
 import { initializeApp } from 'firebase/app'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBEL8EqKW4HJDNh7W4M2j1gnc5dahZplY0',
-  authDomain: 'tocpc-prod-2021.firebaseapp.com',
-  projectId: 'tocpc-prod-2021',
-  storageBucket: 'tocpc-prod-2021.appspot.com',
-  messagingSenderId: '857753403795',
-  appId: '1:857753403795:web:7c6607e69f446575972866',
-  measurementId: 'G-47CV8JS6DE',
+  apiKey: 'AIzaSyBDrvqlXljpEsQH4FIki6x7uOLWesgu5dE',
+  authDomain: 'tocpc-2021-2.firebaseapp.com',
+  projectId: 'tocpc-2021-2',
+  storageBucket: 'tocpc-2021-2.appspot.com',
+  messagingSenderId: '348178823335',
+  appId: '1:348178823335:web:214f66043f8d13ada34382',
+  measurementId: 'G-Y0PZHQELG4',
 }
 
 const firebaseApp = initializeApp(firebaseConfig)
