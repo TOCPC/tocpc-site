@@ -96,7 +96,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
   return (
     <section className="flex flex-col items-center justify-center px-8 sm:px-16 md:px-24 lg:px-32 py-12 sm:py-24 md:py-32">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-18 max-w-4xl">
-        <div className="flex flex-col">
+        <div className="flex flex-col max-w-sm">
           <p className="font-display text-3xl">ร่วมบริจาค</p>
           <p className="py-6 font-light font-display">
             เนื่องจากเราเป็นกลุ่มผู้ไม่แสวงหาผลกำไร
@@ -104,7 +104,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
             เราจึงต้องการเงินทุนช่วยเหลือสำหรับการจัดการดูแลตัวตรวจ
             การจัดส่งรางวัล และอื่น ๆ
           </p>
-          <ul className="font-light font-display list-disc list-inside text-blue-900">
+          <ul className="font-light font-display list-disc list-inside text-gray-900">
             <li>บริจาคเกิน 150 บาท รับสติกเกอร์ TOCPC</li>
             <li>บริจาคเกิน 300 บาท รับพวงกุญแจ TOCPC</li>
             <li>บริจาคเกิน 1,000 บาท รับเสื้อยืด TOCPC</li>
@@ -178,7 +178,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                             setDonateAmount(-1)
                           }}
                           placeholder="ระบุ..."
-                          className={`text-center font-light font-display  border-gray-500 w-full py-1 border rounded-md shadow-sm hover:text-white hover:bg-gray-900 ${
+                          className={`transition text-center font-display text-sm border-gray-500 w-full py-2 border rounded-md shadow-sm hover:text-white hover:bg-gray-900 focus:outline-none ${
                             donateAmount == -1
                               ? 'text-white bg-gray-900'
                               : 'text-gray-500'
@@ -203,7 +203,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                     <div className="w-full flex flex-col">
                       <Field
                         className={classnames(
-                          'font-light font-display text-gray-500 border-gray-500  w-full py-1  pl-2 border rounded-md shadow-sm ',
+                          'font-light font-display text-gray-500 border-gray-500 w-full py-2 px-3 border rounded-md shadow-sm text-sm focus:outline-none',
                           errors.firstname
                             ? 'border-red-400'
                             : 'border-gray-500'
@@ -223,7 +223,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                     <div className="w-full flex flex-col">
                       <Field
                         className={classnames(
-                          'font-light font-display text-gray-500 border-gray-500  w-full py-1  pl-2 border rounded-md shadow-sm ',
+                          'font-light font-display text-gray-500 border-gray-500 w-full py-2 px-3 border rounded-md shadow-sm text-sm focus:outline-none',
                           errors.lastname ? 'border-red-400' : 'border-gray-500'
                         )}
                         id="lastname"
@@ -242,7 +242,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                   <div className="w-full flex flex-col">
                     <Field
                       className={classnames(
-                        'font-light font-display text-gray-500 border-gray-500  w-full py-1  pl-2 border rounded-md shadow-sm ',
+                        'font-light font-display text-gray-500 border-gray-500 w-full py-2 px-3 border rounded-md shadow-sm text-sm focus:outline-none',
                         errors.displayName
                           ? 'border-red-400'
                           : 'border-gray-500'
