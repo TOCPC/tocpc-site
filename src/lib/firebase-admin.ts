@@ -10,7 +10,7 @@ export default function getDb() {
         clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
         privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/gm, '\n'),
       }),
-      databaseURL: 'https://tocpc-prod-2021.firebaseio.com',
+      databaseURL: 'https://tocpc-2021-2.firebaseio.com',
     })
     return admin.firestore()
   }
