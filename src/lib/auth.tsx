@@ -67,7 +67,9 @@ export const AuthProvider: React.FC = ({ children }) => {
     if ((pathname === '/onboard') !== (auth?.userData?.password === '')) {
       status = true
     }
-
+    if (pathname === '/tos') {
+      status = false
+    }
     return status
   }, [pathname, auth])
 
@@ -90,7 +92,11 @@ export const AuthProvider: React.FC = ({ children }) => {
         } else if (auth.userData?.password !== '') {
           Router.push('/dashboard')
         }
-      } else if (auth.user && auth.userData?.password === '') {
+      } else if (
+        auth.user &&
+        auth.userData?.password === '' &&
+        pathname != '/tos'
+      ) {
         Router.push('/onboard')
       } else if (auth.user === null) {
         if (pathname === '/dashboard' || pathname === '/onboard') {
