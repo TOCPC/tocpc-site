@@ -90,7 +90,7 @@ export const Overview = () => (
                   การแข่งขันคอมพิวเตอร์โอลิมปิกระดับชาติ (TOI)
                 </a>
               </Link>
-              (IOI) แต่จะไม่เกิน
+              {" "}แต่จะไม่เกิน
               <Link href="https://ioinformatics.org/" passHref={true}>
                 <a className="text-red-400 hover:underline active:text-red-600">
                   การแข่งขันคอมพิวเตอร์โอลิมปิกระหว่างประเทศ (IOI)
@@ -117,9 +117,12 @@ export const Overview = () => (
             <p className="font-display text-white ml-6">
               โจทย์ทุกข้อจะใช้การเขียนอ่านข้อมูลทาง standard input (คีย์บอร์ด)
               และ standard output (หน้าจอ) เท่านั้น จะไม่มีโจทย์ประเภท
-              interactive หรือ output-only และจะอนุญาตให้ใช้ภาษา C, C++, Java,
-              Python, Rust (ภาษา C, C++, Rust จะรับประกันว่าสามารถผ่านได้ทุกข้อ)
-              เท่านั้น โดยมีรุ่นของภาษาเป็น C11 และ C++11
+              interactive หรือ output-only โดยสามารถ
+              <Link href="/scope">
+                <a className="text-red-400 hover:underline hover:text-red-600">
+                  อ่านข้อมูลเพิ่มเติมได้ที่ลิงค์ดังนี้
+                </a>
+              </Link>
             </p>
           </div>
           <div className="flex">
