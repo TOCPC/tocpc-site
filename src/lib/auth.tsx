@@ -67,7 +67,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     if ((pathname === '/onboard') !== (auth?.userData?.password === '')) {
       status = true
     }
-    if (pathname === '/tos') {
+    if (pathname === '/tos' || pathname === '/privacy-policy') {
       status = false
     }
     return status
@@ -95,7 +95,8 @@ export const AuthProvider: React.FC = ({ children }) => {
       } else if (
         auth.user &&
         auth.userData?.password === '' &&
-        pathname != '/tos'
+        pathname !== '/tos' &&
+        pathname !== '/privacy-policy'
       ) {
         Router.push('/onboard')
       } else if (auth.user === null) {
