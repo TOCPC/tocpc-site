@@ -15,12 +15,15 @@ const Dashboard = () => {
                 <p className="font-semibold text-white">ข้อมูลผู้เข้าแข่งขัน</p>
                 <p className="text-white">Personal details</p>
               </div>
-              <button
-                className="px-4 py-3 font-bold text-white bg-red-400 rounded-3xl cursor-not-allowed"
-                disabled
+              <a
+                href="https://contest.tocpc.codes"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                เข้าสู่การแข่งขัน
-              </button>
+                <button className="px-4 py-3 font-bold text-white bg-red-400 rounded-3xl">
+                  เข้าสู่การแข่งขัน
+                </button>
+              </a>
             </div>
             <div className="flex w-full py-6">
               <p className="w-1/3 font-semibold text-white">ชื่อผู้ใช้</p>
