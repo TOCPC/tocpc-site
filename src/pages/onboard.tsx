@@ -6,7 +6,7 @@ import classnames from 'classnames'
 import { useAuth, IAuthContext } from 'lib/auth'
 import { submitRegister } from 'lib/process'
 import { Layout } from 'components/Layout'
-import { Description } from 'components/Description'
+import { MetaData } from 'components/Meta'
 
 const validate = (values: any) => {
   const errors: any = {}
@@ -189,7 +189,7 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
           )}
           id="address"
           name="address"
-          placeholder="ที่อยู่สำหรับส่งของรางวัล 50 ตัวอักษร"
+          placeholder="ที่อยู่สำหรับส่งของรางวัล"
           type="address"
         />
         {errors.address ? (
@@ -206,7 +206,7 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
               type="radio"
               value="S"
             />
-            S (รอบอก XX ความยาวตัว XX)
+            S (รอบอก 32 ความยาวตัว 25)
           </label>
           <label className="flex items-center my-1 font-display">
             <Field
@@ -215,7 +215,7 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
               type="radio"
               value="M"
             />
-            M (รอบอก XX ความยาวตัว XX)
+            M (รอบอก 36 ความยาวตัว 27)
           </label>
           <label className="flex items-center my-1 font-display">
             <Field
@@ -224,7 +224,34 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
               type="radio"
               value="L"
             />
-            L (รอบอก XX ความยาวตัว XX)
+            L (รอบอก 40 ความยาวตัว 29)
+          </label>
+          <label className="flex items-center my-1 font-display">
+            <Field
+              className="inline mr-3 text-black font-display focus:outline-none unc"
+              name="size"
+              type="radio"
+              value="XL"
+            />
+            XL (รอบอก 44 ความยาวตัว 31)
+          </label>
+          <label className="flex items-center my-1 font-display">
+            <Field
+              className="inline mr-3 text-black font-display focus:outline-none unc"
+              name="size"
+              type="radio"
+              value="2XL"
+            />
+            2XL (รอบอก 48 ความยาวตัว 32)
+          </label>
+          <label className="flex items-center my-1 font-display">
+            <Field
+              className="inline mr-3 text-black font-display focus:outline-none unc"
+              name="size"
+              type="radio"
+              value="3XL"
+            />
+            3XL (รอบอก 52 ความยาวตัว 33)
           </label>
         </div>
         {errors.size ? (
@@ -232,6 +259,11 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
         ) : (
           <div className="h-6" aria-hidden></div>
         )}
+        <p className="text-white mb-2">
+          ขนาดเสื้อข้างต้นอาจจะ<span className="text-red-400">ไม่ใช่</span>
+          ขนาดที่ท่านได้รับ หากมีการเปลี่ยนแปลงขนาดเสื้อ
+          ทางทีมงานจะติดต่อท่านไปตามช่องทางที่ท่านได้ให้ไว้ ขออภัยในความไม่สะดวก
+        </p>
         <div className="py-6 border-t border-b">
           <p className="text-white font-display">
             โปรดตรวจสอบข้อมูลของท่านให้เรียบร้อยก่อนกดปุ่มลงทะเบียน
@@ -256,8 +288,12 @@ const Normal = ({ auth }: { auth: IAuthContext | null }) => (
           </button>
           <p className="mb-24 text-center font-display">
             การลงทะเบียนถือว่ายอมรับ
-            <Link href="/tos">
-              <a className="text-red-400 underline">
+            <Link href="/tos" passHref>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-red-400 underline"
+              >
                 ข้อตกลงและเงื่อนไขการแข่งขัน
               </a>
             </Link>
@@ -338,8 +374,12 @@ const Anonymous = ({ auth }: { auth: IAuthContext | null }) => (
           </button>
           <p className="mb-24 text-center font-display">
             การลงทะเบียนถือว่ายอมรับ
-            <Link href="/tos">
-              <a className="text-red-400 underline">
+            <Link href="/tos" passHref>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-red-400 underline"
+              >
                 ข้อตกลงและเงื่อนไขการแข่งขัน
               </a>
             </Link>
@@ -356,7 +396,7 @@ const Register = () => {
 
   return (
     <>
-      <Description />
+      <MetaData />
       <main className="relative w-full min-h-screen bg-gray-900">
         <div className="flex flex-col">
           <div className="flex flex-col items-center px-8 sm:px-40 mt-28 sm:mt-26">

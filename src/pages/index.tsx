@@ -6,6 +6,7 @@ import { Schedule } from 'components/main/Schedule'
 import { Question } from 'components/main/Question'
 import { Donation } from 'components/main/Donation'
 import { Description } from 'components/Description'
+import { MetaData } from 'components/Meta'
 
 import db from 'lib/firebase-admin'
 
@@ -18,7 +19,7 @@ const Home = ({
 }) => {
   return (
     <>
-      <Description />
+      <MetaData />
       <THACO />
       <Overview />
       <Reward />
