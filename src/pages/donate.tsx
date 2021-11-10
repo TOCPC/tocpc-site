@@ -359,7 +359,10 @@ const Donate = () => {
 
                           <FileIcon />
                           <div className="flex items-center">
-                            <button className="bg-white rounded-md text-black font-display text-sm py-1 px-2">
+                            <button
+                              type="button"
+                              className="bg-white rounded-md text-black font-display text-sm py-1 px-2"
+                            >
                               Upload a file
                             </button>
                             <p className="font-display text-sm text-gray-500 ml-2">
