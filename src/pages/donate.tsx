@@ -1,5 +1,5 @@
 import { Formik, Field, Form } from 'formik'
-import { Description } from 'components/Description'
+import { MetaData } from 'components/Meta'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { ArrowLeft } from 'components/main/Donation/ArrowLeft'
@@ -113,7 +113,7 @@ const Donate = () => {
 
   return (
     <>
-      <Description />
+      <MetaData />
       <main className="relative w-full min-h-screen bg-gray-900">
         <div className="flex flex-col">
           {/* TODO: align */}
