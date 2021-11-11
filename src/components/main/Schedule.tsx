@@ -1,4 +1,5 @@
 import { ProgLogo } from 'components/ProgLogo'
+import { THACOLogo } from 'components/THACOLogo'
 
 export const Schedule = ({ registerSize }: { registerSize: number }) => (
   <section className="flex flex-col items-center justify-center w-full bg-gray-900">
@@ -12,7 +13,7 @@ export const Schedule = ({ registerSize }: { registerSize: number }) => (
         </p>
       </div>
       <p className="px-4 text-6xl font-bold text-red-400 font-display sm:text-8xl">
-        {registerSize}
+        {registerSize ?? '-'}
       </p>
       <p className="text-3xl font-medium text-white font-display sm:text-5xl">
         คน
@@ -157,7 +158,7 @@ export const Schedule = ({ registerSize }: { registerSize: number }) => (
         <div className="w-24 h-2 mt-1 bg-red-400" aria-hidden="true" />
         <div className="flex flex-col items-center justify-around w-full px-4 py-8 my-8 bg-gray-700 lg:flex-row rounded-3xl lg:py-16 lg:px-16">
           <ProgLogo />
-          <ProgLogo />
+          <THACOLogo />
         </div>
       </div>
     </div>
