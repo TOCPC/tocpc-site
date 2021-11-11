@@ -1,5 +1,5 @@
 import { Formik, Field, Form } from 'formik'
-import { Description } from 'components/Description'
+import { MetaData } from 'components/Meta'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { ArrowLeft } from 'components/main/Donation/ArrowLeft'
@@ -47,12 +47,12 @@ const validate = (
 }
 
 const Donate = () => {
-  const [files, setFiles] = useState([])
+  const [files, setFiles] = useState<any[]>([])
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
-    onDrop: (acceptedFiles) => {
+    onDrop: (acceptedFiles: any) => {
       setFiles(
-        acceptedFiles.map((file) =>
+        acceptedFiles.map((file: any) =>
           Object.assign(file, {
             preview: URL.createObjectURL(file),
           })
@@ -90,7 +90,7 @@ const Donate = () => {
   useEffect(
     () => () => {
       // Make sure to revoke the data uris to avoid memory leaks
-      files.forEach((file: Object) => URL.revokeObjectURL(file.preview))
+      files.forEach((file: any) => URL.revokeObjectURL(file.preview))
     },
     [files]
   )
@@ -113,7 +113,7 @@ const Donate = () => {
 
   return (
     <>
-      <Description />
+      <MetaData />
       <main className="relative w-full min-h-screen bg-gray-900">
         <div className="flex flex-col">
           {/* TODO: align */}
@@ -189,6 +189,7 @@ const Donate = () => {
                   address: '',
                   size: '',
                   postcode: '',
+                  file: '',
                 }}
                 validate={(values) =>
                   validate(values, souvenirs.length > 0, getShirt, files.length)
