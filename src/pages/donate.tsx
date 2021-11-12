@@ -77,7 +77,7 @@ const Donate = () => {
   const noSouvenir = router.query.noSouvenir === 'true'
   const hideName = router.query.hideName === 'true'
   const amount: number = router.query.amount
-    ? parseFloat(router.query.amount.toString())
+    ? parseFloat(parseFloat(router.query.amount.toString()).toFixed(2))
     : 0
 
   const mobileNumber = '096-858-4208'
