@@ -56,6 +56,9 @@ const Donate = () => {
   const [showModal, setShowModal] = useState(false)
 
   const [files, setFiles] = useState<any[]>([])
+
+  const [souvenirs, setSouvenirs] = useState<string[]>([])
+  const [getShirt, setGetShirt] = useState(false)
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     onDrop: (acceptedFiles: any) => {
@@ -82,23 +85,23 @@ const Donate = () => {
 
   const mobileNumber = '096-858-4208'
   const payload = generatePayload(mobileNumber, { amount })
+
   const souvenirList = [
     { name: 'สติกเกอร์', min: 150 },
     { name: 'พวงกุญแจ', min: 300 },
     { name: 'เสื้อยืด', min: 1000 },
   ]
 
-  let souvenirs: string[] = []
-
-  let getShirt = false
-  if (!noSouvenir) {
-    if (amount >= souvenirList[2].min) getShirt = true
-    souvenirList.forEach((item: { name: string; min: number }) => {
-      if (amount >= item.min) {
-        souvenirs.push(item.name)
-      }
-    })
-  }
+  useEffect(() => {
+    if (!noSouvenir) {
+      if (amount >= souvenirList[2].min) setGetShirt(true)
+      souvenirList.forEach((item: { name: string; min: number }) => {
+        if (amount >= item.min) {
+          setSouvenirs((val) => [...val, item.name])
+        }
+      })
+    }
+  }, [])
 
   useEffect(
     () => () => {
