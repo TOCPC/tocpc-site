@@ -1,13 +1,10 @@
 import { Formik, Field, Form } from 'formik'
 import { DonationButton } from './Donation/DonationButton'
 import { ArrowIcon } from './Donation/ArrowIcon'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import classnames from 'classnames'
 import { motion } from 'framer-motion'
-import { GetStaticProps } from 'next'
-
-import db from 'lib/firebase-admin'
 
 const validate = (values: any, donateAmount: any, customDonateAmount: any) => {
   const errors: any = {}
@@ -260,8 +257,8 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                     )}
                   </div>
 
-                  <div className="flex w-full justify-between items-center mt-4 gap-4">
-                    <div className="flex flex-col font-light font-display text-gray-500">
+                  <div className="flex w-full justify-between items-center">
+                    <div className="flex flex-col font-light font-display text-gray-500 text-sm lg:text-base">
                       <div>
                         <Field
                           type="checkbox"
@@ -287,7 +284,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                     </div>
                     <button
                       type="submit"
-                      className="bg-red-400 px-8 py-2 font-semibold rounded-full text-white"
+                      className="bg-red-400 px-4 py-2 font-semibold rounded-full text-white"
                     >
                       ถัดไป
                     </button>
@@ -342,9 +339,9 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
             </div>
           </motion.div>
         </div>
-        <div className="flex w-full justify-center items-center">
+        <div className="flex w-full justify-center items-center ">
           <button onClick={toggleShowAllDonators}>
-            <div className="flex justify-center items-center gap-2 bg-white -mb-3 w-min px-4">
+            <div className="flex justify-center items-center gap-2 bg-white -mb-3 w-min px-4 z-10 relative">
               <motion.div
                 animate={showAllDonators ? { rotate: 180 } : { rotate: 0 }}
               >
