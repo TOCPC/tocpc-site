@@ -5,9 +5,15 @@ import Image from 'next/image'
 import { ArrowLeft } from 'components/main/Donation/ArrowLeft'
 import { FileIcon } from 'components/main/Donation/FileIcon'
 import classnames from 'classnames'
-import promptpay_qr from '../../public/img/promptpay-qr.jpg'
+import promptpay_qr_upper from '../../public/img/promptpay-qr-upper.jpg'
+import promptpay_qr_lower from '../../public/img/promptpay-qr-lower.jpg'
 import { useDropzone } from 'react-dropzone'
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { CheckIcon } from 'components/main/Donation/CheckIcon'
+
+const generatePayload = require('promptpay-qr')
+var QRCode = require('qrcode.react')
 
 const validate = (
   values: any,
@@ -47,7 +53,12 @@ const validate = (
 }
 
 const Donate = () => {
+  const [showModal, setShowModal] = useState(false)
+
   const [files, setFiles] = useState<any[]>([])
+
+  const [souvenirs, setSouvenirs] = useState<string[]>([])
+  const [getShirt, setGetShirt] = useState(false)
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     onDrop: (acceptedFiles: any) => {
@@ -62,30 +73,35 @@ const Donate = () => {
   })
 
   const router = useRouter()
-  // console.log(router.query)
+
   const displayName = router.query.displayName
   const firstname = router.query.firstname
   const lastname = router.query.lastname
   const noSouvenir = router.query.noSouvenir === 'true'
   const hideName = router.query.hideName === 'true'
   const amount: number = router.query.amount
-    ? parseFloat(router.query.amount.toString())
+    ? parseFloat(parseFloat(router.query.amount.toString()).toFixed(2))
     : 0
+
+  const mobileNumber = '096-858-4208'
+  const payload = generatePayload(mobileNumber, { amount })
+
   const souvenirList = [
     { name: 'สติกเกอร์', min: 150 },
     { name: 'พวงกุญแจ', min: 300 },
     { name: 'เสื้อยืด', min: 1000 },
   ]
 
-  let souvenirs: string[] = []
-
-  let getShirt = false
-  if (amount >= souvenirList[2].min) getShirt = true
-  souvenirList.forEach((item: { name: string; min: number }) => {
-    if (amount >= item.min) {
-      souvenirs.push(item.name)
+  useEffect(() => {
+    if (!noSouvenir) {
+      if (amount >= souvenirList[2].min) setGetShirt(true)
+      souvenirList.forEach((item: { name: string; min: number }) => {
+        if (amount >= item.min) {
+          setSouvenirs((val) => [...val, item.name])
+        }
+      })
     }
-  })
+  }, [])
 
   useEffect(
     () => () => {
@@ -95,31 +111,69 @@ const Donate = () => {
     [files]
   )
 
-  const handleSubmitForm = (data: any, file: File) => {
+  const handleSubmitForm = async (data: any, file: File) => {
     const donator = {
       firstname,
       lastname,
       displayName,
       amount,
       hideName,
+      noSouvenir,
+      souvenirs,
     }
+
     fetch('/api/donate', {
       method: 'POST',
-      body: JSON.stringify({ data, file, donator }),
+      body: JSON.stringify({ data, donator }),
     }).then((res) => {
-      // console.log(res)
+      if (res.status == 200) {
+        setShowModal(true)
+      }
     })
+  }
+
+  const variants = {
+    show: {
+      height: '100vh',
+      opacity: 1,
+    },
+    hide: {
+      height: 0,
+      opacity: 0,
+    },
   }
 
   return (
     <>
       <MetaData />
       <main className="relative w-full min-h-screen bg-gray-900">
+        <motion.div
+          variants={variants}
+          initial={'hide'}
+          animate={showModal ? 'show' : 'hide'}
+          className="flex w-full fixed z-10 h-screen justify-center items-center px-4 "
+        >
+          <div className="bg-white w-full max-w-lg h-72 rounded-lg shadow-xl flex flex-col justify-center items-center px-4">
+            <CheckIcon />
+
+            <p className="font-display text-center">ขอบคุณจ้า</p>
+            <p className="py-6 font-light font-display text-center">
+              ของที่ระลึกจะถูกจัดส่งไปตามที่อยู่ที่ท่านกรอกมา
+              ขอบคุณที่เป็นสนับสนุน บลาบลาบลาบลาบลาบลาบลาบลาบลาบลาบลาบลาบลา
+            </p>
+            <button
+              onClick={() => router.replace('/')}
+              type="button"
+              className="bg-red-400 px-4 py-2 rounded-full text-white"
+            >
+              กลับไปหน้าแรก
+            </button>
+          </div>
+        </motion.div>
         <div className="flex flex-col">
-          {/* TODO: align */}
           <div
             onClick={() => router.back()}
-            className="px-10 sm:px-16 md:px-24 hidden md:flex justify-center w-full mt-28 absolute  cursor-pointer items-center"
+            className="px-10 sm:px-16 md:px-24 hidden md:flex justify-center w-full mt-28 absolute cursor-pointer items-center"
           >
             <div className="flex items-center w-full max-w-4xl">
               <ArrowLeft />
@@ -131,7 +185,7 @@ const Donate = () => {
             <div className="max-w-md w-full">
               <div
                 onClick={() => router.back()}
-                className="flex md:hidden  cursor-pointer items-center"
+                className="flex md:hidden cursor-pointer items-center"
               >
                 <ArrowLeft />
                 <p className="ml-2 font-display text-white">ย้อนกลับ</p>
@@ -325,15 +379,23 @@ const Donate = () => {
                         <p className="text-left py-6 text-white font-display w-full">
                           โอนเงินเข้าบัญชี
                         </p>
+                        <div className="flex justify-center">
+                          <div className="bg-white">
+                            <Image
+                              src={promptpay_qr_upper}
+                              layout="responsive"
+                            />
 
-                        <div className="rounded-lg overflow-hidden flex justify-center p-0 w-full">
-                          <Image
-                            className="mx-auto w-full"
-                            src={promptpay_qr}
-                            placeholder="blur"
-                            alt="prompt pay qr-code"
-                          />
+                            <div className="flex justify-center mx-20 md:mx-24">
+                              <QRCode value={payload} size={128} />
+                            </div>
+                            <Image
+                              src={promptpay_qr_lower}
+                              layout="responsive"
+                            />
+                          </div>
                         </div>
+                        <div className="rounded-lg overflow-hidden flex justify-center p-0 w-full "></div>
                       </div>
                       <div className="w-full">
                         <p className="text-left  py-6 text-white font-display w-full font-bold">

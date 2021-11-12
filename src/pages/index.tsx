@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async () => {
     .get()
     .then((snap) => {
       snap.forEach((donator) => {
-        donators.push(donator.data())
+        if (!donator.data().hideName) donators.push(donator.data())
       })
     })
 
