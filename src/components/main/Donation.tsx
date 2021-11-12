@@ -284,7 +284,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                     </div>
                     <button
                       type="submit"
-                      className="bg-red-400 px-4 py-2 font-semibold rounded-full text-white"
+                      className="bg-red-400 px-3 sm:px-4 py-2 font-semibold rounded-full text-white"
                     >
                       ถัดไป
                     </button>
@@ -302,7 +302,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-4">
           {donators
-            .slice(Math.max(donators.length - 8, 0))
+            .slice(Math.max(donators.length - 12, 0))
             .map((donator: any, key) => {
               return (
                 <div
@@ -323,7 +323,7 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
             animate={showAllDonators ? 'show' : 'hide'}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-4">
-              {donators.slice(8).map((donator: any, key) => {
+              {donators.slice(12).map((donator: any, key) => {
                 return (
                   <div
                     key={`donator-${key}`}
