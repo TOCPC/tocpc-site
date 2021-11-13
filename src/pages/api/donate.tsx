@@ -1,10 +1,8 @@
 import db from 'lib/firebase-admin'
-
 import type { NextApiRequest, NextApiResponse } from 'next'
+
 const Donate = async (req: NextApiRequest, res: NextApiResponse) => {
-  const body = JSON.parse(req.body)
-  const data = body.data
-  const donator = body.donator
+  const { data, donator } = req.body
 
   await db().collection('donators').add({
     name: donator.displayName,

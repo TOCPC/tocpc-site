@@ -7,7 +7,7 @@ import { FileIcon } from 'components/main/Donation/FileIcon'
 import classnames from 'classnames'
 import promptpay from '../../public/img/promptpay.jpg'
 import { useDropzone } from 'react-dropzone'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { CheckIcon } from 'components/main/Donation/CheckIcon'
 
@@ -85,11 +85,14 @@ const Donate = () => {
   const mobileNumber = '096-858-4208'
   const payload = generatePayload(mobileNumber, { amount })
 
-  const souvenirList = [
-    { name: 'สติกเกอร์', min: 150 },
-    { name: 'พวงกุญแจ', min: 300 },
-    { name: 'เสื้อยืด', min: 1000 },
-  ]
+  const souvenirList = useMemo(
+    () => [
+      { name: 'สติกเกอร์', min: 150 },
+      { name: 'พวงกุญแจ', min: 300 },
+      { name: 'เสื้อยืด', min: 1000 },
+    ],
+    []
+  )
 
   useEffect(() => {
     if (!noSouvenir) {
@@ -100,7 +103,7 @@ const Donate = () => {
         }
       })
     }
-  }, [])
+  }, [amount, noSouvenir, souvenirList])
 
   useEffect(
     () => () => {
@@ -150,20 +153,20 @@ const Donate = () => {
           variants={variants}
           initial={'hide'}
           animate={showModal ? 'show' : 'hide'}
-          className="flex w-full fixed z-10 h-screen justify-center items-center px-4 "
+          className="fixed z-10 flex items-center justify-center w-full h-screen px-4 "
         >
-          <div className="bg-white w-full max-w-lg h-72 rounded-lg shadow-xl flex flex-col justify-center items-center px-4">
+          <div className="flex flex-col items-center justify-center w-full max-w-lg px-4 bg-white rounded-lg shadow-xl h-72">
             <CheckIcon />
 
-            <p className="font-display text-center">ขอบคุณจ้า</p>
-            <p className="py-6 font-light font-display text-center">
+            <p className="text-center font-display">ขอขอบพระคุณ</p>
+            <p className="py-6 font-light text-center font-display">
               ของที่ระลึกจะถูกจัดส่งไปตามที่อยู่ที่ท่านกรอกมา
-              ขอบคุณที่เป็นสนับสนุน บลาบลาบลาบลาบลาบลาบลาบลาบลาบลาบลาบลาบลา
+              ขอบคุณที่เป็นผู้สนับสนุนให้แก่งาน TOCPC2021
             </p>
             <button
               onClick={() => router.replace('/')}
               type="button"
-              className="bg-red-400 px-4 py-2 rounded-full text-white"
+              className="px-4 py-2 text-white bg-red-400 rounded-full"
             >
               กลับไปหน้าแรก
             </button>
@@ -172,63 +175,63 @@ const Donate = () => {
         <div className="flex flex-col">
           <div
             onClick={() => router.back()}
-            className="px-10 sm:px-16 md:px-24 hidden md:flex justify-center w-full mt-28 absolute cursor-pointer items-center"
+            className="absolute items-center justify-center hidden w-full px-10 cursor-pointer sm:px-16 md:px-24 md:flex mt-28"
           >
             <div className="flex items-center w-full max-w-4xl">
               <ArrowLeft />
-              <p className="ml-2 font-display text-white">ย้อนกลับ</p>
+              <p className="ml-2 text-white font-display">ย้อนกลับ</p>
             </div>
           </div>
 
           <div className="flex flex-col items-center px-8 sm:px-40 mt-28 sm:mt-26">
-            <div className="max-w-md w-full">
+            <div className="w-full max-w-md">
               <div
                 onClick={() => router.back()}
-                className="flex md:hidden cursor-pointer items-center"
+                className="flex items-center cursor-pointer md:hidden"
               >
                 <ArrowLeft />
-                <p className="ml-2 font-display text-white">ย้อนกลับ</p>
+                <p className="ml-2 text-white font-display">ย้อนกลับ</p>
               </div>
-              <p className="text-3xl font-extrabold text-left text-white font-display border-b py-4 w-full">
+              <p className="w-full py-4 text-3xl font-extrabold text-left text-white border-b font-display">
                 บริจาค{' '}
                 {amount?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} บาท
               </p>
-              <div className="grid grid-cols-2 gap-6 py-6 border-b w-full ">
-                <p className="text-left text-white font-display w-full">
+              <div className="grid w-full grid-cols-2 gap-6 py-6 border-b ">
+                <p className="w-full text-left text-white font-display">
                   ชื่อผู้บริจาค
                   <br />
                   ที่จะแสดงบนเว็บไซต์
                 </p>
 
                 {hideName ? (
-                  <p className=" text-red-500 text-left font-display w-full my-auto">
+                  <p className="w-full my-auto text-left text-red-500 font-display">
                     ไม่แสดงชื่อผู้บริจาค
                   </p>
                 ) : (
-                  <p className="text-left text-white font-display w-full my-auto">
+                  <p className="w-full my-auto text-left text-white font-display">
                     {displayName}
                   </p>
                 )}
               </div>
-              <div className="grid grid-cols-2 gap-6 py-6 border-b w-full ">
-                <p className="text-left text-white font-display w-full my-auto">
+              <div className="grid w-full grid-cols-2 gap-6 py-6 border-b ">
+                <p className="w-full my-auto text-left text-white font-display">
                   ชื่อ-สกุล
                 </p>
-                <p className="text-left text-white font-display w-full my-auto">
+                <p className="w-full my-auto text-left text-white font-display">
                   {`${firstname} ${lastname}`}
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-6 py-6 border-b w-full ">
-                <p className="text-left text-white font-display w-full">
+              <div className="grid w-full grid-cols-2 gap-6 py-6 border-b ">
+                <p className="w-full text-left text-white font-display">
                   ของที่ระลึกที่จะได้รับ
                 </p>
 
                 {noSouvenir ? (
-                  <p className=" text-red-500 text-left font-display w-full">
+                  <p className="w-full text-left text-red-500 font-display">
                     ไม่รับของที่ระลึก
                   </p>
                 ) : (
-                  <p className="text-left text-white font-display w-full">
+                  <p className="w-full text-left text-white font-display">
                     {souvenirs.length === 0
                       ? 'ไม่ได้รับของที่ระลึก'
                       : souvenirs.join(' ')}
@@ -259,10 +262,10 @@ const Donate = () => {
                       {souvenirs.length > 0 ? (
                         <>
                           <label
-                            className="block my-1 mt-6 font-display text-white"
+                            className="block my-1 mt-6 text-white font-display"
                             htmlFor="address"
                           >
-                            ที่อยู่สำหรับส่งของรางวัล
+                            ที่อยู่สำหรับส่งของที่ระลึก
                           </label>
                           <Field
                             className={classnames(
@@ -271,7 +274,7 @@ const Donate = () => {
                             )}
                             id="address"
                             name="address"
-                            placeholder="ที่อยู่สำหรับส่งของรางวัล"
+                            placeholder="ที่อยู่สำหรับส่งของที่ระลึก"
                             type="address"
                           />
                           {errors.address ? (
@@ -282,7 +285,7 @@ const Donate = () => {
                             <div className="h-6" aria-hidden></div>
                           )}
                           <label
-                            className="block my-1 font-display text-white"
+                            className="block my-1 text-white font-display"
                             htmlFor="postcode"
                           >
                             รหัสไปรษณีย์
@@ -307,7 +310,7 @@ const Donate = () => {
                             <div className="h-6" aria-hidden></div>
                           )}
                           <label
-                            className="block  my-1 font-display text-white"
+                            className="block my-1 text-white font-display"
                             htmlFor="tel"
                           >
                             เบอร์โทรศัพท์สำหรับติดต่อ
@@ -333,11 +336,11 @@ const Donate = () => {
                       )}
                       {getShirt ? (
                         <>
-                          <p className="w-full mb-4 font-display text-white">
+                          <p className="w-full mb-4 text-white font-display">
                             ขนาดเสื้อ
                           </p>
                           <div role="group" aria-labelledby="my-radio-group">
-                            <label className="flex items-center my-1 font-display text-white">
+                            <label className="flex items-center my-1 text-white font-display">
                               <Field
                                 className="inline mr-3 text-black font-display focus:outline-none unc"
                                 name="size"
@@ -346,7 +349,7 @@ const Donate = () => {
                               />
                               S (รอบอก XX ความยาวตัว XX)
                             </label>
-                            <label className="flex items-center my-1 font-display text-white">
+                            <label className="flex items-center my-1 text-white font-display">
                               <Field
                                 className="inline mr-3 text-black font-display focus:outline-none unc"
                                 name="size"
@@ -355,7 +358,7 @@ const Donate = () => {
                               />
                               M (รอบอก XX ความยาวตัว XX)
                             </label>
-                            <label className="flex items-center my-1 font-display text-white">
+                            <label className="flex items-center my-1 text-white font-display">
                               <Field
                                 className="inline mr-3 text-black font-display focus:outline-none unc"
                                 name="size"
@@ -375,32 +378,32 @@ const Donate = () => {
                         <></>
                       )}
                       <div className="w-full">
-                        <p className="text-left py-6 text-white font-display w-full">
+                        <p className="w-full py-6 text-left text-white font-display">
                           โอนเงินเข้าบัญชี
                         </p>
                         <div className="flex justify-center">
-                          <div className="flex flex-col justify-center items-center bg-white rounded-xl pb-4">
+                          <div className="flex flex-col items-center justify-center pb-4 bg-white rounded-xl">
                             <span className="w-48">
-                              <Image src={promptpay} />
+                              <Image src={promptpay} alt="promptpay header" />
                             </span>
                             <div className="flex justify-center mx-20 md:mx-24">
                               <QRCode value={payload} size={200} />
                             </div>
-                            <p className="mt-4 font-display text-green-300 text-lg font-medium">
+                            <p className="mt-4 text-lg font-medium text-green-300 font-display">
                               สแกน QR เพื่อโอนเงินเข้าบัญชี
                             </p>
-                            <p className="font-display text-lg text-gray-800">
+                            <p className="text-lg text-gray-800 font-display">
                               ชื่อ: นาย ณัฐพงษ์ ดิสสานนท์
                             </p>
-                            <p className="font-display text-lg text-gray-800">
+                            <p className="text-lg text-gray-800 font-display">
                               บัญชี: {mobileNumber}
                             </p>
                           </div>
                         </div>
-                        <div className="rounded-lg overflow-hidden flex justify-center p-0 w-full "></div>
+                        <div className="flex justify-center w-full p-0 overflow-hidden rounded-lg "></div>
                       </div>
                       <div className="w-full">
-                        <p className="text-left  py-6 text-white font-display w-full font-bold">
+                        <p className="w-full py-6 font-bold text-left text-white font-display">
                           หลักฐานการโอนเงิน
                         </p>
 
@@ -426,15 +429,15 @@ const Donate = () => {
                           <div className="flex items-center">
                             <button
                               type="button"
-                              className="bg-white rounded-md text-black font-display text-sm py-1 px-2"
+                              className="px-2 py-1 text-sm text-black bg-white rounded-md font-display"
                             >
                               Upload a file
                             </button>
-                            <p className="font-display text-sm text-gray-500 ml-2">
+                            <p className="ml-2 text-sm text-gray-500 font-display">
                               or drag and drop
                             </p>
                           </div>
-                          <p className="font-display text-sm text-gray-500 ">
+                          <p className="text-sm text-gray-500 font-display ">
                             PNG, JPG, GIF up to 10MB
                           </p>
                         </div>
@@ -446,7 +449,7 @@ const Donate = () => {
                       </div>
                       <button
                         type="submit"
-                        className="bg-red-400 px-8 py-2  w-full font-display my-6 font-semibold rounded-full text-white"
+                        className="w-full px-8 py-2 my-6 font-semibold text-white bg-red-400 rounded-full font-display"
                       >
                         บริจาค
                       </button>
