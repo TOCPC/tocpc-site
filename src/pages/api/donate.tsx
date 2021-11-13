@@ -18,6 +18,7 @@ const Donate = async (req: NextApiRequest, res: NextApiResponse) => {
     size: data.size,
     postcode: data.postcode,
     address: data.address,
+    verify: false,
   })
 
   res.status(200).end()
