@@ -5,8 +5,7 @@ import Image from 'next/image'
 import { ArrowLeft } from 'components/main/Donation/ArrowLeft'
 import { FileIcon } from 'components/main/Donation/FileIcon'
 import classnames from 'classnames'
-import promptpay_qr_upper from '../../public/img/promptpay-qr-upper.jpg'
-import promptpay_qr_lower from '../../public/img/promptpay-qr-lower.jpg'
+import promptpay from '../../public/img/promptpay.jpg'
 import { useDropzone } from 'react-dropzone'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
@@ -380,19 +379,22 @@ const Donate = () => {
                           โอนเงินเข้าบัญชี
                         </p>
                         <div className="flex justify-center">
-                          <div className="bg-white">
-                            <Image
-                              src={promptpay_qr_upper}
-                              layout="responsive"
-                            />
-
+                          <div className="flex flex-col justify-center items-center bg-white rounded-xl pb-4">
+                            <span className="w-48">
+                              <Image src={promptpay} />
+                            </span>
                             <div className="flex justify-center mx-20 md:mx-24">
-                              <QRCode value={payload} size={128} />
+                              <QRCode value={payload} size={200} />
                             </div>
-                            <Image
-                              src={promptpay_qr_lower}
-                              layout="responsive"
-                            />
+                            <p className="mt-4 font-display text-green-300 text-lg font-medium">
+                              สแกน QR เพื่อโอนเงินเข้าบัญชี
+                            </p>
+                            <p className="font-display text-lg text-gray-800">
+                              ชื่อ: นาย ณัฐพงษ์ ดิสสานนท์
+                            </p>
+                            <p className="font-display text-lg text-gray-800">
+                              บัญชี: {mobileNumber}
+                            </p>
                           </div>
                         </div>
                         <div className="rounded-lg overflow-hidden flex justify-center p-0 w-full "></div>
