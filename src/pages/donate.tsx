@@ -10,6 +10,7 @@ import { useDropzone } from 'react-dropzone'
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { CheckIcon } from 'components/main/Donation/CheckIcon'
+import { uploadFromBlobAsync } from 'lib/storage'
 
 const generatePayload = require('promptpay-qr')
 var QRCode = require('qrcode.react')
@@ -55,6 +56,9 @@ const Donate = () => {
   const [showModal, setShowModal] = useState(false)
 
   const [files, setFiles] = useState<any[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<any>(null)
+  const [message, setMessage] = useState('')
 
   const [souvenirs, setSouvenirs] = useState<string[]>([])
   const [getShirt, setGetShirt] = useState(false)
@@ -124,9 +128,23 @@ const Donate = () => {
       souvenirs,
     }
 
+    try {
+      await uploadFromBlobAsync({
+        blobUrl: URL.createObjectURL(file),
+        name: `${file.name}_${Date.now()}`,
+      })
+    } catch (e) {
+      setIsLoading(false)
+      setError(e)
+      return
+    }
+
     fetch('/api/donate', {
       method: 'POST',
       body: JSON.stringify({ data, donator }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     }).then((res) => {
       if (res.status == 200) {
         setShowModal(true)

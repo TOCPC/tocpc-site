@@ -4,6 +4,9 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 const Donate = async (req: NextApiRequest, res: NextApiResponse) => {
   const { data, donator } = req.body
 
+  console.log(req.body)
+  console.log(req.body.donator)
+
   await db().collection('donators').add({
     name: donator.displayName,
     amount: donator.amount,
