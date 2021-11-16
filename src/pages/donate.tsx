@@ -11,6 +11,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { CheckIcon } from 'components/main/Donation/CheckIcon'
 import { uploadFromBlobAsync } from 'lib/storage'
+import { v4 as uuidv4 } from 'uuid'
 
 const generatePayload = require('promptpay-qr')
 var QRCode = require('qrcode.react')
