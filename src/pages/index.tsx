@@ -4,11 +4,18 @@ import { Reward } from 'components/main/Reward'
 import { Overview } from 'components/main/Overview'
 import { Schedule } from 'components/main/Schedule'
 import { Question } from 'components/main/Question'
+import { Donation } from 'components/main/Donation'
 import { MetaData } from 'components/Meta'
 
 import db from 'lib/firebase-admin'
 
-const Home = ({ registerSize }: { registerSize: number }) => {
+const Home = ({
+  registerSize,
+  donators,
+}: {
+  registerSize: number
+  donators: Object[]
+}) => {
   return (
     <>
       <MetaData />
@@ -16,13 +23,24 @@ const Home = ({ registerSize }: { registerSize: number }) => {
       <Overview />
       <Reward />
       <Schedule registerSize={registerSize} />
-      {/* <Donation /> */}
+      <Donation donators={donators} />
       <Question />
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  let donators: Object[] = []
+  await db()
+    .collection('donators')
+    .get()
+    .then((snap) => {
+      snap.forEach((donator) => {
+        if (donator.data().hideName === false && donator.data().verify === true)
+          donators.push(donator.data())
+      })
+    })
+
   const registerSize = await db()
     .collection('users')
     .get()
@@ -30,6 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       registerSize,
+      donators,
     },
     revalidate: 60 * 60,
   }

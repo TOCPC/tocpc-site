@@ -5,6 +5,9 @@ import {
   setDoc,
   updateDoc,
   getDoc,
+  addDoc,
+  collection,
+  getDocs,
 } from 'firebase/firestore'
 import firebaseApp from './firebase'
 
@@ -37,4 +40,13 @@ export const getCurrentUserData = async (
   } else {
     return null
   }
+}
+
+export const getDonatorsRef = () => {
+  return collection(db, 'donators')
+}
+
+export const addDonators = (data: DocumentData): Promise<DocumentData> => {
+  const donatorsRef = getDonatorsRef()
+  return addDoc(donatorsRef, data)
 }
