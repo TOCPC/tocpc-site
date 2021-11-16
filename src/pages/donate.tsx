@@ -119,6 +119,8 @@ const Donate = () => {
   )
 
   const handleSubmitForm = async (data: any, file: File) => {
+    const uuid = uuidv4()
+
     const donator = {
       firstname,
       lastname,
@@ -127,12 +129,13 @@ const Donate = () => {
       hideName,
       noSouvenir,
       souvenirs,
+      uuid,
     }
 
     try {
       await uploadFromBlobAsync({
         blobUrl: URL.createObjectURL(file),
-        name: `${file.name}_${Date.now()}`,
+        name: `${uuid}_${file.name}_${Date.now()}`,
       })
     } catch (e) {
       setIsLoading(false)

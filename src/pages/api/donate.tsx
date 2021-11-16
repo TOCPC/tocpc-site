@@ -19,6 +19,7 @@ const Donate = async (req: NextApiRequest, res: NextApiResponse) => {
     size: data.size,
     postcode: data.postcode,
     address: data.address,
+    uuid: donator.uuid,
     verify: false,
   })
 
