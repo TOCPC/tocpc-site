@@ -134,40 +134,68 @@ export const Donation = ({ donators }: { donators: Object[] }) => {
                   </p>
                   <div role="group" aria-labelledby="my-radio-group">
                     <div className="flex w-full gap-4 my-2">
-                      {[150, 300, 500].map((val, key) => {
-                        return (
-                          <div
-                            className="w-full"
-                            onClick={() => {
-                              setDonateAmount(val)
-                            }}
-                            key={`donate-button-${key}`}
-                          >
-                            <DonationButton
-                              amount={val}
-                              isSelected={val === donateAmount}
-                            />
-                          </div>
-                        )
-                      })}
+                      <div
+                        className="w-full"
+                        onClick={() => {
+                          setDonateAmount(150)
+                        }}
+                      >
+                        <DonationButton
+                          amount={150}
+                          isSelected={150 === donateAmount}
+                          star={true}
+                        />
+                      </div>
+                      <div
+                        className="w-full"
+                        onClick={() => {
+                          setDonateAmount(300)
+                        }}
+                      >
+                        <DonationButton
+                          amount={300}
+                          isSelected={300 === donateAmount}
+                          star={true}
+                        />
+                      </div>
+                      <div
+                        className="w-full"
+                        onClick={() => {
+                          setDonateAmount(500)
+                        }}
+                      >
+                        <DonationButton
+                          amount={500}
+                          isSelected={500 === donateAmount}
+                          star={false}
+                        />
+                      </div>
                     </div>
                     <div className="flex w-full gap-4 my-2">
-                      {[1000, 2000].map((val, key) => {
-                        return (
-                          <div
-                            className="w-full"
-                            onClick={() => {
-                              setDonateAmount(val)
-                            }}
-                            key={`donate-button-${key}`}
-                          >
-                            <DonationButton
-                              amount={val}
-                              isSelected={val === donateAmount}
-                            />
-                          </div>
-                        )
-                      })}
+                      <div
+                        className="w-full"
+                        onClick={() => {
+                          setDonateAmount(1000)
+                        }}
+                      >
+                        <DonationButton
+                          amount={1000}
+                          isSelected={1000 === donateAmount}
+                          star={true}
+                        />
+                      </div>
+                      <div
+                        className="w-full"
+                        onClick={() => {
+                          setDonateAmount(2000)
+                        }}
+                      >
+                        <DonationButton
+                          amount={2000}
+                          isSelected={2000 === donateAmount}
+                          star={false}
+                        />
+                      </div>
                       <div className="w-full">
                         <input
                           onChange={handleCustomDonateAmountChange}
