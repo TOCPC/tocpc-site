@@ -358,33 +358,64 @@ const Donate = () => {
                           <p className="w-full mb-4 text-white font-display">
                             ขนาดเสื้อ
                           </p>
-                          <div role="group" aria-labelledby="my-radio-group">
-                            <label className="flex items-center my-1 text-white font-display">
+                          <div
+                            className="text-white"
+                            role="group"
+                            aria-labelledby="my-radio-group"
+                          >
+                            <label className="flex items-center my-1 font-display">
                               <Field
                                 className="inline mr-3 text-black font-display focus:outline-none unc"
                                 name="size"
                                 type="radio"
                                 value="S"
                               />
-                              S (รอบอก XX ความยาวตัว XX)
+                              S (รอบอก 32 ความยาวตัว 25)
                             </label>
-                            <label className="flex items-center my-1 text-white font-display">
+                            <label className="flex items-center my-1 font-display">
                               <Field
                                 className="inline mr-3 text-black font-display focus:outline-none unc"
                                 name="size"
                                 type="radio"
                                 value="M"
                               />
-                              M (รอบอก XX ความยาวตัว XX)
+                              M (รอบอก 36 ความยาวตัว 27)
                             </label>
-                            <label className="flex items-center my-1 text-white font-display">
+                            <label className="flex items-center my-1 font-display">
                               <Field
                                 className="inline mr-3 text-black font-display focus:outline-none unc"
                                 name="size"
                                 type="radio"
                                 value="L"
                               />
-                              L (รอบอก XX ความยาวตัว XX)
+                              L (รอบอก 40 ความยาวตัว 29)
+                            </label>
+                            <label className="flex items-center my-1 font-display">
+                              <Field
+                                className="inline mr-3 text-black font-display focus:outline-none unc"
+                                name="size"
+                                type="radio"
+                                value="XL"
+                              />
+                              XL (รอบอก 44 ความยาวตัว 31)
+                            </label>
+                            <label className="flex items-center my-1 font-display">
+                              <Field
+                                className="inline mr-3 text-black font-display focus:outline-none unc"
+                                name="size"
+                                type="radio"
+                                value="2XL"
+                              />
+                              2XL (รอบอก 48 ความยาวตัว 32)
+                            </label>
+                            <label className="flex items-center my-1 font-display">
+                              <Field
+                                className="inline mr-3 text-black font-display focus:outline-none unc"
+                                name="size"
+                                type="radio"
+                                value="3XL"
+                              />
+                              3XL (รอบอก 52 ความยาวตัว 33)
                             </label>
                           </div>
                           {errors.size ? (
@@ -402,10 +433,10 @@ const Donate = () => {
                         </p>
                         <div className="flex justify-center">
                           <div className="flex flex-col items-center justify-center pb-4 bg-white rounded-xl">
-                            <span className="w-48">
+                            <span className="w-40 sm:w-48">
                               <Image src={promptpay} alt="promptpay header" />
                             </span>
-                            <div className="flex justify-center mx-20 md:mx-24">
+                            <div className="flex justify-center mx-12 sm:mx-20 md:mx-24">
                               <QRCode value={payload} size={200} />
                             </div>
                             <p className="mt-4 text-lg font-medium text-green-300 font-display">
