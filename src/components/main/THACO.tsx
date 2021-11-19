@@ -6,45 +6,45 @@ export const THACO = () => {
   const auth = useAuth()
 
   return (
-    <section className="w-full h-screen bg-gray-900 relative overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden bg-gray-900">
       <MainFootage />
-      <div className="block absolute h-full w-full">
-        <div className="flex flex-col w-full h-screen items-center justify-center">
+      <div className="absolute block w-full h-full">
+        <div className="flex flex-col items-center justify-center w-full h-screen">
           <div className="pt-20">
-            <p className="font-display py-1 font-extrabold text-3xl sm:text-4xl text-white text-center">
+            <p className="py-1 text-3xl font-extrabold text-center text-white font-display sm:text-4xl">
               Thailand
             </p>
-            <p className="font-display py-1 font-extrabold text-3xl sm:text-4xl text-white text-center">
+            <p className="py-1 text-3xl font-extrabold text-center text-white font-display sm:text-4xl">
               Online
             </p>
-            <p className="font-display py-1 font-extrabold text-3xl sm:text-4xl text-white text-center">
+            <p className="py-1 text-3xl font-extrabold text-center text-white font-display sm:text-4xl">
               Competitive
             </p>
-            <p className="font-display py-1 font-extrabold text-3xl sm:text-4xl text-white text-center">
+            <p className="py-1 text-3xl font-extrabold text-center text-white font-display sm:text-4xl">
               Programming
             </p>
-            <p className="font-display py-1 font-extrabold text-3xl sm:text-4xl text-white text-center">
+            <p className="py-1 text-3xl font-extrabold text-center text-white font-display sm:text-4xl">
               Contest
             </p>
-            <p className="font-display py-1 font-extrabold text-3xl sm:text-4xl text-white text-center">
+            <p className="py-1 text-3xl font-extrabold text-center text-white font-display sm:text-4xl">
               2021
             </p>
-            <p className="font-display py-6 text-xl text-white text-center">
+            <p className="py-6 text-xl text-center text-white font-display">
               20-21 NOV 2021
             </p>
           </div>
-          {auth?.user === null && (
+          {/* {auth?.user === null && (
             <div className="pt-6">
               <Link href="/register" passHref>
-                <button className="bg-red-400 px-8 py-4 sm:px-10 sm:py-6 text-white text-2xl font-semibold rounded-full">
+                <button className="px-8 py-4 text-2xl font-semibold text-white bg-red-400 rounded-full sm:px-10 sm:py-6">
                   Register
                 </button>
               </Link>
-              <p className="font-display py-4 text-white text-center">
+              <p className="py-4 text-center text-white font-display">
                 UNTIL 19 NOV 2021
               </p>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </section>
