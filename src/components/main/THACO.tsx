@@ -44,9 +44,9 @@ export const THACO = () => {
                 เข้าการสู่แข่งขัน
               </a>
               {/* </Link> */}
-              <p className="py-4 text-center text-white font-display">
+              {/* <p className="py-4 text-center text-white font-display">
                 UNTIL 19 NOV 2021
-              </p>
+              </p> */}
             </div>
           )}
         </div>
