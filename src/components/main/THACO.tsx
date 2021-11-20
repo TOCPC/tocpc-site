@@ -33,18 +33,22 @@ export const THACO = () => {
               20-21 NOV 2021
             </p>
           </div>
-          {/* {auth?.user === null && (
+          {auth?.user === null && (
             <div className="pt-6">
-              <Link href="/register" passHref>
-                <button className="px-8 py-4 text-2xl font-semibold text-white bg-red-400 rounded-full sm:px-10 sm:py-6">
-                  Register
-                </button>
-              </Link>
-              <p className="py-4 text-center text-white font-display">
+              {/* <Link href="/thankyou" passHref> */}
+              <a
+                href="https://contest.tocpc.codes"
+                rel="noreferrer"
+                className="px-8 py-4 text-2xl font-display font-semibold text-white bg-red-400 rounded-full sm:px-10 sm:py-6"
+              >
+                เข้าการสู่แข่งขัน
+              </a>
+              {/* </Link> */}
+              {/* <p className="py-4 text-center text-white font-display">
                 UNTIL 19 NOV 2021
-              </p>
+              </p> */}
             </div>
-          )} */}
+          )}
         </div>
       </div>
     </section>
