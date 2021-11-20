@@ -33,9 +33,9 @@ export const THACO = () => {
               20-21 NOV 2021
             </p>
           </div>
-          {/* {auth?.user === null && (
+          {auth?.user === null && (
             <div className="pt-6">
-              <Link href="/register" passHref>
+              <Link href="/thankyou" passHref>
                 <button className="px-8 py-4 text-2xl font-semibold text-white bg-red-400 rounded-full sm:px-10 sm:py-6">
                   Register
                 </button>
@@ -44,7 +44,7 @@ export const THACO = () => {
                 UNTIL 19 NOV 2021
               </p>
             </div>
-          )} */}
+          )}
         </div>
       </div>
     </section>
