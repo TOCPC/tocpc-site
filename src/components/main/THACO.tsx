@@ -39,7 +39,7 @@ export const THACO = () => {
               <a
                 href="https://contest.tocpc.codes"
                 rel="noreferrer"
-                className="px-8 py-4 text-2xl font-semibold text-white bg-red-400 rounded-full sm:px-10 sm:py-6"
+                className="px-8 py-4 text-2xl font-display font-semibold text-white bg-red-400 rounded-full sm:px-10 sm:py-6"
               >
                 เข้าการสู่แข่งขัน
               </a>
