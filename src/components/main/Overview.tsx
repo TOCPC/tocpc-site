@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from 'next/link'
 
 export const Overview = () => (
   <section className="flex flex-col items-center w-full h-auto bg-gray-900 px-8 sm:px-16 md:px-24 lg:px-32 py-10 sm:py-18">
@@ -89,8 +89,8 @@ export const Overview = () => (
                 <a className="text-red-400 hover:underline active:text-red-600">
                   การแข่งขันคอมพิวเตอร์โอลิมปิกระดับชาติ (TOI)
                 </a>
-              </Link>
-              {" "}แต่จะไม่เกิน
+              </Link>{' '}
+              แต่จะไม่เกิน
               <Link href="https://ioinformatics.org/" passHref={true}>
                 <a className="text-red-400 hover:underline active:text-red-600">
                   การแข่งขันคอมพิวเตอร์โอลิมปิกระหว่างประเทศ (IOI)
@@ -119,7 +119,7 @@ export const Overview = () => (
               และ standard output (หน้าจอ) เท่านั้น จะไม่มีโจทย์ประเภท
               interactive หรือ output-only โดยสามารถ
               <Link href="/scope">
-                <a className="text-red-400 hover:underline hover:text-red-600">
+                <a className="text-red-400 hover:underline">
                   อ่านข้อมูลเพิ่มเติมได้ที่ลิงค์ดังนี้
                 </a>
               </Link>
