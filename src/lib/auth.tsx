@@ -60,17 +60,18 @@ export const AuthProvider: React.FC = ({ children }) => {
   const { pathname } = useRouter()
 
   const checkOnboard = useMemo(() => {
-    let status = false
-    if (pathname === '/onboard' && auth.user === null) {
-      status = true
-    }
-    if ((pathname === '/onboard') !== (auth?.userData?.password === '')) {
-      status = true
-    }
-    if (pathname === '/tos' || pathname === '/privacy-policy') {
-      status = false
-    }
-    return status
+    // let status = false
+    // if (pathname === '/onboard' && auth.user === null) {
+    //   status = true
+    // }
+    // if ((pathname === '/onboard') !== (auth?.userData?.password === '')) {
+    //   status = true
+    // }
+    // if (pathname === '/tos' || pathname === '/privacy-policy') {
+    //   status = false
+    // }
+    // return status
+    return false
   }, [pathname, auth])
 
   const checkDashboard = useMemo(() => {
