@@ -98,7 +98,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         pathname !== '/tos' &&
         pathname !== '/privacy-policy'
       ) {
-        Router.push('/onboard')
+        // Router.push('/onboard')
       } else if (auth.user === null) {
         if (pathname === '/dashboard' || pathname === '/onboard') {
           Router.push('/')
