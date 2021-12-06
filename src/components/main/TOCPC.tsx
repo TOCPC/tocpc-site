@@ -2,7 +2,7 @@ import { MainFootage } from 'components/footage'
 import { useAuth } from 'lib/auth'
 import Link from 'next/link'
 
-export const THACO = () => {
+export const TOCPC = () => {
   const auth = useAuth()
 
   return (
