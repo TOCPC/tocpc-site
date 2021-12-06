@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <AuthProvider>
-      {pathname !== '/certificate' ? (
+      {pathname !== '/src/certificate' ? (
         <Layout>
           <Component {...pageProps} />
         </Layout>
