@@ -188,7 +188,7 @@ const Donate = () => {
             <button
               onClick={() => router.replace('/')}
               type="button"
-              className="px-4 py-2 text-white bg-red-400 rounded-full"
+              className="px-4 py-2 text-white bg-red-400 rounded-full font-display"
             >
               กลับไปหน้าแรก
             </button>
