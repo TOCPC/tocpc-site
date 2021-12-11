@@ -33,6 +33,13 @@ export const TOCPC = () => {
               20-21 NOV 2021
             </p>
           </div>
+          <div className="pt-6">
+            <Link href="/ranking" passHref>
+              <p className="py-4 text-center text-white font-display">
+                ดูอันดับการเข้าแข่งขัน
+              </p>
+            </Link>
+          </div>
           {/* {auth?.user === null && (
             <div className="pt-6">
               { <Link href="/thankyou" passHref> }

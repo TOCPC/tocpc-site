@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { memo } from 'react'
 
-export const MetaData: NextPage = () => {
+export const MetaData: NextPage = memo(() => {
   return (
     <Head>
       <title>Thailand Online Competitive Programming Contest 2021</title>
@@ -12,4 +13,4 @@ export const MetaData: NextPage = () => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
   )
-}
+})
