@@ -2,7 +2,7 @@ import { MainFootage } from 'components/footage'
 import { useAuth } from 'lib/auth'
 import Link from 'next/link'
 
-export const THACO = () => {
+export const TOCPC = () => {
   const auth = useAuth()
 
   return (
@@ -33,9 +33,16 @@ export const THACO = () => {
               20-21 NOV 2021
             </p>
           </div>
-          {auth?.user === null && (
+          <div className="pt-6">
+            <Link href="/ranking" passHref>
+              <p className="py-4 text-center text-white font-display">
+                ดูอันดับการเข้าแข่งขัน
+              </p>
+            </Link>
+          </div>
+          {/* {auth?.user === null && (
             <div className="pt-6">
-              {/* <Link href="/thankyou" passHref> */}
+              { <Link href="/thankyou" passHref> }
               <a
                 href="https://contest.tocpc.codes"
                 rel="noreferrer"
@@ -43,12 +50,12 @@ export const THACO = () => {
               >
                 เข้าการสู่แข่งขัน
               </a>
-              {/* </Link> */}
-              {/* <p className="py-4 text-center text-white font-display">
+              { </Link> }
+              { <p className="py-4 text-center text-white font-display">
                 UNTIL 19 NOV 2021
-              </p> */}
+              </p> }
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
+import { FC, memo } from 'react'
 
-export const MetaData: NextPage = () => {
+const MetaDataComponent: FC = () => {
   return (
     <Head>
       <title>Thailand Online Competitive Programming Contest 2021</title>
@@ -13,3 +13,5 @@ export const MetaData: NextPage = () => {
     </Head>
   )
 }
+
+export const MetaData = memo(MetaDataComponent)

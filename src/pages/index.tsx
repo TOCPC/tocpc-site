@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next'
-import { THACO } from 'components/main/THACO'
+import { TOCPC } from 'components/main/TOCPC'
 import { Reward } from 'components/main/Reward'
 import { Overview } from 'components/main/Overview'
 import { Schedule } from 'components/main/Schedule'
@@ -19,7 +19,7 @@ const Home = ({
   return (
     <>
       <MetaData />
-      <THACO />
+      <TOCPC />
       <Overview />
       <Reward />
       <Schedule registerSize={registerSize} />
