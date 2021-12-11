@@ -85,6 +85,15 @@ export const Table: FC<{ columns: Array<IColumn>; data: Array<IData> }> = ({
     return styles.join(' ')
   }
 
+  const rankBadge = (rank: number) => {
+    if (rank === 1) return '#ffd700'
+    if (rank === 2) return '#c0c0c0'
+    if (rank === 3) return '#cd7f32'
+    if (rank > 3 && rank <= 32) return '#fff'
+    if (rank > 32 && rank <= 64) return 'none'
+    else return 'none'
+  }
+
   return (
     <table className="w-full max-w-xl overflow-y-scroll block border border-gray-600 rounded-xl pb-4 bg-gray-900 pt-4">
       <thead>
@@ -114,11 +123,24 @@ export const Table: FC<{ columns: Array<IColumn>; data: Array<IData> }> = ({
                     key={i}
                     className={classNames(
                       'h-8 border-b border-gray-600 py-4',
-
                       calculateCellStyles('data', dItem)
                     )}
                   >
                     <span className="font-display text-white font-light">
+                      {dItem === 'rank' && (
+                        <div
+                          className="w-5 h-5 inline-block mr-4 rounded-full"
+                          style={{
+                            backgroundColor: rankBadge(d['rank']),
+                            borderStyle:
+                              d['rank'] > 32 && d['rank'] <= 64
+                                ? 'solid'
+                                : 'none',
+                            borderWidth: '1px',
+                            borderColor: '#fff',
+                          }}
+                        ></div>
+                      )}
                       {/*@ts-ignore*/}
                       {d[dItem]}
                     </span>
