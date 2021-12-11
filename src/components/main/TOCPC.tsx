@@ -34,8 +34,8 @@ export const TOCPC = () => {
             </p>
           </div>
           <div className="pt-6">
-            <Link href="/ranking" passHref>
-              <p className="py-4 text-center text-white font-display">
+            <Link href="/ranks" passHref>
+              <p className="px-8 py-4 text-lg font-display font-semibold text-white bg-red-400 rounded-full sm:px-10 sm:py-6 text-center">
                 ดูอันดับการเข้าแข่งขัน
               </p>
             </Link>
