@@ -113,7 +113,37 @@ export const Nav = () => {
           <p className="font-light text-2xl text-white">TOCPC</p>
         </div>
         <div className="hidden sm:flex items-center">
-          {((auth?.userData?.password !== '' && auth?.user !== null) ||
+          <Link href="/" passHref>
+            <a
+              className={classnames(
+                'font-display sm:mr-4 md:mr-8 mb-6 sm:mb-0 font-semibold text-white',
+                getClass('/', 'ul')
+              )}
+            >
+              Home
+            </a>
+          </Link>
+          <Link href="/about" passHref>
+            <a
+              className={classnames(
+                'font-display sm:mr-4 md:mr-8 mb-6 sm:mb-0 font-semibold text-white',
+                getClass('/about', 'ul')
+              )}
+            >
+              About us
+            </a>
+          </Link>
+          <Link href="/ranks" passHref>
+            <a
+              className={classnames(
+                'font-display sm:mr-4 md:mr-8 mb-6 sm:mb-0 font-semibold text-white',
+                getClass('/ranks', 'ul')
+              )}
+            >
+              Ranks
+            </a>
+          </Link>
+          {/* {((auth?.userData?.password !== '' && auth?.user !== null) ||
             auth?.user === null) && (
             <>
               <Link href="/" passHref>
@@ -164,7 +194,7 @@ export const Nav = () => {
                 Login
               </button>
             </Link>
-          )}
+          )} */}
         </div>
         <button onClick={() => setReveal(!reveal)} className="sm:hidden">
           <svg
@@ -217,7 +247,99 @@ export const Nav = () => {
             </svg>
           </button>
           <div className="grid grid-cols-1 gap-6">
-            {((auth?.userData?.password !== '' && auth?.user !== null) ||
+            <Link href="/" passHref>
+              <div className="flex flex-col items-center">
+                <svg
+                  className={classnames('fill-current', getClass('/', 'color'))}
+                  width="30"
+                  height="31"
+                  viewBox="0 0 30 31"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M16.3196 1.27874C15.5909 0.549991 14.4093 0.549991 13.6806 1.27874L0.618093 14.3412C-0.110653 15.07 -0.110653 16.2515 0.618093 16.9803C1.34684 17.709 2.52837 17.709 3.25712 16.9803L3.80368 16.4337V28.7232C3.80368 29.7539 4.63914 30.5893 5.66975 30.5893H9.40189C10.4325 30.5893 11.268 29.7539 11.268 28.7232V24.9911C11.268 23.9605 12.1034 23.125 13.134 23.125H16.8662C17.8968 23.125 18.7322 23.9605 18.7322 24.9911V28.7232C18.7322 29.7539 19.5677 30.5893 20.5983 30.5893H24.3305C25.3611 30.5893 26.1965 29.7539 26.1965 28.7232V16.4337L26.7431 16.9803C27.4718 17.709 28.6534 17.709 29.3821 16.9803C30.1109 16.2515 30.1109 15.07 29.3821 14.3412L16.3196 1.27874Z" />
+                </svg>
+                <p
+                  className={classnames(
+                    'mt-2 font-semibold text-sm',
+                    getClass('/', 'color'),
+                    getClass('/', 'ul')
+                  )}
+                >
+                  Home
+                </p>
+              </div>
+            </Link>
+            <Link href="/about" passHref>
+              <div className="flex flex-col items-center">
+                <svg
+                  className={classnames(
+                    'fill-current',
+                    getClass('/about', 'color')
+                  )}
+                  width="38"
+                  height="38"
+                  viewBox="0 0 38 38"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M24.5982 11.8394C24.5982 14.9312 22.0918 17.4376 19 17.4376C15.9082 17.4376 13.4018 14.9312 13.4018 11.8394C13.4018 8.74762 15.9082 6.24121 19 6.24121C22.0918 6.24121 24.5982 8.74762 24.5982 11.8394Z" />
+                  <path d="M33.9285 15.5716C33.9285 17.6328 32.2576 19.3037 30.1964 19.3037C28.1352 19.3037 26.4643 17.6328 26.4643 15.5716C26.4643 13.5104 28.1352 11.8394 30.1964 11.8394C32.2576 11.8394 33.9285 13.5104 33.9285 15.5716Z" />
+                  <path d="M26.4643 28.6341C26.4643 24.5117 23.1224 21.1698 19 21.1698C14.8776 21.1698 11.5357 24.5117 11.5357 28.6341V34.2323H26.4643V28.6341Z" />
+                  <path d="M11.5357 15.5716C11.5357 17.6328 9.86474 19.3037 7.80354 19.3037C5.74233 19.3037 4.07139 17.6328 4.07139 15.5716C4.07139 13.5104 5.74233 11.8394 7.80354 11.8394C9.86474 11.8394 11.5357 13.5104 11.5357 15.5716Z" />
+                  <path d="M30.1964 34.2323V28.6341C30.1964 26.667 29.6891 24.8183 28.7982 23.2119C29.2451 23.097 29.7136 23.0359 30.1964 23.0359C33.2882 23.0359 35.7946 25.5423 35.7946 28.6341V34.2323H30.1964Z" />
+                  <path d="M9.20171 23.2119C8.31082 24.8183 7.80354 26.667 7.80354 28.6341V34.2323H2.20532V28.6341C2.20532 25.5423 4.71173 23.0359 7.80354 23.0359C8.28631 23.0359 8.7548 23.097 9.20171 23.2119Z" />
+                </svg>
+                <p
+                  className={classnames(
+                    'mt-2 font-semibold text-sm',
+                    getClass('/about', 'color'),
+                    getClass('/about', 'ul')
+                  )}
+                >
+                  About
+                </p>
+              </div>
+            </Link>
+            <Link href="/ranks" passHref>
+              <div className="flex flex-col items-center">
+                <svg
+                  className={classnames(
+                    'fill-current',
+                    getClass('/ranks', 'color')
+                  )}
+                  style={{ width: '100%', height: '48px' }}
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M6.26701 3.45496C6.91008 3.40364 7.52057 3.15077 8.01158 2.73234C9.15738 1.75589 10.8426 1.75589 11.9884 2.73234C12.4794 3.15077 13.0899 3.40364 13.733 3.45496C15.2336 3.57471 16.4253 4.76636 16.545 6.26701C16.5964 6.91008 16.8492 7.52057 17.2677 8.01158C18.2441 9.15738 18.2441 10.8426 17.2677 11.9884C16.8492 12.4794 16.5964 13.0899 16.545 13.733C16.4253 15.2336 15.2336 16.4253 13.733 16.545C13.0899 16.5964 12.4794 16.8492 11.9884 17.2677C10.8426 18.2441 9.15738 18.2441 8.01158 17.2677C7.52057 16.8492 6.91008 16.5964 6.26701 16.545C4.76636 16.4253 3.57471 15.2336 3.45496 13.733C3.40364 13.0899 3.15077 12.4794 2.73234 11.9884C1.75589 10.8426 1.75589 9.15738 2.73234 8.01158C3.15077 7.52057 3.40364 6.91008 3.45496 6.26701C3.57471 4.76636 4.76636 3.57471 6.26701 3.45496ZM13.7071 8.70711C14.0976 8.31658 14.0976 7.68342 13.7071 7.29289C13.3166 6.90237 12.6834 6.90237 12.2929 7.29289L9 10.5858L7.70711 9.29289C7.31658 8.90237 6.68342 8.90237 6.29289 9.29289C5.90237 9.68342 5.90237 10.3166 6.29289 10.7071L8.29289 12.7071C8.68342 13.0976 9.31658 13.0976 9.70711 12.7071L13.7071 8.70711Z" />
+                </svg>
+
+                {/* <svg
+                  className={classnames('fill-current', getClass('/', 'color'))}
+                  width="30"
+                  height="31"
+                  viewBox="0 0 30 31"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M16.3196 1.27874C15.5909 0.549991 14.4093 0.549991 13.6806 1.27874L0.618093 14.3412C-0.110653 15.07 -0.110653 16.2515 0.618093 16.9803C1.34684 17.709 2.52837 17.709 3.25712 16.9803L3.80368 16.4337V28.7232C3.80368 29.7539 4.63914 30.5893 5.66975 30.5893H9.40189C10.4325 30.5893 11.268 29.7539 11.268 28.7232V24.9911C11.268 23.9605 12.1034 23.125 13.134 23.125H16.8662C17.8968 23.125 18.7322 23.9605 18.7322 24.9911V28.7232C18.7322 29.7539 19.5677 30.5893 20.5983 30.5893H24.3305C25.3611 30.5893 26.1965 29.7539 26.1965 28.7232V16.4337L26.7431 16.9803C27.4718 17.709 28.6534 17.709 29.3821 16.9803C30.1109 16.2515 30.1109 15.07 29.3821 14.3412L16.3196 1.27874Z" />
+                </svg> */}
+                <p
+                  className={classnames(
+                    'mt-2 font-semibold text-sm',
+                    getClass('/ranks', 'color'),
+                    getClass('/ranks', 'ul')
+                  )}
+                >
+                  Ranks
+                </p>
+              </div>
+            </Link>
+            {/* {((auth?.userData?.password !== '' && auth?.user !== null) ||
               auth?.user === null) && (
               <>
                 <Link href="/" passHref>
@@ -361,7 +483,7 @@ export const Nav = () => {
                   <p className="mt-2 font-semibold text-sm">Login</p>
                 </div>
               </Link>
-            )}
+            )} */}
           </div>
         </motion.div>
       </div>
