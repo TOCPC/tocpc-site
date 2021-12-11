@@ -54,7 +54,7 @@ export const Table: FC<{ columns: Array<IColumn>; data: Array<IData> }> = ({
   columns,
   data,
 }) => {
-  const { width } = useWindowDimensions()
+  // const { width } = useWindowDimensions()
 
   // const nColumns =
   //   width < 540
@@ -72,7 +72,8 @@ export const Table: FC<{ columns: Array<IColumn>; data: Array<IData> }> = ({
   //     : data
 
   const nColumns = columns
-  const [nData, setData] = useState(data)
+  const nData = data
+  // const [nData, setData] = useState(data)
 
   const calculateCellStyles = (type: 'head' | 'data', cell: string) => {
     let styles: Array<string> = []
