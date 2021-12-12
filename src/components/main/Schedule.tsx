@@ -119,7 +119,7 @@ export const Schedule = ({ registerSize }: { registerSize: number }) => (
                 </span>
                 <span className="flex flex-col justify-between ml-4 sm:ml-8 md:flex-row">
                   <div className="flex flex-col w-40">
-                    <p className="text-white font-display">28 NOV 2021</p>
+                    <p className="text-white font-display">15 DEC 2021</p>
                     <p className="text-sm text-white font-display">00.00 น.</p>
                   </div>
                   <p className="max-w-sm pt-2 pr-2 text-white font-display md:pt-0">
