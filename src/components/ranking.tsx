@@ -55,7 +55,7 @@ export const Ranking: FC = () => {
   return (
     <main className="relative w-full min-h-screen bg-gray-900 overflow-hidden">
       <div className="flex flex-col items-center">
-        <div className="flex flex-col mx-auto px-8 sm:px-36 mt-28 sm:mt-40 w-full">
+        <div className="flex flex-col items-center mx-auto px-8 sm:px-36 mt-28 sm:mt-40 w-full">
           <h1 className="font-display text-3xl text-white mb-8">
             อันดับผู้เข้าแข่งขัน
           </h1>
