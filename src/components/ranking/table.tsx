@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { IColumn, IData } from 'components/ranking'
+import { IColumn, IData } from 'components/Ranking'
 import { useWindowDimensions } from 'lib/useWindowDimensions'
 import { ElementHandle } from 'puppeteer-core'
 import { FC, useState } from 'react'
