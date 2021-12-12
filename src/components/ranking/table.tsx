@@ -95,7 +95,7 @@ export const Table: FC<{ columns: Array<IColumn>; data: Array<IData> }> = ({
   }
 
   return (
-    <table className="w-full max-w-xl overflow-y-scroll block border border-gray-600 rounded-xl pb-4 bg-gray-900 pt-4">
+    <table className="w-full max-w-xl block border border-gray-600 rounded-xl mb-4 bg-gray-900 pt-4">
       <thead>
         <tr>
           {nColumns.map((col, i) => {

@@ -89,13 +89,23 @@ export const Footer = () => {
                 About us
               </a>
             </Link>
-            {auth?.user === null && (
+            <Link href="/ranks" passHref>
+              <a
+                className={classNames(
+                  'font-display sm:ml-8 mt-6 sm:mt-0 text-white',
+                  getClass('/ranks', 'ul')
+                )}
+              >
+                Ranks
+              </a>
+            </Link>
+            {/* {auth?.user === null && (
               <Link href="login" passHref>
                 <button className="font-display mt-6 sm:mt-0 sm:ml-8 bg-red-400 text-white px-6 py-2.5 rounded-full">
                   Login
                 </button>
               </Link>
-            )}
+            )} */}
           </div>
         </div>
         <div className="flex flex-col items-center justify-between sm:flex-row sm:items-end sm:my-8">
